@@ -46,7 +46,7 @@ def build_memory_context_block(raw_context: str) -> str:
     记忆块被 build_memory_context_block() 包进 <memory-context>，
     并注入到当前 turn 的 user message。
     """
-    # 【文档锚点 3B】易变上下文不会写回持久 transcript，而是包装后临时注入当前 turn
+    # 【文档锚点 3H】易变上下文不会写回持久 transcript，而是包装后临时注入当前 turn
     if not raw_context or not raw_context.strip():
         return ""
     clean = sanitize_context(raw_context)
@@ -145,7 +145,7 @@ class MemoryManager:
 
         返回合并的文本，每个非空块都用提供者名称标记。
         """
-        # 【文档锚点 3A】稳定上下文的一部分：外部 memory provider 的 system block 在这里汇总
+        # 【文档锚点 3D】稳定上下文的一部分：外部 memory provider 的 system block 在这里汇总
         blocks = []
         for provider in self._providers:
             try:
@@ -169,7 +169,7 @@ class MemoryManager:
         返回合并的上下文文本，按提供者标记。跳过空的提供者。
         一个提供者失败不会阻塞其他。
         """
-        # 【文档锚点 3B】在主循环前先做一次 recall，结果只缓存到本轮局部变量
+        # 【文档锚点 3G】在主循环前先做一次 recall，结果只缓存到本轮局部变量
         parts = []
         for provider in self._providers:
             try:
@@ -187,6 +187,7 @@ class MemoryManager:
         """Queue background prefetch on all providers for the next turn.
         为下一轮在所有提供者上队列后台预取。
         """
+        # 【文档锚点 3P】主响应结束后，为下一轮把 recall 预热任务排进各个 memory provider
         for provider in self._providers:
             try:
                 provider.queue_prefetch(query, session_id=session_id)

@@ -70,7 +70,7 @@ class ToolRegistry:
         max_result_size_chars: int | float | None = None,
     ):
         """注册工具 - 各工具文件在模块导入时调用"""
-        # 【文档锚点 3D】工具模块在 import 时通过 registry.register() 完成自注册
+        # 工具模块在 import 时通过 registry.register() 完成自注册
         existing = self._tools.get(name)
         if existing and existing.toolset != toolset:
             logger.warning(
@@ -110,7 +110,7 @@ class ToolRegistry:
 
     def get_definitions(self, tool_names: Set[str], quiet: bool = False) -> List[dict]:
         """返回 OpenAI 格式的工具 schema - 仅返回 check_fn() 通过的工具"""
-        # 【文档锚点 3D】从注册中心取 schema 时，顺带执行可用性检查
+        # 从注册中心取 schema 时，顺带执行可用性检查
         result = []
         check_results: Dict[Callable, bool] = {}
         for name in sorted(tool_names):
@@ -139,7 +139,7 @@ class ToolRegistry:
 
     def dispatch(self, name: str, args: dict, **kwargs) -> str:
         """按名称执行工具 handler - 异步 handler 自动桥接"""
-        # 【文档锚点 3D】运行时分发：把函数名映射到真正的 Python handler
+        # 【文档锚点 3M】运行时分发：把函数名映射到真正的 Python handler
         entry = self._tools.get(name)
         if not entry:
             return json.dumps({"error": f"Unknown tool: {name}"})

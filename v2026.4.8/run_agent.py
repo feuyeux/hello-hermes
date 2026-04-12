@@ -98,48 +98,7 @@ from agent.trajectory import (
 from utils import atomic_json_write, env_var_enabled
 
 
-
-class _SafeWriter:
-    """透明的标准 I/O 包装器，用于捕获断开管道引发的 OSError/ValueError。
-
-    当 hermes-agent 作为后台服务运行（如 systemd 或 Docker）时，stdout/stderr 管道可能变得不可用。
-    此时任何 print() 调用都可能抛出 I/O 错误导致内核崩溃。
-    
-    此外，当子代理在线程池中运行时，共享的 stdout 句柄可能在线程清理期间被关闭，引发 ValueError。
-    本包装器会静默捕获这些异常，确保系统稳定性。
-    """
-
-    __slots__ = ("_inner",)
-
-    def __init__(self, inner):
-        object.__setattr__(self, "_inner", inner)
-
-    def write(self, data):
-        try:
-            return self._inner.write(data)
-        except (OSError, ValueError):
-            return len(data) if isinstance(data, str) else 0
-
-    def flush(self):
-        try:
-            self._inner.flush()
-        except (OSError, ValueError):
-            pass
-
-    def fileno(self):
-        return self._inner.fileno()
-
-    def isatty(self):
-        try:
-            return self._inner.isatty()
-        except (OSError, ValueError):
-            return False
-
-    def __getattr__(self, name):
-        return getattr(self._inner, name)
-
-
-def _install_safe_stdio() -> None:
+_install_safe_stdio() -> None:
     """Wrap stdout/stderr so best-effort console output cannot crash the agent."""
     for stream_name in ("stdout", "stderr"):
         stream = getattr(sys, stream_name, None)
@@ -1537,7 +1496,7 @@ class AIAgent:
     )
 
     # ================================================================
-    # 【文档锚点 5A】后台复盘
+    # 【文档锚点 3Q】后台复盘
     # 1. AIAgent 在会话内维护 memory / skill nudge 计数器
     # 2. 当 turn 完成且满足条件时，run_conversation() 会在响应交付后启动 _spawn_background_review()
     #    （见 run_agent.py:9146-9172）
@@ -1556,7 +1515,7 @@ class AIAgent:
         复盘 prompt 作为下一个 user turn 添加到 fork 的对话中。
         直接写入共享的 memory/skill store，不修改主会话历史，也不产生用户可见的输出。
         """
-        # 【文档锚点 5A】主任务结束后异步 fork 一个安静 agent 做经验沉淀
+        # 【文档锚点 3Q】主任务结束后异步 fork 一个安静 agent 做经验沉淀
         import threading
 
         # 根据触发的条件选择合适的复盘 Prompt
@@ -2182,7 +2141,7 @@ class AIAgent:
         REASONING_SCRATCHPAD 标签被转换为 <think> 块以保持一致性。
         每轮之后重写，以便始终反映最新状态。
         """
-        # 【文档锚点 4B】JSON session log：保留 agent 视角下的完整原始消息快照
+        # 【文档锚点 3O】JSON session log：保留 agent 视角下的完整原始消息快照
         messages = messages or self._session_messages
         if not messages:
             return
@@ -2379,7 +2338,7 @@ class AIAgent:
 
         注意：ephemeral_system_prompt 不在这里，它在 API 调用时才注入
         """
-        # 【文档锚点 3A】身份层：SOUL.md 或默认 identity
+        # 【文档锚点 3D】身份层：SOUL.md 或默认 identity
         _soul_loaded = False
         if not self.skip_context_files:
             _soul_content = load_soul_md()
@@ -2390,7 +2349,7 @@ class AIAgent:
         if not _soul_loaded:
             prompt_parts = [DEFAULT_AGENT_IDENTITY]
 
-        # 【文档锚点 3A】工具行为约束层：根据加载的工具注入对应的 guidance
+        # 【文档锚点 3D】工具行为约束层：根据加载的工具注入对应的 guidance
         tool_guidance = []
         if "memory" in self.valid_tool_names:
             tool_guidance.append(MEMORY_GUIDANCE)
@@ -2455,7 +2414,7 @@ class AIAgent:
                 if user_block:
                     prompt_parts.append(user_block)
 
-        # 【文档锚点 3A】内置记忆与外部 memory provider 的 system block
+        # 【文档锚点 3D】内置记忆与外部 memory provider 的 system block
         if self._memory_manager:
             try:
                 _ext_mem_block = self._memory_manager.build_system_prompt()
@@ -2464,7 +2423,7 @@ class AIAgent:
             except Exception:
                 pass
 
-        # 【文档锚点 3A】技能索引层
+        # 【文档锚点 3D】技能索引层
         has_skills_tools = any(name in self.valid_tool_names for name in ['skills_list', 'skill_view', 'skill_manage'])
         if has_skills_tools:
             avail_toolsets = {
@@ -2483,7 +2442,7 @@ class AIAgent:
         if skills_prompt:
             prompt_parts.append(skills_prompt)
 
-        # 【文档锚点 3A】项目上下文层
+        # 【文档锚点 3D】项目上下文层
         if not self.skip_context_files:
             _context_cwd = os.getenv("TERMINAL_CWD") or None
             context_files_prompt = build_context_files_prompt(
@@ -2540,6 +2499,7 @@ class AIAgent:
         无条件运行——不依赖于上下文压缩器是否存在——因此
         会话加载或手动消息操作中的孤立项始终被捕获。
         """
+        # 【文档锚点 3H】API payload 发送前统一清洗消息结构，修复 tool_call / tool_result 配对
         # --- 角色白名单：删除 API 不接受的角色的消息 ---
         filtered = []
         for msg in messages:
@@ -4671,6 +4631,7 @@ class AIAgent:
         The gateway creates a fresh agent per message so this is a no-op
         there (``_fallback_activated`` is always False at turn start).
         """
+        # 【文档锚点 3A】turn 入口先恢复 primary runtime，确保 fallback 只影响上一轮而不污染本轮
         if not self._fallback_activated:
             return False
 
@@ -4952,6 +4913,7 @@ class AIAgent:
 
     def _build_api_kwargs(self, api_messages: list) -> dict:
         """Build the keyword arguments dict for the active API mode."""
+        # 【文档锚点 3I】将清洗后的消息、tools、reasoning 和 provider 参数组装成最终 API 请求
         if self.api_mode == "anthropic_messages":
             from agent.anthropic_adapter import build_anthropic_kwargs
             anthropic_messages = self._prepare_anthropic_messages_for_api(api_messages)
@@ -5497,14 +5459,14 @@ class AIAgent:
                 messages.pop()
 
     # ================================================================
-    # 【文档锚点 4A】压缩与 session lineage
+    # 【文档锚点 3E】压缩与 session lineage
     # 1. 压缩前先执行 flush_memories()，给模型一次只带 memory 工具的补录机会（见 run_agent.py:5677-5834）
     # 2. _compress_context() 负责 session 分裂和新 session 建立（见 run_agent.py:5835-5928）
     # 3. 真正的摘要算法在 ContextCompressor.compress()（见 agent/context_compressor.py:565-696）
     # ================================================================
     def _compress_context(self, messages: list, system_message: str, *, approx_tokens: int = None, task_id: str = "default") -> tuple:
         """压缩会话上下文并分裂 SQLite 中的 session"""
-        # 【文档锚点 4A】压缩前先 flush memory，再生成压缩摘要并创建新的 lineage session
+        # 【文档锚点 3E】压缩前先 flush memory，再生成压缩摘要并创建新的 lineage session
         _pre_msg_count = len(messages)
         logger.info(
             "context compression started: session=%s messages=%d tokens=~%s model=%s",
@@ -5586,7 +5548,7 @@ class AIAgent:
         return compressed, new_system_prompt
 
     # ================================================================
-    # 【文档锚点 3D】工具执行
+    # 【文档锚点 3K】工具执行
     # 1. run_conversation() 在接收到 assistant.tool_calls 后先做参数清洗和去重，再执行工具
     # 2. _execute_tool_calls() 决定走并发还是顺序分支（见 run_agent.py:5930-5951）
     # 3. 并发分支在 _execute_tool_calls_concurrent()（见 run_agent.py:6027-6249）
@@ -5597,7 +5559,7 @@ class AIAgent:
     # ================================================================
     def _execute_tool_calls(self, assistant_message, messages: list, effective_task_id: str, api_call_count: int = 0) -> None:
         """执行工具调用（涉及工具分层分发策略）"""
-        # 【文档锚点 3D】tool_calls 进入 agent loop 后，会先在这里决定并发/串行分支
+        # 【文档锚点 3K】tool_calls 进入 agent loop 后，会先在这里决定并发/串行分支
         tool_calls = assistant_message.tool_calls
 
         self._executing_tools = True
@@ -5616,6 +5578,7 @@ class AIAgent:
     def _invoke_tool(self, function_name: str, function_args: dict, effective_task_id: str,
                      tool_call_id: Optional[str] = None) -> str:
         """调用单个工具并返回结果字符串（涉及工具分层分发策略）。"""
+        # 【文档锚点 3L】内核特判工具在 agent loop 内部直接处理，不经过通用 registry 分发
         if function_name == "todo":
             from tools.todo_tool import todo_tool as _todo_tool
             return _todo_tool(
@@ -6533,6 +6496,7 @@ class AIAgent:
         # ================================================================
         # 【进入主循环前 - 2】复制历史消息，剥离预算警告，回填 todo store
         # ================================================================
+        # 【文档锚点 3B】复制历史、剥离预算警告、回填 todo store，并建立当前 turn 的基线消息列表
         messages = list(conversation_history) if conversation_history else []
 
         # 剥离历史消息中的预算警告（GPT 模型会将其误解为持续性指令）
@@ -6568,7 +6532,7 @@ class AIAgent:
             self._safe_print(f"💬 Starting conversation: '{user_message[:60]}{'...' if len(user_message) > 60 else ''}'")
 
         # ================================================================
-        # 【文档锚点 3A】System Prompt 冻结与易变上下文注入
+        # 【文档锚点 3C】System Prompt 冻结入口：优先复用 cached/stored system prompt
         # run_conversation() 会优先复用 session 中已经保存的 system prompt；
         # 只有首次进入会话或压缩后才重建（见 run_agent.py:6952-6991）
         # 真正的 prompt 构建逻辑在 _build_system_prompt()（见 run_agent.py:2599-2610）
@@ -6610,7 +6574,7 @@ class AIAgent:
         active_system_prompt = self._cached_system_prompt
 
         # ================================================================
-        # 【文档锚点 4A】进入主循环前 - 前置上下文压缩 (Preflight compression)
+        # 【文档锚点 3E】进入主循环前 - 前置上下文压缩 (Preflight compression)
         # 在进入主循环前检查加载的历史是否已超过模型的 context threshold
         # 处理用户切换到较小 context window 模型的情况
         # ================================================================
@@ -6669,6 +6633,7 @@ class AIAgent:
         # 插件只在用户输入旁边贡献上下文。
         #
         # 所有注入的上下文都是瞬时的（不会持久化到 session DB）。
+        # 【文档锚点 3F】pre_llm_call 插件钩子先收集当前 turn 的瞬时上下文，稍后再注入 user message
         _plugin_user_context = ""
         try:
             from hermes_cli.plugins import invoke_hook as _invoke_hook
@@ -6705,7 +6670,7 @@ class AIAgent:
         self.clear_interrupt()
 
         # ================================================================
-        # 【文档锚点 3B】易变内容注入：外部记忆 provider 预取
+        # 【文档锚点 3G】易变内容注入：外部记忆 provider 预取
         # 外部记忆 provider 先 prefetch_all() 一次，结果缓存到 turn 内变量
         # 记忆块被 build_memory_context_block() 包进 <memory-context>，
         # 并注入到当前 turn 的 user message（见 agent/memory_manager.py:54-69）
@@ -6714,15 +6679,15 @@ class AIAgent:
         if self._memory_manager:
             try:
                 _query = original_user_message if isinstance(original_user_message, str) else ""
-                _ext_prefetch_cache = self._memory_manager.prefetch_all(_query) or ""  # 【文档锚点 3B】本轮记忆预取结果只存在于局部变量
+                _ext_prefetch_cache = self._memory_manager.prefetch_all(_query) or ""  # 【文档锚点 3G】本轮记忆预取结果只存在于局部变量
             except Exception:
                 pass
 
         # ================================================================
-        # 【文档锚点 3C】主循环内部 - 主循环入口
+        # 【文档锚点 3H】主循环入口：开始组装本轮 API payload，并准备把瞬时上下文注入进去
         # while api_call_count < self.max_iterations ...
         # ================================================================
-        while api_call_count < self.max_iterations and self.iteration_budget.remaining > 0:  # 【文档锚点 3C】单个 turn 的核心编排循环
+        while api_call_count < self.max_iterations and self.iteration_budget.remaining > 0:  # 【文档锚点 3H】单个 turn 的核心编排循环
             # 重置每轮检查点去重，以便每次迭代都能获取一个快照
             self._checkpoint_mgr.new_turn()
 
@@ -6791,7 +6756,7 @@ class AIAgent:
                 if idx == current_turn_user_idx and msg.get("role") == "user":
                     _injections = []
                     if _ext_prefetch_cache:
-                        _fenced = build_memory_context_block(_ext_prefetch_cache)  # 【文档锚点 3B】把 recall 结果包进 <memory-context> 再注入当前 user message
+                        _fenced = build_memory_context_block(_ext_prefetch_cache)  # 【文档锚点 3H】把 recall 结果包进 <memory-context> 再注入当前 user message
                         if _fenced:
                             _injections.append(_fenced)
                     if _plugin_user_context:
@@ -6829,7 +6794,7 @@ class AIAgent:
                 api_messages.append(api_msg)
 
             # ================================================================
-            # 【文档锚点 3B】易变内容注入 - 续：ephemeral_system_prompt 和 prefill_messages
+            # 【文档锚点 3H】易变内容注入 - 续：ephemeral_system_prompt 和 prefill_messages
             # ephemeral_system_prompt 只在 API 发送前和 cached system 拼接，不进入持久化 transcript
             # prefill_messages 也只在 API payload 中插入，不写回 session
             # ================================================================
@@ -6906,6 +6871,7 @@ class AIAgent:
 
             while retry_count < max_retries:
                 try:
+                    # 【文档锚点 3I】为当前迭代构造 API 请求，并进入真实的 provider 调用 / 重试 / 计费统计阶段
                     api_kwargs = self._build_api_kwargs(api_messages)
                     if self.api_mode == "codex_responses":
                         api_kwargs = self._preflight_codex_api_kwargs(api_kwargs, allow_stream=False)
@@ -8128,6 +8094,7 @@ class AIAgent:
                     self._codex_incomplete_retries = 0
                 
                 if assistant_message.tool_calls:
+                    # 【文档锚点 3J】模型返回 tool_calls 后，先做名称修复、参数校验、去重与 delegate 限流
                     if not self.quiet_mode:
                         self._vprint(f"{self.log_prefix}🔧 Processing {len(assistant_message.tool_calls)} tool call(s)...")
                     
@@ -8433,6 +8400,7 @@ class AIAgent:
                         truncated_response_prefix = ""
                         length_continue_retries = 0
                     
+                    # 【文档锚点 3N】主循环收敛：清理 think 块并构造最终 assistant message
                     final_response = self._strip_think_blocks(final_response).strip()
                     final_msg = self._build_assistant_message(assistant_message, finish_reason)
 
@@ -8500,11 +8468,12 @@ class AIAgent:
                 print(f"\n⚠️  Iteration budget exhausted ({self.iteration_budget.used}/{self.iteration_budget.max_total} iterations used)")
             final_response = self._handle_max_iterations(messages, api_call_count)
         
+        # 【文档锚点 3O】主循环结束后先保存轨迹，再将消息持久化到 JSON session log 与 SQLite
         self._save_trajectory(messages, user_message, final_response is not None and api_call_count < self.max_iterations)
 
         self._cleanup_task_resources(effective_task_id)
 
-        # 会话落盘：保存到 JSON 日志和 SQLite 数据库。
+        # 【文档锚点 3O】会话落盘：保存到 JSON 日志和 SQLite 数据库。
         self._persist_session(messages, conversation_history)
 
         # 插件钩子：LLM 调用结束后触发。
@@ -8569,15 +8538,16 @@ class AIAgent:
             _should_review_skills = True
             self._iters_since_skill = 0
 
+        # 【文档锚点 3P】主响应返回前后，同步本轮结果并为下一轮预取 memory recall
         # 外部 Memory Provider：同步当前轮次并为下一轮预取。
         if self._memory_manager and final_response and original_user_message:
             try:
                 self._memory_manager.sync_all(original_user_message, final_response)
-                self._memory_manager.queue_prefetch_all(original_user_message)  # 【文档锚点 5A】主响应结束后为下一轮预热 memory recall
+                self._memory_manager.queue_prefetch_all(original_user_message)  # 【文档锚点 3P】主响应结束后为下一轮预热 memory recall
             except Exception:
                 pass
 
-        # 后台复盘：异步触发 Memory/Skill Review。
+        # 【文档锚点 3Q】后台复盘：异步触发 Memory/Skill Review。
         if final_response and not interrupted and (_should_review_memory or _should_review_skills):
             try:
                 self._spawn_background_review(

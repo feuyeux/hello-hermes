@@ -550,7 +550,7 @@ def skill_manage(
 
 
 # =============================================================================
-# 【文档锚点 5B】skill_manage：把复杂流程沉淀为可复用技能的入口 schema
+# 【文档锚点 3M】skill_manage：把复杂流程沉淀为可复用技能的入口 schema
 # =============================================================================
 
 SKILL_MANAGE_SCHEMA = {
@@ -660,5 +660,5 @@ registry.register(
         old_string=args.get("old_string"),
         new_string=args.get("new_string"),
         replace_all=args.get("replace_all", False)),
-    emoji="📝",  # 【文档锚点 5B】能力层把技能沉淀能力注册进统一工具面
+    emoji="📝",  # 【文档锚点 3M】能力层把技能沉淀能力注册进统一工具面
 )

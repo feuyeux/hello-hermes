@@ -118,7 +118,7 @@ class SessionDB:
     写竞争处理：使用短超时（1s）+ 随机 jitter 重试，避免 SQLite 内置
     忙等待导致的 convoy 效应。
     """
-    # 【文档锚点 4B】持久化层：结构化保存 session/message，并提供后续检索与 lineage 能力
+    # 【文档锚点 3O】持久化层：结构化保存 session/message，并提供后续检索与 lineage 能力
 
     _WRITE_MAX_RETRIES = 15
     _WRITE_RETRY_MIN_S = 0.020   # 20ms
@@ -153,7 +153,7 @@ class SessionDB:
         所以锁竞争会立即暴露。遇到"database is locked"时释放 Python 锁、
         随机等待 20-150ms 后重试。
         """
-        # 【文档锚点 4B】SQLite 写路径：用 BEGIN IMMEDIATE + jitter retry 保证 WAL 写入稳定
+        # 【文档锚点 3O】SQLite 写路径：用 BEGIN IMMEDIATE + jitter retry 保证 WAL 写入稳定
         last_err: Optional[Exception] = None
         for attempt in range(self._WRITE_MAX_RETRIES):
             try:
@@ -781,7 +781,7 @@ class SessionDB:
 
         同时递增会话的 message_count（tool 角色或有 tool_calls 时递增 tool_call_count）。
         """
-        # 【文档锚点 4B】每个 turn 的消息最终都在这里落成结构化记录
+        # 【文档锚点 3O】每个 turn 的消息最终都在这里落成结构化记录
         reasoning_details_json = (
             json.dumps(reasoning_details)
             if reasoning_details else None

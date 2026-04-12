@@ -935,7 +935,7 @@ class SessionStore:
 
     def get_transcript_path(self, session_id: str) -> Path:
         """获取会话遗留记录文件的路径。"""
-        # 【文档锚点 4C】Gateway transcript 边界：每个 session 仍保留 legacy JSONL 文件
+        # 【文档锚点 3O】Gateway transcript 边界：每个 session 仍保留 legacy JSONL 文件
         return self.sessions_dir / f"{session_id}.jsonl"
 
     def append_to_transcript(self, session_id: str, message: Dict[str, Any], skip_db: bool = False) -> None:
@@ -946,7 +946,7 @@ class SessionStore:
                      用于当 agent 已通过自身的 _flush_messages_to_session_db()
                      持久化消息到 SQLite 时，避免重复写入 bug (#860)。
         """
-        # 【文档锚点 4C】Gateway 写路径：同一条消息会写 SQLite，并兼容性追加 JSONL transcript
+        # 【文档锚点 3O】Gateway 写路径：同一条消息会写 SQLite，并兼容性追加 JSONL transcript
         # 写入 SQLite（除非 agent 已处理）
         if self._db and not skip_db:
             try:
@@ -972,7 +972,7 @@ class SessionStore:
         用于 /retry、/undo 和 /compress 以持久化修改后的对话历史。
         重写 SQLite 和遗留 JSONL 存储。
         """
-        # 【文档锚点 4C】Gateway 重写路径：/retry /undo /compress 会整体重写 transcript
+        # 【文档锚点 3O】Gateway 重写路径：/retry /undo /compress 会整体重写 transcript
         # SQLite：清除旧消息并重新插入
         if self._db:
             try:
@@ -1001,7 +1001,7 @@ class SessionStore:
 
     def load_transcript(self, session_id: str) -> List[Dict[str, Any]]:
         """从会话记录加载所有消息。"""
-        # 【文档锚点 4C】Gateway 读取路径：优先返回 SQLite / JSONL 中历史更完整的一份
+        # 【文档锚点 3O】Gateway 读取路径：优先返回 SQLite / JSONL 中历史更完整的一份
         db_messages = []
         # 首先尝试 SQLite
         if self._db:

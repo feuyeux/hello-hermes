@@ -134,7 +134,7 @@ DEFAULT_AGENT_IDENTITY = (
 )
 
 # 工具行为约束: 记忆管理指导 (memory tool 使用指南)
-# 【文档锚点 3A】稳定上下文素材之一：memory / session_search / skill_manage guidance 在这里定义
+# 【文档锚点 3D】稳定上下文素材之一：memory / session_search / skill_manage guidance 在这里定义
 MEMORY_GUIDANCE = (
     "You have persistent memory across sessions. Save durable facts using the memory "
     "tool: user preferences, environment details, tool quirks, and stable conventions. "
@@ -539,7 +539,7 @@ def build_skills_system_prompt(
     外部技能目录 (config.yaml 中的 ``skills.external_dirs``) 与本地 ``~/.hermes/skills/`` 一同扫描。
     外部目录为只读，本地技能优先。
     """
-    # 【文档锚点 3A】稳定上下文素材之一：把可用技能索引压成 system prompt 的 Skills 段
+    # 【文档锚点 3D】稳定上下文素材之一：把可用技能索引压成 system prompt 的 Skills 段
     hermes_home = get_hermes_home()
     skills_dir = hermes_home / "skills"
     external_dirs = get_all_skills_dirs()[1:]
@@ -945,7 +945,7 @@ def build_context_files_prompt(cwd: Optional[str] = None, skip_soul: bool = Fals
     SOUL.md 独立处理，始终包含 (如果存在)。
     每个上下文来源上限 20,000 字符。
     """
-    # 【文档锚点 3A】稳定上下文素材之一：把 AGENTS.md / CLAUDE.md / SOUL.md 等项目上下文装进 system prompt
+    # 【文档锚点 3D】稳定上下文素材之一：把 AGENTS.md / CLAUDE.md / SOUL.md 等项目上下文装进 system prompt
     if cwd is None:
         cwd = os.getcwd()
 

@@ -731,7 +731,7 @@ def skill_view(name: str, file_path: str = None, task_id: str = None) -> str:
             )
 
         try:
-            # 【文档锚点 5B】skill_view 运行时入口：真正把某个技能文件读出来提供给 agent 使用
+            # 【文档锚点 3M】skill_view 运行时入口：真正把某个技能文件读出来提供给 agent 使用
             content = skill_md.read_text(encoding="utf-8")
         except Exception as e:
             return json.dumps(
@@ -1075,7 +1075,7 @@ def skill_view(name: str, file_path: str = None, task_id: str = None) -> str:
 # 注册
 # ---------------------------------------------------------------------------
 
-# 【文档锚点 5B】技能运行时入口：skills_list / skill_view 暴露“发现技能 / 加载技能内容”的工具面
+# 【文档锚点 3M】技能运行时入口：skills_list / skill_view 暴露“发现技能 / 加载技能内容”的工具面
 
 SKILLS_LIST_SCHEMA = {
     "name": "skills_list",

@@ -90,7 +90,7 @@ def _discover_tools():
 
     使用函数包装使可选工具的导入错误（如 fal_client 未安装）不会阻止其他工具加载。
     """
-    # 【文档锚点 3D】工具注册阶段：通过导入 tools.* 触发模块级自注册
+    # 工具注册阶段：通过导入 tools.* 触发模块级自注册
     _modules = [
         "tools.web_tools",
         "tools.terminal_tool",
@@ -194,7 +194,7 @@ def get_tool_definitions(
 
     所有工具必须属于某个 toolset 才能访问。
     """
-    # 【文档锚点 3D】工具可见面阶段：按 toolset 与 check_fn 过滤出本会话真实可见工具
+    # 工具可见面阶段：按 toolset 与 check_fn 过滤出本会话真实可见工具
     tools_to_include: set = set()
 
     if enabled_toolsets is not None:
@@ -381,7 +381,7 @@ def handle_function_call(
     enabled_tools: Optional[List[str]] = None,
 ) -> str:
     """主要函数调用分发器 - 将调用路由到工具注册中心"""
-    # 【文档锚点 3D】通用工具最终都会回落到这里，再由 registry.dispatch() 找到真实 handler
+    # 【文档锚点 3M】通用工具最终都会回落到这里，再由 registry.dispatch() 找到真实 handler
     # 字符串参数类型强制转换
     function_args = coerce_tool_args(function_name, function_args)
 

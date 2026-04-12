@@ -120,7 +120,7 @@ class ContextCompressor:
         self.summary_model = summary_model_override or ""
 
         # 存储前一次压缩摘要，用于迭代更新
-        self._previous_summary: Optional[str] = None  # 【文档锚点 4A】多次压缩不是重头总结，而是沿用上一次 handoff 摘要继续滚动
+        self._previous_summary: Optional[str] = None  # 【文档锚点 3E】多次压缩不是重头总结，而是沿用上一次 handoff 摘要继续滚动
         self._summary_failure_cooldown_until: float = 0.0
 
     def update_from_response(self, usage: Dict[str, Any]):
@@ -560,7 +560,7 @@ Write only the summary body. Do not include any preamble or prefix."""
         压缩后，清理孤立的 tool_call / tool_result 对，
         以使 API 永远不会收到不匹配的 ID。
         """
-        # 【文档锚点 4A】上下文压缩本体：保头、保尾、摘要化中间段，生成可交接的新上下文
+        # 【文档锚点 3E】上下文压缩本体：保头、保尾、摘要化中间段，生成可交接的新上下文
         n_messages = len(messages)
         if n_messages <= self.protect_first_n + self.protect_last_n + 1:
             if not self.quiet_mode:
