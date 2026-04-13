@@ -1,0 +1,3896 @@
+[
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "call_llm",
+        "importPath": "agent.auxiliary_client",
+        "description": "agent.auxiliary_client",
+        "isExtraImport": true,
+        "detail": "agent.auxiliary_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_model_context_length",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_messages_tokens_rough",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_model_metadata",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_tokens_rough",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_messages_tokens_rough",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_request_tokens_rough",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "get_next_probe_tier",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "parse_context_limit_from_error",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "save_context_length",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "is_local_endpoint",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "query_ollama_num_ctx",
+        "importPath": "agent.model_metadata",
+        "description": "agent.model_metadata",
+        "isExtraImport": true,
+        "detail": "agent.model_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "MemoryProvider",
+        "importPath": "agent.memory_provider",
+        "description": "agent.memory_provider",
+        "isExtraImport": true,
+        "detail": "agent.memory_provider",
+        "documentation": {}
+    },
+    {
+        "label": "tool_error",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "registry",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "tool_error",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "registry",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "tool_error",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "registry",
+        "importPath": "tools.registry",
+        "description": "tools.registry",
+        "isExtraImport": true,
+        "detail": "tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "OrderedDict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_BASE_URL",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "display_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_BASE_URL",
+        "importPath": "hermes_constants",
+        "description": "hermes_constants",
+        "isExtraImport": true,
+        "detail": "hermes_constants",
+        "documentation": {}
+    },
+    {
+        "label": "extract_skill_conditions",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "extract_skill_description",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_skills_dirs",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_disabled_skill_names",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "iter_skill_index_files",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "parse_frontmatter",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "skill_matches_platform",
+        "importPath": "agent.skill_utils",
+        "description": "agent.skill_utils",
+        "isExtraImport": true,
+        "detail": "agent.skill_utils",
+        "documentation": {}
+    },
+    {
+        "label": "atomic_json_write",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "is_truthy_value",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "atomic_yaml_write",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "atomic_json_write",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "env_var_enabled",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "shlex",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shlex",
+        "description": "shlex",
+        "detail": "shlex",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "signal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "signal",
+        "description": "signal",
+        "detail": "signal",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_hermes_dotenv",
+        "importPath": "hermes_cli.env_loader",
+        "description": "hermes_cli.env_loader",
+        "isExtraImport": true,
+        "detail": "hermes_cli.env_loader",
+        "documentation": {}
+    },
+    {
+        "label": "load_hermes_dotenv",
+        "importPath": "hermes_cli.env_loader",
+        "description": "hermes_cli.env_loader",
+        "isExtraImport": true,
+        "detail": "hermes_cli.env_loader",
+        "documentation": {}
+    },
+    {
+        "label": "load_hermes_dotenv",
+        "importPath": "hermes_cli.env_loader",
+        "description": "hermes_cli.env_loader",
+        "isExtraImport": true,
+        "detail": "hermes_cli.env_loader",
+        "documentation": {}
+    },
+    {
+        "label": "load_hermes_dotenv",
+        "importPath": "hermes_cli.env_loader",
+        "description": "hermes_cli.env_loader",
+        "isExtraImport": true,
+        "detail": "hermes_cli.env_loader",
+        "documentation": {}
+    },
+    {
+        "label": "Platform",
+        "importPath": "gateway.config",
+        "description": "gateway.config",
+        "isExtraImport": true,
+        "detail": "gateway.config",
+        "documentation": {}
+    },
+    {
+        "label": "GatewayConfig",
+        "importPath": "gateway.config",
+        "description": "gateway.config",
+        "isExtraImport": true,
+        "detail": "gateway.config",
+        "documentation": {}
+    },
+    {
+        "label": "load_gateway_config",
+        "importPath": "gateway.config",
+        "description": "gateway.config",
+        "isExtraImport": true,
+        "detail": "gateway.config",
+        "documentation": {}
+    },
+    {
+        "label": "SessionStore",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionSource",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionContext",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_context",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_context_prompt",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_key",
+        "importPath": "gateway.session",
+        "description": "gateway.session",
+        "isExtraImport": true,
+        "detail": "gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "DeliveryRouter",
+        "importPath": "gateway.delivery",
+        "description": "gateway.delivery",
+        "isExtraImport": true,
+        "detail": "gateway.delivery",
+        "documentation": {}
+    },
+    {
+        "label": "BasePlatformAdapter",
+        "importPath": "gateway.platforms.base",
+        "description": "gateway.platforms.base",
+        "isExtraImport": true,
+        "detail": "gateway.platforms.base",
+        "documentation": {}
+    },
+    {
+        "label": "MessageEvent",
+        "importPath": "gateway.platforms.base",
+        "description": "gateway.platforms.base",
+        "isExtraImport": true,
+        "detail": "gateway.platforms.base",
+        "documentation": {}
+    },
+    {
+        "label": "MessageType",
+        "importPath": "gateway.platforms.base",
+        "description": "gateway.platforms.base",
+        "isExtraImport": true,
+        "detail": "gateway.platforms.base",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "get_hermes_home",
+        "importPath": "hermes_cli.config",
+        "description": "hermes_cli.config",
+        "isExtraImport": true,
+        "detail": "hermes_cli.config",
+        "documentation": {}
+    },
+    {
+        "label": "__version__",
+        "importPath": "hermes_cli",
+        "description": "hermes_cli",
+        "isExtraImport": true,
+        "detail": "hermes_cli",
+        "documentation": {}
+    },
+    {
+        "label": "__release_date__",
+        "importPath": "hermes_cli",
+        "description": "hermes_cli",
+        "isExtraImport": true,
+        "detail": "hermes_cli",
+        "documentation": {}
+    },
+    {
+        "label": "_PROVIDER_MODELS",
+        "importPath": "hermes_cli.models",
+        "description": "hermes_cli.models",
+        "isExtraImport": true,
+        "detail": "hermes_cli.models",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "atexit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "atexit",
+        "description": "atexit",
+        "detail": "atexit",
+        "documentation": {}
+    },
+    {
+        "label": "textwrap",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "textwrap",
+        "description": "textwrap",
+        "detail": "textwrap",
+        "documentation": {}
+    },
+    {
+        "label": "contextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "FileHistory",
+        "importPath": "prompt_toolkit.history",
+        "description": "prompt_toolkit.history",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.history",
+        "documentation": {}
+    },
+    {
+        "label": "Style",
+        "importPath": "prompt_toolkit.styles",
+        "description": "prompt_toolkit.styles",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.styles",
+        "documentation": {}
+    },
+    {
+        "label": "patch_stdout",
+        "importPath": "prompt_toolkit.patch_stdout",
+        "description": "prompt_toolkit.patch_stdout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.patch_stdout",
+        "documentation": {}
+    },
+    {
+        "label": "Application",
+        "importPath": "prompt_toolkit.application",
+        "description": "prompt_toolkit.application",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.application",
+        "documentation": {}
+    },
+    {
+        "label": "Layout",
+        "importPath": "prompt_toolkit.layout",
+        "description": "prompt_toolkit.layout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout",
+        "documentation": {}
+    },
+    {
+        "label": "HSplit",
+        "importPath": "prompt_toolkit.layout",
+        "description": "prompt_toolkit.layout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout",
+        "documentation": {}
+    },
+    {
+        "label": "Window",
+        "importPath": "prompt_toolkit.layout",
+        "description": "prompt_toolkit.layout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout",
+        "documentation": {}
+    },
+    {
+        "label": "FormattedTextControl",
+        "importPath": "prompt_toolkit.layout",
+        "description": "prompt_toolkit.layout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalContainer",
+        "importPath": "prompt_toolkit.layout",
+        "description": "prompt_toolkit.layout",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout",
+        "documentation": {}
+    },
+    {
+        "label": "Processor",
+        "importPath": "prompt_toolkit.layout.processors",
+        "description": "prompt_toolkit.layout.processors",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.processors",
+        "documentation": {}
+    },
+    {
+        "label": "Transformation",
+        "importPath": "prompt_toolkit.layout.processors",
+        "description": "prompt_toolkit.layout.processors",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.processors",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordProcessor",
+        "importPath": "prompt_toolkit.layout.processors",
+        "description": "prompt_toolkit.layout.processors",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.processors",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalProcessor",
+        "importPath": "prompt_toolkit.layout.processors",
+        "description": "prompt_toolkit.layout.processors",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.processors",
+        "documentation": {}
+    },
+    {
+        "label": "Condition",
+        "importPath": "prompt_toolkit.filters",
+        "description": "prompt_toolkit.filters",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.filters",
+        "documentation": {}
+    },
+    {
+        "label": "Dimension",
+        "importPath": "prompt_toolkit.layout.dimension",
+        "description": "prompt_toolkit.layout.dimension",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.dimension",
+        "documentation": {}
+    },
+    {
+        "label": "CompletionsMenu",
+        "importPath": "prompt_toolkit.layout.menus",
+        "description": "prompt_toolkit.layout.menus",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.layout.menus",
+        "documentation": {}
+    },
+    {
+        "label": "TextArea",
+        "importPath": "prompt_toolkit.widgets",
+        "description": "prompt_toolkit.widgets",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.widgets",
+        "documentation": {}
+    },
+    {
+        "label": "KeyBindings",
+        "importPath": "prompt_toolkit.key_binding",
+        "description": "prompt_toolkit.key_binding",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.key_binding",
+        "documentation": {}
+    },
+    {
+        "label": "print_formatted_text",
+        "importPath": "prompt_toolkit",
+        "description": "prompt_toolkit",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit",
+        "documentation": {}
+    },
+    {
+        "label": "ANSI",
+        "importPath": "prompt_toolkit.formatted_text",
+        "description": "prompt_toolkit.formatted_text",
+        "isExtraImport": true,
+        "detail": "prompt_toolkit.formatted_text",
+        "documentation": {}
+    },
+    {
+        "label": "queue",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "queue",
+        "description": "queue",
+        "detail": "queue",
+        "documentation": {}
+    },
+    {
+        "label": "CanonicalUsage",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_usage_cost",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "format_duration_compact",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "format_token_count_compact",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "estimate_usage_cost",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_usage",
+        "importPath": "agent.usage_pricing",
+        "description": "agent.usage_pricing",
+        "isExtraImport": true,
+        "detail": "agent.usage_pricing",
+        "documentation": {}
+    },
+    {
+        "label": "_format_context_length",
+        "importPath": "hermes_cli.banner",
+        "description": "hermes_cli.banner",
+        "isExtraImport": true,
+        "detail": "hermes_cli.banner",
+        "documentation": {}
+    },
+    {
+        "label": "format_banner_version_label",
+        "importPath": "hermes_cli.banner",
+        "description": "hermes_cli.banner",
+        "isExtraImport": true,
+        "detail": "hermes_cli.banner",
+        "documentation": {}
+    },
+    {
+        "label": "build_welcome_banner",
+        "importPath": "hermes_cli.banner",
+        "description": "hermes_cli.banner",
+        "isExtraImport": true,
+        "detail": "hermes_cli.banner",
+        "documentation": {}
+    },
+    {
+        "label": "box",
+        "importPath": "rich",
+        "description": "rich",
+        "isExtraImport": true,
+        "detail": "rich",
+        "documentation": {}
+    },
+    {
+        "label": "Console",
+        "importPath": "rich.console",
+        "description": "rich.console",
+        "isExtraImport": true,
+        "detail": "rich.console",
+        "documentation": {}
+    },
+    {
+        "label": "escape",
+        "importPath": "rich.markup",
+        "description": "rich.markup",
+        "isExtraImport": true,
+        "detail": "rich.markup",
+        "documentation": {}
+    },
+    {
+        "label": "Panel",
+        "importPath": "rich.panel",
+        "description": "rich.panel",
+        "isExtraImport": true,
+        "detail": "rich.panel",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "rich.text",
+        "description": "rich.text",
+        "isExtraImport": true,
+        "detail": "rich.text",
+        "documentation": {}
+    },
+    {
+        "label": "fire",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "fire",
+        "description": "fire",
+        "detail": "fire",
+        "documentation": {}
+    },
+    {
+        "label": "AIAgent",
+        "importPath": "run_agent",
+        "description": "run_agent",
+        "isExtraImport": true,
+        "detail": "run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "get_tool_definitions",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_for_tool",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_tool_definitions",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_for_tool",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "handle_function_call",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "check_toolset_requirements",
+        "importPath": "model_tools",
+        "description": "model_tools",
+        "isExtraImport": true,
+        "detail": "model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "SlashCommandCompleter",
+        "importPath": "hermes_cli.commands",
+        "description": "hermes_cli.commands",
+        "isExtraImport": true,
+        "detail": "hermes_cli.commands",
+        "documentation": {}
+    },
+    {
+        "label": "SlashCommandAutoSuggest",
+        "importPath": "hermes_cli.commands",
+        "description": "hermes_cli.commands",
+        "isExtraImport": true,
+        "detail": "hermes_cli.commands",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_toolsets",
+        "importPath": "toolsets",
+        "description": "toolsets",
+        "isExtraImport": true,
+        "detail": "toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_info",
+        "importPath": "toolsets",
+        "description": "toolsets",
+        "isExtraImport": true,
+        "detail": "toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "validate_toolset",
+        "importPath": "toolsets",
+        "description": "toolsets",
+        "isExtraImport": true,
+        "detail": "toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_toolset",
+        "importPath": "toolsets",
+        "description": "toolsets",
+        "isExtraImport": true,
+        "detail": "toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "validate_toolset",
+        "importPath": "toolsets",
+        "description": "toolsets",
+        "isExtraImport": true,
+        "detail": "toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_job",
+        "importPath": "cron",
+        "description": "cron",
+        "isExtraImport": true,
+        "detail": "cron",
+        "documentation": {}
+    },
+    {
+        "label": "cleanup_all_environments",
+        "importPath": "tools.terminal_tool",
+        "description": "tools.terminal_tool",
+        "isExtraImport": true,
+        "detail": "tools.terminal_tool",
+        "documentation": {}
+    },
+    {
+        "label": "set_sudo_password_callback",
+        "importPath": "tools.terminal_tool",
+        "description": "tools.terminal_tool",
+        "isExtraImport": true,
+        "detail": "tools.terminal_tool",
+        "documentation": {}
+    },
+    {
+        "label": "set_approval_callback",
+        "importPath": "tools.terminal_tool",
+        "description": "tools.terminal_tool",
+        "isExtraImport": true,
+        "detail": "tools.terminal_tool",
+        "documentation": {}
+    },
+    {
+        "label": "cleanup_vm",
+        "importPath": "tools.terminal_tool",
+        "description": "tools.terminal_tool",
+        "isExtraImport": true,
+        "detail": "tools.terminal_tool",
+        "documentation": {}
+    },
+    {
+        "label": "get_active_env",
+        "importPath": "tools.terminal_tool",
+        "description": "tools.terminal_tool",
+        "isExtraImport": true,
+        "detail": "tools.terminal_tool",
+        "documentation": {}
+    },
+    {
+        "label": "set_secret_capture_callback",
+        "importPath": "tools.skills_tool",
+        "description": "tools.skills_tool",
+        "isExtraImport": true,
+        "detail": "tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "prompt_for_secret",
+        "importPath": "hermes_cli.callbacks",
+        "description": "hermes_cli.callbacks",
+        "isExtraImport": true,
+        "detail": "hermes_cli.callbacks",
+        "documentation": {}
+    },
+    {
+        "label": "_emergency_cleanup_all_sessions",
+        "importPath": "tools.browser_tool",
+        "description": "tools.browser_tool",
+        "isExtraImport": true,
+        "detail": "tools.browser_tool",
+        "documentation": {}
+    },
+    {
+        "label": "cleanup_browser",
+        "importPath": "tools.browser_tool",
+        "description": "tools.browser_tool",
+        "isExtraImport": true,
+        "detail": "tools.browser_tool",
+        "documentation": {}
+    },
+    {
+        "label": "scan_skill_commands",
+        "importPath": "agent.skill_commands",
+        "description": "agent.skill_commands",
+        "isExtraImport": true,
+        "detail": "agent.skill_commands",
+        "documentation": {}
+    },
+    {
+        "label": "build_skill_invocation_message",
+        "importPath": "agent.skill_commands",
+        "description": "agent.skill_commands",
+        "isExtraImport": true,
+        "detail": "agent.skill_commands",
+        "documentation": {}
+    },
+    {
+        "label": "build_plan_path",
+        "importPath": "agent.skill_commands",
+        "description": "agent.skill_commands",
+        "isExtraImport": true,
+        "detail": "agent.skill_commands",
+        "documentation": {}
+    },
+    {
+        "label": "build_preloaded_skills_prompt",
+        "importPath": "agent.skill_commands",
+        "description": "agent.skill_commands",
+        "isExtraImport": true,
+        "detail": "agent.skill_commands",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "concurrent.futures",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "copy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleNamespace",
+        "importPath": "types",
+        "description": "types",
+        "isExtraImport": true,
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "maybe_persist_tool_result",
+        "importPath": "tools.tool_result_storage",
+        "description": "tools.tool_result_storage",
+        "isExtraImport": true,
+        "detail": "tools.tool_result_storage",
+        "documentation": {}
+    },
+    {
+        "label": "enforce_turn_budget",
+        "importPath": "tools.tool_result_storage",
+        "description": "tools.tool_result_storage",
+        "isExtraImport": true,
+        "detail": "tools.tool_result_storage",
+        "documentation": {}
+    },
+    {
+        "label": "set_interrupt",
+        "importPath": "tools.interrupt",
+        "description": "tools.interrupt",
+        "isExtraImport": true,
+        "detail": "tools.interrupt",
+        "documentation": {}
+    },
+    {
+        "label": "build_memory_context_block",
+        "importPath": "agent.memory_manager",
+        "description": "agent.memory_manager",
+        "isExtraImport": true,
+        "detail": "agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "jittered_backoff",
+        "importPath": "agent.retry_utils",
+        "description": "agent.retry_utils",
+        "isExtraImport": true,
+        "detail": "agent.retry_utils",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AGENT_IDENTITY",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "PLATFORM_HINTS",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "MEMORY_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_SEARCH_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "SKILLS_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_nous_subscription_prompt",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_skills_system_prompt",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_context_files_prompt",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "load_soul_md",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "TOOL_USE_ENFORCEMENT_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "TOOL_USE_ENFORCEMENT_MODELS",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "DEVELOPER_ROLE_MODELS",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "GOOGLE_MODEL_OPERATIONAL_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_MODEL_EXECUTION_GUIDANCE",
+        "importPath": "agent.prompt_builder",
+        "description": "agent.prompt_builder",
+        "isExtraImport": true,
+        "detail": "agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "ContextCompressor",
+        "importPath": "agent.context_compressor",
+        "description": "agent.context_compressor",
+        "isExtraImport": true,
+        "detail": "agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "SubdirectoryHintTracker",
+        "importPath": "agent.subdirectory_hints",
+        "description": "agent.subdirectory_hints",
+        "isExtraImport": true,
+        "detail": "agent.subdirectory_hints",
+        "documentation": {}
+    },
+    {
+        "label": "apply_anthropic_cache_control",
+        "importPath": "agent.prompt_caching",
+        "description": "agent.prompt_caching",
+        "isExtraImport": true,
+        "detail": "agent.prompt_caching",
+        "documentation": {}
+    },
+    {
+        "label": "KawaiiSpinner",
+        "importPath": "agent.display",
+        "description": "agent.display",
+        "isExtraImport": true,
+        "detail": "agent.display",
+        "documentation": {}
+    },
+    {
+        "label": "build_tool_preview",
+        "importPath": "agent.display",
+        "description": "agent.display",
+        "isExtraImport": true,
+        "detail": "agent.display",
+        "documentation": {}
+    },
+    {
+        "label": "get_cute_tool_message",
+        "importPath": "agent.display",
+        "description": "agent.display",
+        "isExtraImport": true,
+        "detail": "agent.display",
+        "documentation": {}
+    },
+    {
+        "label": "_detect_tool_failure",
+        "importPath": "agent.display",
+        "description": "agent.display",
+        "isExtraImport": true,
+        "detail": "agent.display",
+        "documentation": {}
+    },
+    {
+        "label": "get_tool_emoji",
+        "importPath": "agent.display",
+        "description": "agent.display",
+        "isExtraImport": true,
+        "detail": "agent.display",
+        "documentation": {}
+    },
+    {
+        "label": "convert_scratchpad_to_think",
+        "importPath": "agent.trajectory",
+        "description": "agent.trajectory",
+        "isExtraImport": true,
+        "detail": "agent.trajectory",
+        "documentation": {}
+    },
+    {
+        "label": "has_incomplete_scratchpad",
+        "importPath": "agent.trajectory",
+        "description": "agent.trajectory",
+        "isExtraImport": true,
+        "detail": "agent.trajectory",
+        "documentation": {}
+    },
+    {
+        "label": "save_trajectory",
+        "importPath": "agent.trajectory",
+        "description": "agent.trajectory",
+        "isExtraImport": true,
+        "detail": "agent.trajectory",
+        "documentation": {}
+    },
+    {
+        "label": "ContextCompressor",
+        "kind": 6,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "class ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。\n    算法:\n      1. 修剪旧工具结果 (廉价，无需 LLM 调用)\n      2. 保护头部消息 (系统提示 + 首次交换)\n      3. 按 token 预算保护尾部消息 (最近约 20K tokens)\n      4. 用结构化 LLM 提示总结中间轮次\n      5. 后续压缩时，迭代更新前一个摘要\n    压缩器会保留 _previous_summary，多次压缩时迭代更新摘要而不是每次重头总结。",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nSUMMARY_PREFIX = (\n    \"[CONTEXT COMPACTION] Earlier turns in this conversation were compacted \"\n    \"to save context space. The summary below describes work that was \"\n    \"already completed, and the current session state may still reflect \"\n    \"that work (for example, files may already be changed). Use the summary \"\n    \"and the current state to continue from where things left off, and \"\n    \"avoid repeating work:\"\n)\nLEGACY_SUMMARY_PREFIX = \"[CONTEXT SUMMARY]:\"",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "SUMMARY_PREFIX",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "SUMMARY_PREFIX = (\n    \"[CONTEXT COMPACTION] Earlier turns in this conversation were compacted \"\n    \"to save context space. The summary below describes work that was \"\n    \"already completed, and the current session state may still reflect \"\n    \"that work (for example, files may already be changed). Use the summary \"\n    \"and the current state to continue from where things left off, and \"\n    \"avoid repeating work:\"\n)\nLEGACY_SUMMARY_PREFIX = \"[CONTEXT SUMMARY]:\"\n# 摘要输出的最小 token 数",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "LEGACY_SUMMARY_PREFIX",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "LEGACY_SUMMARY_PREFIX = \"[CONTEXT SUMMARY]:\"\n# 摘要输出的最小 token 数\n_MIN_SUMMARY_TOKENS = 2000\n# 分配给摘要的压缩内容比例\n_SUMMARY_RATIO = 0.20\n# 摘要 token 的绝对上限\n_SUMMARY_TOKENS_CEILING = 12_000\n# 修剪旧工具结果时使用的占位符\n_PRUNED_TOOL_PLACEHOLDER = \"[Old tool output cleared to save context space]\"\n_CHARS_PER_TOKEN = 4",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_MIN_SUMMARY_TOKENS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_MIN_SUMMARY_TOKENS = 2000\n# 分配给摘要的压缩内容比例\n_SUMMARY_RATIO = 0.20\n# 摘要 token 的绝对上限\n_SUMMARY_TOKENS_CEILING = 12_000\n# 修剪旧工具结果时使用的占位符\n_PRUNED_TOOL_PLACEHOLDER = \"[Old tool output cleared to save context space]\"\n_CHARS_PER_TOKEN = 4\n_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_SUMMARY_RATIO",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_SUMMARY_RATIO = 0.20\n# 摘要 token 的绝对上限\n_SUMMARY_TOKENS_CEILING = 12_000\n# 修剪旧工具结果时使用的占位符\n_PRUNED_TOOL_PLACEHOLDER = \"[Old tool output cleared to save context space]\"\n_CHARS_PER_TOKEN = 4\n_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_SUMMARY_TOKENS_CEILING",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_SUMMARY_TOKENS_CEILING = 12_000\n# 修剪旧工具结果时使用的占位符\n_PRUNED_TOOL_PLACEHOLDER = \"[Old tool output cleared to save context space]\"\n_CHARS_PER_TOKEN = 4\n_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。\n    算法:\n      1. 修剪旧工具结果 (廉价，无需 LLM 调用)",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_PRUNED_TOOL_PLACEHOLDER",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_PRUNED_TOOL_PLACEHOLDER = \"[Old tool output cleared to save context space]\"\n_CHARS_PER_TOKEN = 4\n_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。\n    算法:\n      1. 修剪旧工具结果 (廉价，无需 LLM 调用)\n      2. 保护头部消息 (系统提示 + 首次交换)\n      3. 按 token 预算保护尾部消息 (最近约 20K tokens)",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_CHARS_PER_TOKEN",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_CHARS_PER_TOKEN = 4\n_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。\n    算法:\n      1. 修剪旧工具结果 (廉价，无需 LLM 调用)\n      2. 保护头部消息 (系统提示 + 首次交换)\n      3. 按 token 预算保护尾部消息 (最近约 20K tokens)\n      4. 用结构化 LLM 提示总结中间轮次",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "_SUMMARY_FAILURE_COOLDOWN_SECONDS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.context_compressor",
+        "description": "v2026.4.8.agent.context_compressor",
+        "peekOfCode": "_SUMMARY_FAILURE_COOLDOWN_SECONDS = 600\nclass ContextCompressor:\n    \"\"\"Compresses conversation context when approaching the model's context limit.\n    当接近模型上下文限制时压缩对话上下文。\n    算法:\n      1. 修剪旧工具结果 (廉价，无需 LLM 调用)\n      2. 保护头部消息 (系统提示 + 首次交换)\n      3. 按 token 预算保护尾部消息 (最近约 20K tokens)\n      4. 用结构化 LLM 提示总结中间轮次\n      5. 后续压缩时，迭代更新前一个摘要",
+        "detail": "v2026.4.8.agent.context_compressor",
+        "documentation": {}
+    },
+    {
+        "label": "MemoryManager",
+        "kind": 6,
+        "importPath": "v2026.4.8.agent.memory_manager",
+        "description": "v2026.4.8.agent.memory_manager",
+        "peekOfCode": "class MemoryManager:\n    \"\"\"Orchestrates the built-in provider plus at most one external provider.\n    编排内置提供者 + 最多一个外部提供者。\n    内置提供者始终在前。只允许一个非内置 (外部) 提供者。\n    一个提供者失败不会阻塞另一个。\n    \"\"\"\n    def __init__(self) -> None:\n        self._providers: List[MemoryProvider] = []\n        self._tool_to_provider: Dict[str, MemoryProvider] = {}\n        self._has_external: bool = False",
+        "detail": "v2026.4.8.agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_context",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.memory_manager",
+        "description": "v2026.4.8.agent.memory_manager",
+        "peekOfCode": "def sanitize_context(text: str) -> str:\n    \"\"\"Strip fence-escape sequences from provider output.\n    从提供者输出中剥离围栏转义序列。\n    \"\"\"\n    return _FENCE_TAG_RE.sub('', text)\ndef build_memory_context_block(raw_context: str) -> str:\n    \"\"\"Wrap prefetched memory in a fenced block with system note.\n    将预取的记忆包装在带系统说明的围栏块中。\n    围栏防止模型将回忆的上下文当作用户话语。\n    仅在 API 调用时注入 — 从不持久化。",
+        "detail": "v2026.4.8.agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "build_memory_context_block",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.memory_manager",
+        "description": "v2026.4.8.agent.memory_manager",
+        "peekOfCode": "def build_memory_context_block(raw_context: str) -> str:\n    \"\"\"Wrap prefetched memory in a fenced block with system note.\n    将预取的记忆包装在带系统说明的围栏块中。\n    围栏防止模型将回忆的上下文当作用户话语。\n    仅在 API 调用时注入 — 从不持久化。\n    记忆块被 build_memory_context_block() 包进 <memory-context>，\n    并注入到当前 turn 的 user message。\n    \"\"\"\n    # 【文档锚点 3H】易变上下文不会写回持久 transcript，而是包装后临时注入当前 turn\n    if not raw_context or not raw_context.strip():",
+        "detail": "v2026.4.8.agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.memory_manager",
+        "description": "v2026.4.8.agent.memory_manager",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# ---------------------------------------------------------------------------\n# 上下文围栏辅助函数\n# ---------------------------------------------------------------------------\n_FENCE_TAG_RE = re.compile(r'</?\\s*memory-context\\s*>', re.IGNORECASE)\ndef sanitize_context(text: str) -> str:\n    \"\"\"Strip fence-escape sequences from provider output.\n    从提供者输出中剥离围栏转义序列。\n    \"\"\"\n    return _FENCE_TAG_RE.sub('', text)",
+        "detail": "v2026.4.8.agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "_FENCE_TAG_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.memory_manager",
+        "description": "v2026.4.8.agent.memory_manager",
+        "peekOfCode": "_FENCE_TAG_RE = re.compile(r'</?\\s*memory-context\\s*>', re.IGNORECASE)\ndef sanitize_context(text: str) -> str:\n    \"\"\"Strip fence-escape sequences from provider output.\n    从提供者输出中剥离围栏转义序列。\n    \"\"\"\n    return _FENCE_TAG_RE.sub('', text)\ndef build_memory_context_block(raw_context: str) -> str:\n    \"\"\"Wrap prefetched memory in a fenced block with system note.\n    将预取的记忆包装在带系统说明的围栏块中。\n    围栏防止模型将回忆的上下文当作用户话语。",
+        "detail": "v2026.4.8.agent.memory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "clear_skills_system_prompt_cache",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "def clear_skills_system_prompt_cache(*, clear_snapshot: bool = False) -> None:\n    \"\"\"Drop the in-process skills prompt cache (and optionally the disk snapshot).\n    清除技能提示词缓存 (可选: 同时清除磁盘快照)\n    \"\"\"\n    with _SKILLS_PROMPT_CACHE_LOCK:\n        _SKILLS_PROMPT_CACHE.clear()\n    if clear_snapshot:\n        try:\n            _skills_prompt_snapshot_path().unlink(missing_ok=True)\n        except OSError as e:",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_skills_system_prompt",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "def build_skills_system_prompt(\n    available_tools: \"set[str] | None\" = None,\n    available_toolsets: \"set[str] | None\" = None,\n) -> str:\n    \"\"\"Build a compact skill index for the system prompt.\n    为系统提示词构建紧凑的技能索引。\n    两级缓存:\n      1. 进程内 LRU 字典，按 (skills_dir, tools, toolsets) 分键\n      2. 磁盘快照 (``.skills_prompt_snapshot.json``)，通过 mtime/size 清单验证 — 重启进程后仍可使用\n    外部技能目录 (config.yaml 中的 ``skills.external_dirs``) 与本地 ``~/.hermes/skills/`` 一同扫描。",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_nous_subscription_prompt",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "def build_nous_subscription_prompt(valid_tool_names: \"set[str] | None\" = None) -> str:\n    \"\"\"Build a compact Nous subscription capability block for the system prompt.\n    为系统提示词构建紧凑的 Nous 订阅能力块。\n    \"\"\"\n    try:\n        from hermes_cli.nous_subscription import get_nous_subscription_features\n        from tools.tool_backend_helpers import managed_nous_tools_enabled\n    except Exception as exc:\n        logger.debug(\"Failed to import Nous subscription helper: %s\", exc)\n        return \"\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "load_soul_md",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "def load_soul_md() -> Optional[str]:\n    \"\"\"Load SOUL.md from HERMES_HOME and return its content, or None.\n    加载 HERMES_HOME 中的 SOUL.md 作为智能体身份 (slot #1 in system prompt)。\n    \"\"\"\n    try:\n        from hermes_cli.config import ensure_hermes_home\n        ensure_hermes_home()\n    except Exception as e:\n        logger.debug(\"Could not ensure HERMES_HOME before loading SOUL.md: %s\", e)\n    soul_path = get_hermes_home() / \"SOUL.md\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "build_context_files_prompt",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "def build_context_files_prompt(cwd: Optional[str] = None, skip_soul: bool = False) -> str:\n    \"\"\"Discover and load context files for the system prompt.\n    发现并加载系统提示词的上下文文件。\n    优先级 (首个匹配优先，仅加载一种项目上下文类型):\n      1. .hermes.md / HERMES.md  (遍历到 git 根目录)\n      2. AGENTS.md / agents.md   (cwd only)\n      3. CLAUDE.md / claude.md   (cwd only)\n      4. .cursorrules / .cursor/rules/*.mdc  (cwd only)\n    SOUL.md 独立处理，始终包含 (如果存在)。\n    每个上下文来源上限 20,000 字符。",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# ---------------------------------------------------------------------------\n# 上下文文件扫描 — 在注入系统提示词前检测 AGENTS.md、.cursorrules、SOUL.md 中的提示词注入攻击\n# ---------------------------------------------------------------------------\n_CONTEXT_THREAT_PATTERNS = [\n    (r'ignore\\s+(previous|all|above|prior)\\s+instructions', \"prompt_injection\"),\n    (r'do\\s+not\\s+tell\\s+the\\s+user', \"deception_hide\"),\n    (r'system\\s+prompt\\s+override', \"sys_prompt_override\"),\n    (r'disregard\\s+(your|all|any)\\s+(instructions|rules|guidelines)', \"disregard_rules\"),\n    (r'act\\s+as\\s+(if|though)\\s+you\\s+(have\\s+no|don\\'t\\s+have)\\s+(restrictions|limits|rules)', \"bypass_restrictions\"),",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_CONTEXT_THREAT_PATTERNS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_CONTEXT_THREAT_PATTERNS = [\n    (r'ignore\\s+(previous|all|above|prior)\\s+instructions', \"prompt_injection\"),\n    (r'do\\s+not\\s+tell\\s+the\\s+user', \"deception_hide\"),\n    (r'system\\s+prompt\\s+override', \"sys_prompt_override\"),\n    (r'disregard\\s+(your|all|any)\\s+(instructions|rules|guidelines)', \"disregard_rules\"),\n    (r'act\\s+as\\s+(if|though)\\s+you\\s+(have\\s+no|don\\'t\\s+have)\\s+(restrictions|limits|rules)', \"bypass_restrictions\"),\n    (r'<!--[^>]*(?:ignore|override|system|secret|hidden)[^>]*-->', \"html_comment_injection\"),\n    (r'<\\s*div\\s+style\\s*=\\s*[\"\\'].*display\\s*:\\s*none', \"hidden_div\"),\n    (r'translate\\s+.*\\s+into\\s+.*\\s+and\\s+(execute|run|eval)', \"translate_execute\"),\n    (r'curl\\s+[^\\n]*\\$\\{?\\w*(KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL|API)', \"exfil_curl\"),",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_CONTEXT_INVISIBLE_CHARS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_CONTEXT_INVISIBLE_CHARS = {\n    '\\u200b', '\\u200c', '\\u200d', '\\u2060', '\\ufeff',\n    '\\u202a', '\\u202b', '\\u202c', '\\u202d', '\\u202e',\n}\ndef _scan_context_content(content: str, filename: str) -> str:\n    \"\"\"Scan context file content for injection. Returns sanitized content.\n    扫描上下文文件内容中的注入攻击，返回消毒后的内容。\n    \"\"\"\n    findings = []\n    for char in _CONTEXT_INVISIBLE_CHARS:",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_HERMES_MD_NAMES",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_HERMES_MD_NAMES = (\".hermes.md\", \"HERMES.md\")\ndef _find_hermes_md(cwd: Path) -> Optional[Path]:\n    \"\"\"Discover the nearest ``.hermes.md`` or ``HERMES.md``.\n    查找最近的 .hermes.md 或 HERMES.md 文件，搜索顺序：cwd → 父目录直到 git 根目录。\n    \"\"\"\n    stop_at = _find_git_root(cwd)\n    current = cwd.resolve()\n    for directory in [current, *current.parents]:\n        for name in _HERMES_MD_NAMES:\n            candidate = directory / name",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AGENT_IDENTITY",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "DEFAULT_AGENT_IDENTITY = (\n    \"You are Hermes Agent, an intelligent AI assistant created by Nous Research. \"\n    \"You are helpful, knowledgeable, and direct. You assist users with a wide \"\n    \"range of tasks including answering questions, writing and editing code, \"\n    \"analyzing information, creative work, and executing actions via your tools. \"\n    \"You communicate clearly, admit uncertainty when appropriate, and prioritize \"\n    \"being genuinely useful over being verbose unless otherwise directed below. \"\n    \"Be targeted and efficient in your exploration and investigations.\"\n)\n# 工具行为约束: 记忆管理指导 (memory tool 使用指南)",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "MEMORY_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "MEMORY_GUIDANCE = (\n    \"You have persistent memory across sessions. Save durable facts using the memory \"\n    \"tool: user preferences, environment details, tool quirks, and stable conventions. \"\n    \"Memory is injected into every turn, so keep it compact and focused on facts that \"\n    \"will still matter later.\\n\"\n    \"Prioritize what reduces future user steering — the most valuable memory is one \"\n    \"that prevents the user from having to correct or remind you again. \"\n    \"User preferences and recurring corrections matter more than procedural task details.\\n\"\n    \"Do NOT save task progress, session outcomes, completed-work logs, or temporary TODO \"\n    \"state to memory; use session_search to recall those from past transcripts. \"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_SEARCH_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "SESSION_SEARCH_GUIDANCE = (\n    \"When the user references something from a past conversation or you suspect \"\n    \"relevant cross-session context exists, use session_search to recall it before \"\n    \"asking them to repeat themselves.\"\n)\n# 工具行为约束: skill_manage 使用指导\nSKILLS_GUIDANCE = (\n    \"After completing a complex task (5+ tool calls), fixing a tricky error, \"\n    \"or discovering a non-trivial workflow, save the approach as a \"\n    \"skill with skill_manage so you can reuse it next time.\\n\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "SKILLS_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "SKILLS_GUIDANCE = (\n    \"After completing a complex task (5+ tool calls), fixing a tricky error, \"\n    \"or discovering a non-trivial workflow, save the approach as a \"\n    \"skill with skill_manage so you can reuse it next time.\\n\"\n    \"When using a skill and finding it outdated, incomplete, or wrong, \"\n    \"patch it immediately with skill_manage(action='patch') — don't wait to be asked. \"\n    \"Skills that aren't maintained become liabilities.\"\n)\n# 工具使用强制执行指南\nTOOL_USE_ENFORCEMENT_GUIDANCE = (",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "TOOL_USE_ENFORCEMENT_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "TOOL_USE_ENFORCEMENT_GUIDANCE = (\n    \"# Tool-use enforcement\\n\"\n    \"You MUST use your tools to take action — do not describe what you would do \"\n    \"or plan to do without actually doing it. When you say you will perform an \"\n    \"action (e.g. 'I will run the tests', 'Let me check the file', 'I will create \"\n    \"the project'), you MUST immediately make the corresponding tool call in the same \"\n    \"response. Never end your turn with a promise of future action — execute it now.\\n\"\n    \"Keep working until the task is actually complete. Do not stop with a summary of \"\n    \"what you plan to do next time. If you have tools available that can accomplish \"\n    \"the task, use them instead of telling the user what you would do.\\n\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "TOOL_USE_ENFORCEMENT_MODELS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "TOOL_USE_ENFORCEMENT_MODELS = (\"gpt\", \"codex\", \"gemini\", \"gemma\", \"grok\")\n# OpenAI GPT/Codex 特定执行指导\nOPENAI_MODEL_EXECUTION_GUIDANCE = (\n    \"# Execution discipline\\n\"\n    \"<tool_persistence>\\n\"\n    \"- Use tools whenever they improve correctness, completeness, or grounding.\\n\"\n    \"- Do not stop early when another tool call would materially improve the result.\\n\"\n    \"- If a tool returns empty or partial results, retry with a different query or \"\n    \"strategy before giving up.\\n\"\n    \"- Keep calling tools until: (1) the task is complete, AND (2) you have verified \"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_MODEL_EXECUTION_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "OPENAI_MODEL_EXECUTION_GUIDANCE = (\n    \"# Execution discipline\\n\"\n    \"<tool_persistence>\\n\"\n    \"- Use tools whenever they improve correctness, completeness, or grounding.\\n\"\n    \"- Do not stop early when another tool call would materially improve the result.\\n\"\n    \"- If a tool returns empty or partial results, retry with a different query or \"\n    \"strategy before giving up.\\n\"\n    \"- Keep calling tools until: (1) the task is complete, AND (2) you have verified \"\n    \"the result.\\n\"\n    \"</tool_persistence>\\n\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "GOOGLE_MODEL_OPERATIONAL_GUIDANCE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "GOOGLE_MODEL_OPERATIONAL_GUIDANCE = (\n    \"# Google model operational directives\\n\"\n    \"Follow these operational rules strictly:\\n\"\n    \"- **Absolute paths:** Always construct and use absolute file paths for all \"\n    \"file system operations. Combine the project root with relative paths.\\n\"\n    \"- **Verify first:** Use read_file/search_files to check file contents and \"\n    \"project structure before making changes. Never guess at file contents.\\n\"\n    \"- **Dependency checks:** Never assume a library is available. Check \"\n    \"package.json, requirements.txt, Cargo.toml, etc. before importing.\\n\"\n    \"- **Conciseness:** Keep explanatory text brief — a few sentences, not \"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "DEVELOPER_ROLE_MODELS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "DEVELOPER_ROLE_MODELS = (\"gpt-5\", \"codex\")\n# 各平台特定提示\nPLATFORM_HINTS = {\n    \"whatsapp\": (\n        \"You are on a text messaging communication platform, WhatsApp. \"\n        \"Please do not use markdown as it does not render. \"\n        \"You can send media files natively: to deliver a file to the user, \"\n        \"include MEDIA:/absolute/path/to/file in your response. The file \"\n        \"will be sent as a native WhatsApp attachment — images (.jpg, .png, \"\n        \".webp) appear as photos, videos (.mp4, .mov) play inline, and other \"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "PLATFORM_HINTS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "PLATFORM_HINTS = {\n    \"whatsapp\": (\n        \"You are on a text messaging communication platform, WhatsApp. \"\n        \"Please do not use markdown as it does not render. \"\n        \"You can send media files natively: to deliver a file to the user, \"\n        \"include MEDIA:/absolute/path/to/file in your response. The file \"\n        \"will be sent as a native WhatsApp attachment — images (.jpg, .png, \"\n        \".webp) appear as photos, videos (.mp4, .mov) play inline, and other \"\n        \"files arrive as downloadable documents. You can also include image \"\n        \"URLs in markdown format ![alt](url) and they will be sent as photos.\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "CONTEXT_FILE_MAX_CHARS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "CONTEXT_FILE_MAX_CHARS = 20_000\nCONTEXT_TRUNCATE_HEAD_RATIO = 0.7\nCONTEXT_TRUNCATE_TAIL_RATIO = 0.2\n# =========================================================================\n# 技能提示词缓存 (两级缓存: 进程内 LRU + 磁盘快照)\n# =========================================================================\n_SKILLS_PROMPT_CACHE_MAX = 8\n_SKILLS_PROMPT_CACHE: OrderedDict[tuple, str] = OrderedDict()\n_SKILLS_PROMPT_CACHE_LOCK = threading.Lock()\n_SKILLS_SNAPSHOT_VERSION = 1",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "CONTEXT_TRUNCATE_HEAD_RATIO",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "CONTEXT_TRUNCATE_HEAD_RATIO = 0.7\nCONTEXT_TRUNCATE_TAIL_RATIO = 0.2\n# =========================================================================\n# 技能提示词缓存 (两级缓存: 进程内 LRU + 磁盘快照)\n# =========================================================================\n_SKILLS_PROMPT_CACHE_MAX = 8\n_SKILLS_PROMPT_CACHE: OrderedDict[tuple, str] = OrderedDict()\n_SKILLS_PROMPT_CACHE_LOCK = threading.Lock()\n_SKILLS_SNAPSHOT_VERSION = 1\ndef _skills_prompt_snapshot_path() -> Path:",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "CONTEXT_TRUNCATE_TAIL_RATIO",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "CONTEXT_TRUNCATE_TAIL_RATIO = 0.2\n# =========================================================================\n# 技能提示词缓存 (两级缓存: 进程内 LRU + 磁盘快照)\n# =========================================================================\n_SKILLS_PROMPT_CACHE_MAX = 8\n_SKILLS_PROMPT_CACHE: OrderedDict[tuple, str] = OrderedDict()\n_SKILLS_PROMPT_CACHE_LOCK = threading.Lock()\n_SKILLS_SNAPSHOT_VERSION = 1\ndef _skills_prompt_snapshot_path() -> Path:\n    return get_hermes_home() / \".skills_prompt_snapshot.json\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_SKILLS_PROMPT_CACHE_MAX",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_SKILLS_PROMPT_CACHE_MAX = 8\n_SKILLS_PROMPT_CACHE: OrderedDict[tuple, str] = OrderedDict()\n_SKILLS_PROMPT_CACHE_LOCK = threading.Lock()\n_SKILLS_SNAPSHOT_VERSION = 1\ndef _skills_prompt_snapshot_path() -> Path:\n    return get_hermes_home() / \".skills_prompt_snapshot.json\"\ndef clear_skills_system_prompt_cache(*, clear_snapshot: bool = False) -> None:\n    \"\"\"Drop the in-process skills prompt cache (and optionally the disk snapshot).\n    清除技能提示词缓存 (可选: 同时清除磁盘快照)\n    \"\"\"",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_SKILLS_PROMPT_CACHE_LOCK",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_SKILLS_PROMPT_CACHE_LOCK = threading.Lock()\n_SKILLS_SNAPSHOT_VERSION = 1\ndef _skills_prompt_snapshot_path() -> Path:\n    return get_hermes_home() / \".skills_prompt_snapshot.json\"\ndef clear_skills_system_prompt_cache(*, clear_snapshot: bool = False) -> None:\n    \"\"\"Drop the in-process skills prompt cache (and optionally the disk snapshot).\n    清除技能提示词缓存 (可选: 同时清除磁盘快照)\n    \"\"\"\n    with _SKILLS_PROMPT_CACHE_LOCK:\n        _SKILLS_PROMPT_CACHE.clear()",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_SKILLS_SNAPSHOT_VERSION",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.prompt_builder",
+        "description": "v2026.4.8.agent.prompt_builder",
+        "peekOfCode": "_SKILLS_SNAPSHOT_VERSION = 1\ndef _skills_prompt_snapshot_path() -> Path:\n    return get_hermes_home() / \".skills_prompt_snapshot.json\"\ndef clear_skills_system_prompt_cache(*, clear_snapshot: bool = False) -> None:\n    \"\"\"Drop the in-process skills prompt cache (and optionally the disk snapshot).\n    清除技能提示词缓存 (可选: 同时清除磁盘快照)\n    \"\"\"\n    with _SKILLS_PROMPT_CACHE_LOCK:\n        _SKILLS_PROMPT_CACHE.clear()\n    if clear_snapshot:",
+        "detail": "v2026.4.8.agent.prompt_builder",
+        "documentation": {}
+    },
+    {
+        "label": "choose_cheap_model_route",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.smart_model_routing",
+        "description": "v2026.4.8.agent.smart_model_routing",
+        "peekOfCode": "def choose_cheap_model_route(user_message: str, routing_config: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:\n    \"\"\"Return the configured cheap-model route when a message looks simple.\n    当消息看起来简单时，返回配置的廉价模型路由。\n    保守设计: 如果消息有代码/工具/调试/长篇工作的迹象，保持主模型。\n    \"\"\"\n    cfg = routing_config or {}\n    if not _coerce_bool(cfg.get(\"enabled\"), False):\n        return None\n    cheap_model = cfg.get(\"cheap_model\") or {}\n    if not isinstance(cheap_model, dict):",
+        "detail": "v2026.4.8.agent.smart_model_routing",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_turn_route",
+        "kind": 2,
+        "importPath": "v2026.4.8.agent.smart_model_routing",
+        "description": "v2026.4.8.agent.smart_model_routing",
+        "peekOfCode": "def resolve_turn_route(user_message: str, routing_config: Optional[Dict[str, Any]], primary: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"Resolve the effective model/runtime for one turn.\n    解析当前轮次的有效模型/运行时。\n    resolve_turn_route() 用简单消息规则决定当前 turn 走 cheap route 还是 primary route。\n    返回包含 model/runtime/signature/label 字段的字典。\n    \"\"\"\n    # 【文档锚点 2B】动态路由核心：当前 turn 可以覆盖默认模型与运行时\n    route = choose_cheap_model_route(user_message, routing_config)\n    if not route:\n        return {",
+        "detail": "v2026.4.8.agent.smart_model_routing",
+        "documentation": {}
+    },
+    {
+        "label": "_COMPLEX_KEYWORDS",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.smart_model_routing",
+        "description": "v2026.4.8.agent.smart_model_routing",
+        "peekOfCode": "_COMPLEX_KEYWORDS = {\n    \"debug\",\n    \"debugging\",\n    \"implement\",\n    \"implementation\",\n    \"refactor\",\n    \"patch\",\n    \"traceback\",\n    \"stacktrace\",\n    \"exception\",",
+        "detail": "v2026.4.8.agent.smart_model_routing",
+        "documentation": {}
+    },
+    {
+        "label": "_URL_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.agent.smart_model_routing",
+        "description": "v2026.4.8.agent.smart_model_routing",
+        "peekOfCode": "_URL_RE = re.compile(r\"https?://|www\\.\", re.IGNORECASE)\ndef _coerce_bool(value: Any, default: bool = False) -> bool:\n    return is_truthy_value(value, default=default)\ndef _coerce_int(value: Any, default: int) -> int:\n    try:\n        return int(value)\n    except (TypeError, ValueError):\n        return default\ndef choose_cheap_model_route(user_message: str, routing_config: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:\n    \"\"\"Return the configured cheap-model route when a message looks simple.",
+        "detail": "v2026.4.8.agent.smart_model_routing",
+        "documentation": {}
+    },
+    {
+        "label": "GatewayRunner",
+        "kind": 6,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "class GatewayRunner:\n    # 类级别默认值，这样测试中的部分构造不会\n    # 在属性访问时崩溃。\n    _running_agents_ts: Dict[str, float] = {}\n    def __init__(self, config: Optional[GatewayConfig] = None):\n        self.config = config or load_gateway_config()\n        self.adapters: Dict[Platform, BasePlatformAdapter] = {}\n        # 从 config.yaml / env vars 加载临时配置。\n        # 两者仅在 API 调用时注入，绝不持久化。\n        self._prefill_messages = self._load_prefill_messages()",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "def main():\n    \"\"\"CLI entry point for the gateway.\"\"\"\n    import argparse\n    parser = argparse.ArgumentParser(description=\"Hermes Gateway - Multi-platform messaging\")\n    parser.add_argument(\"--config\", \"-c\", help=\"Path to gateway config file\")\n    parser.add_argument(\"--verbose\", \"-v\", action=\"store_true\", help=\"Verbose output\")\n    args = parser.parse_args()\n    config = None\n    if args.config:\n        import json",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "_hermes_home",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "_hermes_home = get_hermes_home()\n# 先从 ~/.hermes/.env 加载环境变量。\n# 用户管理的 env 文件应在重启时覆盖过时的 shell 导出。\nfrom dotenv import load_dotenv  # 向后兼容：部分测试会 monkeypatch 此符号\nfrom hermes_cli.env_loader import load_hermes_dotenv\n_env_path = _hermes_home / '.env'\nload_hermes_dotenv(hermes_home=_hermes_home, project_env=Path(__file__).resolve().parents[1] / '.env')\n# 将 config.yaml 的值桥接到环境变量，以便 os.getenv() 获取。\n# config.yaml 是终端设置的权威来源 — 优先于 .env。\n_config_path = _hermes_home / 'config.yaml'",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "_env_path",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "_env_path = _hermes_home / '.env'\nload_hermes_dotenv(hermes_home=_hermes_home, project_env=Path(__file__).resolve().parents[1] / '.env')\n# 将 config.yaml 的值桥接到环境变量，以便 os.getenv() 获取。\n# config.yaml 是终端设置的权威来源 — 优先于 .env。\n_config_path = _hermes_home / 'config.yaml'\nif _config_path.exists():\n    try:\n        import yaml as _yaml\n        with open(_config_path, encoding=\"utf-8\") as _f:\n            _cfg = _yaml.safe_load(_f) or {}",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "_config_path",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "_config_path = _hermes_home / 'config.yaml'\nif _config_path.exists():\n    try:\n        import yaml as _yaml\n        with open(_config_path, encoding=\"utf-8\") as _f:\n            _cfg = _yaml.safe_load(_f) or {}\n        # 桥接前先展开 ${ENV_VAR} 引用。\n        from hermes_cli.config import _expand_env_vars\n        _cfg = _expand_env_vars(_cfg)\n        # 顶级简单值（仅作备用 — 不要覆盖 .env）",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"HERMES_QUIET\"]",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "os.environ[\"HERMES_QUIET\"] = \"1\"\n# 在消息平台上启用交互式执行审批（危险命令）\nos.environ[\"HERMES_EXEC_ASK\"] = \"1\"\n# 设置消息平台的终端工作目录。\n# 如果用户在 config.yaml 中设置了显式路径（非 \".\" 或 \"auto\"），\n# 尊重该设置。否则使用 MESSAGING_CWD 或默认为主目录。\n_configured_cwd = os.environ.get(\"TERMINAL_CWD\", \"\")\nif not _configured_cwd or _configured_cwd in (\".\", \"auto\", \"cwd\"):\n    messaging_cwd = os.getenv(\"MESSAGING_CWD\") or str(Path.home())\n    os.environ[\"TERMINAL_CWD\"] = messaging_cwd",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"HERMES_EXEC_ASK\"]",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "os.environ[\"HERMES_EXEC_ASK\"] = \"1\"\n# 设置消息平台的终端工作目录。\n# 如果用户在 config.yaml 中设置了显式路径（非 \".\" 或 \"auto\"），\n# 尊重该设置。否则使用 MESSAGING_CWD 或默认为主目录。\n_configured_cwd = os.environ.get(\"TERMINAL_CWD\", \"\")\nif not _configured_cwd or _configured_cwd in (\".\", \"auto\", \"cwd\"):\n    messaging_cwd = os.getenv(\"MESSAGING_CWD\") or str(Path.home())\n    os.environ[\"TERMINAL_CWD\"] = messaging_cwd\nfrom gateway.config import (\n    Platform,",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "_configured_cwd",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "_configured_cwd = os.environ.get(\"TERMINAL_CWD\", \"\")\nif not _configured_cwd or _configured_cwd in (\".\", \"auto\", \"cwd\"):\n    messaging_cwd = os.getenv(\"MESSAGING_CWD\") or str(Path.home())\n    os.environ[\"TERMINAL_CWD\"] = messaging_cwd\nfrom gateway.config import (\n    Platform,\n    GatewayConfig,\n    load_gateway_config,\n)\nfrom gateway.session import (",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# 哨兵在会话开始处理时立即放入 _running_agents\n# 处理，在任何 await 之前。防止同一会话的第二条消息\n# 在 async gap 期间绕过\"已运行\"守卫，导致\n# 守卫检查和实际代理创建之间出现重复代理。\n_AGENT_PENDING_SENTINEL = object()\ndef _resolve_runtime_agent_kwargs() -> dict:\n    \"\"\"Resolve provider credentials for gateway-created AIAgent instances.\"\"\"\n    from hermes_cli.runtime_provider import (\n        resolve_runtime_provider,",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "_AGENT_PENDING_SENTINEL",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.run",
+        "description": "v2026.4.8.gateway.run",
+        "peekOfCode": "_AGENT_PENDING_SENTINEL = object()\ndef _resolve_runtime_agent_kwargs() -> dict:\n    \"\"\"Resolve provider credentials for gateway-created AIAgent instances.\"\"\"\n    from hermes_cli.runtime_provider import (\n        resolve_runtime_provider,\n        format_runtime_provider_error,\n    )\n    try:\n        runtime = resolve_runtime_provider(\n            requested=os.getenv(\"HERMES_INFERENCE_PROVIDER\"),",
+        "detail": "v2026.4.8.gateway.run",
+        "documentation": {}
+    },
+    {
+        "label": "SessionSource",
+        "kind": 6,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "class SessionSource:\n    \"\"\"\n    描述消息的来源。\n    此信息用于：\n    1. 将响应路由到正确的位置\n    2. 注入系统提示词的上下文\n    3. 追踪定时任务的发送来源\n    \"\"\"\n    platform: Platform\n    chat_id: str",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionContext",
+        "kind": 6,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "class SessionContext:\n    \"\"\"\n    完整会话上下文，用于动态系统提示词注入。\n    Agent 接收此信息以了解：\n    - 消息来自何处\n    - 有哪些平台可用\n    - 可以向何处发送定时任务输出\n    \"\"\"\n    source: SessionSource\n    connected_platforms: List[Platform]",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionEntry",
+        "kind": 6,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "class SessionEntry:\n    \"\"\"\n    会话存储中的条目。\n    将会话键映射到其当前会话 ID 和元数据。\n    \"\"\"\n    session_key: str\n    session_id: str\n    created_at: datetime\n    updated_at: datetime\n    # 用于投递路由的来源元数据",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionStore",
+        "kind": 6,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "class SessionStore:\n    def __init__(self, sessions_dir: Path, config: GatewayConfig,\n                 has_active_processes_fn=None,\n                 on_auto_reset=None):\n        self.sessions_dir = sessions_dir\n        self.config = config\n        self._entries: Dict[str, SessionEntry] = {}\n        self._loaded = False\n        self._lock = threading.Lock()\n        self._has_active_processes_fn = has_active_processes_fn",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_context_prompt",
+        "kind": 2,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "def build_session_context_prompt(\n    context: SessionContext,\n    *,\n    redact_pii: bool = False,\n) -> str:\n    \"\"\"\n    构建告诉 agent 其上下文的动态系统提示词部分。\n    此信息注入到系统提示词中，使 agent 知道：\n    - 消息来自何处\n    - 已连接哪些平台",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_key",
+        "kind": 2,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "def build_session_key(\n    source: SessionSource,\n    group_sessions_per_user: bool = True,\n    thread_sessions_per_user: bool = False,\n) -> str:\n    \"\"\"从消息来源构建确定性会话键。\n    这是会话键构造的唯一权威来源。\n    DM 规则：\n      - DMs 在有 chat_id 时包含它，因此每个私人对话是隔离的。\n      - thread_id 进一步区分同一 DM 聊天中的线程 DM。",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "build_session_context",
+        "kind": 2,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "def build_session_context(\n    source: SessionSource,\n    config: GatewayConfig,\n    session_entry: Optional[SessionEntry] = None\n) -> SessionContext:\n    \"\"\"\n    从来源和配置构建完整会话上下文。\n    用于将上下文注入 agent 的系统提示词。\n    \"\"\"\n    connected = config.get_connected_platforms()",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef _now() -> datetime:\n    \"\"\"返回当前本地时间。\"\"\"\n    return datetime.now()\n# ---------------------------------------------------------------------------\n# PII 数据脱敏辅助函数\n# ---------------------------------------------------------------------------\n_PHONE_RE = re.compile(r\"^\\+?\\d[\\d\\-\\s]{6,}$\")\ndef _hash_id(value: str) -> str:\n    \"\"\"返回标识符的确定性 12 字符十六进制哈希。\"\"\"",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "_PHONE_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "_PHONE_RE = re.compile(r\"^\\+?\\d[\\d\\-\\s]{6,}$\")\ndef _hash_id(value: str) -> str:\n    \"\"\"返回标识符的确定性 12 字符十六进制哈希。\"\"\"\n    return hashlib.sha256(value.encode(\"utf-8\")).hexdigest()[:12]\ndef _hash_sender_id(value: str) -> str:\n    \"\"\"将发送者 ID 哈希为 ``user_<12位十六进制>`` 格式。\"\"\"\n    return f\"user_{_hash_id(value)}\"\ndef _hash_chat_id(value: str) -> str:\n    \"\"\"哈希聊天 ID 的数字部分，保留平台前缀。\n    ``telegram:12345`` → ``telegram:<hash>``",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "_PII_SAFE_PLATFORMS",
+        "kind": 5,
+        "importPath": "v2026.4.8.gateway.session",
+        "description": "v2026.4.8.gateway.session",
+        "peekOfCode": "_PII_SAFE_PLATFORMS = frozenset({\n    Platform.WHATSAPP,\n    Platform.SIGNAL,\n    Platform.TELEGRAM,\n})\n\"\"\"用户 ID 可安全脱敏的平台（没有需要原始 ID 的内置提及系统）。\n排除 Discord，因为提及使用 ``<@user_id>`` 格式，LLM 需要真实 ID 才能标记用户。\"\"\"\ndef build_session_context_prompt(\n    context: SessionContext,\n    *,",
+        "detail": "v2026.4.8.gateway.session",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_chat",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_chat(args):\n    \"\"\"交互式聊天CLI入口 (chat子命令绑定点).\"\"\"\n    # 【文档锚点 1B】控制层：chat 子命令在这里整理参数，然后移交给 cli.main()\n    # ----------------------------------------------------------\n    # 步骤1: 处理 --continue/-c 参数, 解析为 --resume\n    # ----------------------------------------------------------\n    continue_val = getattr(args, \"continue_last\", None)\n    if continue_val and not getattr(args, \"resume\", None):\n        if isinstance(continue_val, str):\n            # -c \"会话名称\" — 通过 title 或 ID 解析",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_gateway",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_gateway(args):\n    \"\"\"Gateway management commands.\"\"\"\n    from hermes_cli.gateway import gateway_command\n    gateway_command(args)\ndef cmd_whatsapp(args):\n    \"\"\"Set up WhatsApp: choose mode, configure, install bridge, pair via QR.\"\"\"\n    _require_tty(\"whatsapp\")\n    import subprocess\n    from pathlib import Path\n    from hermes_cli.config import get_env_value, save_env_value",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_whatsapp",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_whatsapp(args):\n    \"\"\"Set up WhatsApp: choose mode, configure, install bridge, pair via QR.\"\"\"\n    _require_tty(\"whatsapp\")\n    import subprocess\n    from pathlib import Path\n    from hermes_cli.config import get_env_value, save_env_value\n    print()\n    print(\"⚕ WhatsApp Setup\")\n    print(\"=\" * 50)\n    # ── Step 1: Choose mode ──────────────────────────────────────────────",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_setup",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_setup(args):\n    \"\"\"Interactive setup wizard.\"\"\"\n    _require_tty(\"setup\")\n    from hermes_cli.setup import run_setup_wizard\n    run_setup_wizard(args)\ndef cmd_model(args):\n    \"\"\"Select default model — starts with provider selection, then model picker.\"\"\"\n    _require_tty(\"model\")\n    select_provider_and_model(args=args)\ndef select_provider_and_model(args=None):",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_model",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_model(args):\n    \"\"\"Select default model — starts with provider selection, then model picker.\"\"\"\n    _require_tty(\"model\")\n    select_provider_and_model(args=args)\ndef select_provider_and_model(args=None):\n    \"\"\"Core provider selection + model picking logic.\n    Shared by ``cmd_model`` (``hermes model``) and the setup wizard\n    (``setup_model_provider`` in setup.py).  Handles the full flow:\n    provider picker, credential prompting, model selection, and config\n    persistence.",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "select_provider_and_model",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def select_provider_and_model(args=None):\n    \"\"\"Core provider selection + model picking logic.\n    Shared by ``cmd_model`` (``hermes model``) and the setup wizard\n    (``setup_model_provider`` in setup.py).  Handles the full flow:\n    provider picker, credential prompting, model selection, and config\n    persistence.\n    \"\"\"\n    from hermes_cli.auth import (\n        resolve_provider, AuthError, format_auth_error,\n    )",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_login",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_login(args):\n    \"\"\"Authenticate Hermes CLI with a provider.\"\"\"\n    from hermes_cli.auth import login_command\n    login_command(args)\ndef cmd_logout(args):\n    \"\"\"Clear provider authentication.\"\"\"\n    from hermes_cli.auth import logout_command\n    logout_command(args)\ndef cmd_auth(args):\n    \"\"\"Manage pooled credentials.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_logout",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_logout(args):\n    \"\"\"Clear provider authentication.\"\"\"\n    from hermes_cli.auth import logout_command\n    logout_command(args)\ndef cmd_auth(args):\n    \"\"\"Manage pooled credentials.\"\"\"\n    from hermes_cli.auth_commands import auth_command\n    auth_command(args)\ndef cmd_status(args):\n    \"\"\"Show status of all components.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_auth",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_auth(args):\n    \"\"\"Manage pooled credentials.\"\"\"\n    from hermes_cli.auth_commands import auth_command\n    auth_command(args)\ndef cmd_status(args):\n    \"\"\"Show status of all components.\"\"\"\n    from hermes_cli.status import show_status\n    show_status(args)\ndef cmd_cron(args):\n    \"\"\"Cron job management.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_status",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_status(args):\n    \"\"\"Show status of all components.\"\"\"\n    from hermes_cli.status import show_status\n    show_status(args)\ndef cmd_cron(args):\n    \"\"\"Cron job management.\"\"\"\n    from hermes_cli.cron import cron_command\n    cron_command(args)\ndef cmd_webhook(args):\n    \"\"\"Webhook subscription management.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_cron",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_cron(args):\n    \"\"\"Cron job management.\"\"\"\n    from hermes_cli.cron import cron_command\n    cron_command(args)\ndef cmd_webhook(args):\n    \"\"\"Webhook subscription management.\"\"\"\n    from hermes_cli.webhook import webhook_command\n    webhook_command(args)\ndef cmd_doctor(args):\n    \"\"\"Check configuration and dependencies.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_webhook",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_webhook(args):\n    \"\"\"Webhook subscription management.\"\"\"\n    from hermes_cli.webhook import webhook_command\n    webhook_command(args)\ndef cmd_doctor(args):\n    \"\"\"Check configuration and dependencies.\"\"\"\n    from hermes_cli.doctor import run_doctor\n    run_doctor(args)\ndef cmd_config(args):\n    \"\"\"Configuration management.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_doctor",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_doctor(args):\n    \"\"\"Check configuration and dependencies.\"\"\"\n    from hermes_cli.doctor import run_doctor\n    run_doctor(args)\ndef cmd_config(args):\n    \"\"\"Configuration management.\"\"\"\n    from hermes_cli.config import config_command\n    config_command(args)\ndef cmd_version(args):\n    \"\"\"Show version.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_config",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_config(args):\n    \"\"\"Configuration management.\"\"\"\n    from hermes_cli.config import config_command\n    config_command(args)\ndef cmd_version(args):\n    \"\"\"Show version.\"\"\"\n    print(f\"Hermes Agent v{__version__} ({__release_date__})\")\n    print(f\"Project: {PROJECT_ROOT}\")\n    # 显示 Python 版本\n    print(f\"Python: {sys.version.split()[0]}\")",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_version",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_version(args):\n    \"\"\"Show version.\"\"\"\n    print(f\"Hermes Agent v{__version__} ({__release_date__})\")\n    print(f\"Project: {PROJECT_ROOT}\")\n    # 显示 Python 版本\n    print(f\"Python: {sys.version.split()[0]}\")\n    # 检查关键依赖\n    try:\n        import openai\n        print(f\"OpenAI SDK: {openai.__version__}\")",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_uninstall",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_uninstall(args):\n    \"\"\"Uninstall Hermes Agent.\"\"\"\n    _require_tty(\"uninstall\")\n    from hermes_cli.uninstall import run_uninstall\n    run_uninstall(args)\ndef _clear_bytecode_cache(root: Path) -> int:\n    \"\"\"Remove all __pycache__ directories under *root*.\n    Stale .pyc files can cause ImportError after code updates when Python\n    loads a cached bytecode file that references names that no longer exist\n    (or don't yet exist) in the updated source.  Clearing them forces Python",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_update",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_update(args):\n    \"\"\"Update Hermes Agent to the latest version.\"\"\"\n    import shutil\n    from hermes_cli.config import is_managed, managed_error\n    if is_managed():\n        managed_error(\"update Hermes Agent\")\n        return\n    gateway_mode = getattr(args, \"gateway\", False)\n    # gateway 模式：用基于文件的 IPC 而非 stdin 传递提示\n    gw_input_fn = (lambda prompt, default=\"\": _gateway_prompt(prompt, default)) if gateway_mode else None",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_profile",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_profile(args):\n    \"\"\"Profile management — create, delete, list, switch, alias.\"\"\"\n    from hermes_cli.profiles import (\n        list_profiles, create_profile, delete_profile, seed_profile_skills,\n        set_active_profile, get_active_profile_name,\n        check_alias_collision, create_wrapper_script, remove_wrapper_script,\n        _is_wrapper_dir_in_path, _get_wrapper_dir,\n    )\n    from hermes_constants import display_hermes_home\n    action = getattr(args, \"profile_action\", None)",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_completion",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_completion(args):\n    \"\"\"Print shell completion script.\"\"\"\n    from hermes_cli.profiles import generate_bash_completion, generate_zsh_completion\n    shell = getattr(args, \"shell\", \"bash\")\n    if shell == \"zsh\":\n        print(generate_zsh_completion())\n    else:\n        print(generate_bash_completion())\ndef cmd_logs(args):\n    \"\"\"View and filter Hermes log files.\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "cmd_logs",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def cmd_logs(args):\n    \"\"\"View and filter Hermes log files.\"\"\"\n    from hermes_cli.logs import tail_log, list_logs\n    log_name = getattr(args, \"log_name\", \"agent\") or \"agent\"\n    if log_name == \"list\":\n        list_logs()\n        return\n    tail_log(\n        log_name,\n        num_lines=getattr(args, \"lines\", 50),",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "def main():\n    \"\"\"Hermes CLI主入口点.\"\"\"\n    parser = argparse.ArgumentParser(\n        prog=\"hermes\",\n        description=\"Hermes Agent - AI assistant with tool-calling capabilities\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        epilog=\"\"\"\nExamples:\n    hermes                        Start interactive chat\n    hermes chat -q \"Hello\"        Single query mode",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "PROJECT_ROOT = Path(__file__).parent.parent.resolve()\nsys.path.insert(0, str(PROJECT_ROOT))\n# ---------------------------------------------------------------------------\n# 配置文件覆盖 — 必须在任何hermes模块导入之前执行\n# 许多模块在导入时缓存HERMES_HOME(模块级常量)\n# 我们在此拦截--profile/-p并设置环境变量,使后续os.getenv(\"HERMES_HOME\")正确解析\n# ---------------------------------------------------------------------------\ndef _apply_profile_override() -> None:\n    \"\"\"在模块导入前预解析 --profile/-p 参数并设置 HERMES_HOME。\"\"\"\n    # 【文档锚点 1B】控制层：在导入其他 hermes 模块前先解析 profile，决定 HERMES_HOME",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef _relative_time(ts) -> str:\n    \"\"\"将时间戳格式化为相对时间(例如'2h ago','yesterday')。\"\"\"\n    if not ts:\n        return \"?\"\n    delta = _time.time() - ts\n    if delta < 60:\n        return \"just now\"\n    if delta < 3600:\n        return f\"{int(delta / 60)}m ago\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "OFFICIAL_REPO_URLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "OFFICIAL_REPO_URLS = {\n    \"https://github.com/NousResearch/hermes-agent.git\",\n    \"git@github.com:NousResearch/hermes-agent.git\",\n    \"https://github.com/NousResearch/hermes-agent\",\n    \"git@github.com:NousResearch/hermes-agent\",\n}\nOFFICIAL_REPO_URL = \"https://github.com/NousResearch/hermes-agent.git\"\nSKIP_UPSTREAM_PROMPT_FILE = \".skip_upstream_prompt\"\ndef _get_origin_url(git_cmd: list[str], cwd: Path) -> Optional[str]:\n    \"\"\"获取 origin remote 的 URL，未设置则返回 None。\"\"\"",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "OFFICIAL_REPO_URL",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "OFFICIAL_REPO_URL = \"https://github.com/NousResearch/hermes-agent.git\"\nSKIP_UPSTREAM_PROMPT_FILE = \".skip_upstream_prompt\"\ndef _get_origin_url(git_cmd: list[str], cwd: Path) -> Optional[str]:\n    \"\"\"获取 origin remote 的 URL，未设置则返回 None。\"\"\"\n    try:\n        result = subprocess.run(\n            git_cmd + [\"remote\", \"get-url\", \"origin\"],\n            cwd=cwd,\n            capture_output=True,\n            text=True,",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "SKIP_UPSTREAM_PROMPT_FILE",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_cli.main",
+        "description": "v2026.4.8.hermes_cli.main",
+        "peekOfCode": "SKIP_UPSTREAM_PROMPT_FILE = \".skip_upstream_prompt\"\ndef _get_origin_url(git_cmd: list[str], cwd: Path) -> Optional[str]:\n    \"\"\"获取 origin remote 的 URL，未设置则返回 None。\"\"\"\n    try:\n        result = subprocess.run(\n            git_cmd + [\"remote\", \"get-url\", \"origin\"],\n            cwd=cwd,\n            capture_output=True,\n            text=True,\n        )",
+        "detail": "v2026.4.8.hermes_cli.main",
+        "documentation": {}
+    },
+    {
+        "label": "ToolEntry",
+        "kind": 6,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "class ToolEntry:\n    \"\"\"单个已注册工具的元数据\"\"\"\n    __slots__ = (\n        \"name\", \"toolset\", \"schema\", \"handler\", \"check_fn\",\n        \"requires_env\", \"is_async\", \"description\", \"emoji\",\n        \"max_result_size_chars\",\n    )\n    def __init__(self, name, toolset, schema, handler, check_fn,\n                 requires_env, is_async, description, emoji,\n                 max_result_size_chars=None):",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "ToolRegistry",
+        "kind": 6,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "class ToolRegistry:\n    \"\"\"工具注册中心单例 - 收集工具 schema + handler\"\"\"\n    def __init__(self):\n        self._tools: Dict[str, ToolEntry] = {}\n        self._toolset_checks: Dict[str, Callable] = {}\n    # ------------------------------------------------------------------\n    # 注册相关\n    # ------------------------------------------------------------------\n    def register(\n        self,",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "tool_error",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "def tool_error(message, **extra) -> str:\n    \"\"\"返回工具错误 JSON 字符串\"\"\"\n    result = {\"error\": str(message)}\n    if extra:\n        result.update(extra)\n    return json.dumps(result, ensure_ascii=False)\ndef tool_result(data=None, **kwargs) -> str:\n    \"\"\"返回工具结果 JSON 字符串\"\"\"\n    if data is not None:\n        return json.dumps(data, ensure_ascii=False)",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "tool_result",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "def tool_result(data=None, **kwargs) -> str:\n    \"\"\"返回工具结果 JSON 字符串\"\"\"\n    if data is not None:\n        return json.dumps(data, ensure_ascii=False)\n    return json.dumps(kwargs, ensure_ascii=False)",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass ToolEntry:\n    \"\"\"单个已注册工具的元数据\"\"\"\n    __slots__ = (\n        \"name\", \"toolset\", \"schema\", \"handler\", \"check_fn\",\n        \"requires_env\", \"is_async\", \"description\", \"emoji\",\n        \"max_result_size_chars\",\n    )\n    def __init__(self, name, toolset, schema, handler, check_fn,\n                 requires_env, is_async, description, emoji,",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "registry",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.registry",
+        "description": "v2026.4.8.tools.registry",
+        "peekOfCode": "registry = ToolRegistry()\n# ---------------------------------------------------------------------------\n# 工具响应序列化辅助函数\n# 所有工具 handler 必须返回 JSON 字符串\n# ---------------------------------------------------------------------------\ndef tool_error(message, **extra) -> str:\n    \"\"\"返回工具错误 JSON 字符串\"\"\"\n    result = {\"error\": str(message)}\n    if extra:\n        result.update(extra)",
+        "detail": "v2026.4.8.tools.registry",
+        "documentation": {}
+    },
+    {
+        "label": "SkillReadinessStatus",
+        "kind": 6,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "class SkillReadinessStatus(str, Enum):\n    \"\"\"技能就绪状态枚举\"\"\"\n    AVAILABLE = \"available\"\n    SETUP_NEEDED = \"setup_needed\"\n    UNSUPPORTED = \"unsupported\"\ndef set_secret_capture_callback(callback) -> None:\n    \"\"\"设置密钥捕获回调\"\"\"\n    global _secret_capture_callback\n    _secret_capture_callback = callback\ndef skill_matches_platform(frontmatter: Dict[str, Any]) -> bool:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "load_env",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def load_env() -> Dict[str, str]:\n    \"\"\"从 HERMES_HOME/.env 加载环境变量\"\"\"\n    env_path = get_hermes_home() / \".env\"\n    env_vars: Dict[str, str] = {}\n    if not env_path.exists():\n        return env_vars\n    with env_path.open() as f:\n        for line in f:\n            line = line.strip()\n            if line and not line.startswith(\"#\") and \"=\" in line:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "set_secret_capture_callback",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def set_secret_capture_callback(callback) -> None:\n    \"\"\"设置密钥捕获回调\"\"\"\n    global _secret_capture_callback\n    _secret_capture_callback = callback\ndef skill_matches_platform(frontmatter: Dict[str, Any]) -> bool:\n    \"\"\"检查技能是否与当前 OS 平台兼容\"\"\"\n    from agent.skill_utils import skill_matches_platform as _impl\n    return _impl(frontmatter)\ndef _normalize_prerequisite_values(value: Any) -> List[str]:\n    \"\"\"规范化前置条件值\"\"\"",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "skill_matches_platform",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def skill_matches_platform(frontmatter: Dict[str, Any]) -> bool:\n    \"\"\"检查技能是否与当前 OS 平台兼容\"\"\"\n    from agent.skill_utils import skill_matches_platform as _impl\n    return _impl(frontmatter)\ndef _normalize_prerequisite_values(value: Any) -> List[str]:\n    \"\"\"规范化前置条件值\"\"\"\n    if not value:\n        return []\n    if isinstance(value, str):\n        value = [value]",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "check_skills_requirements",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def check_skills_requirements() -> bool:\n    \"\"\"技能始终可用 - 目录在首次使用时创建\"\"\"\n    return True\ndef _parse_frontmatter(content: str) -> Tuple[Dict[str, Any], str]:\n    \"\"\"解析 YAML frontmatter\"\"\"\n    from agent.skill_utils import parse_frontmatter\n    return parse_frontmatter(content)\ndef _get_category_from_path(skill_path: Path) -> Optional[str]:\n    \"\"\"从技能路径提取分类\n    例如：~/.hermes/skills/mlops/axolotl/SKILL.md -> \"mlops\"",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "skills_categories",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def skills_categories(verbose: bool = False, task_id: str = None) -> str:\n    \"\"\"列出可用技能分类（渐进式披露 Tier 0）\"\"\"\n    try:\n        all_dirs = [SKILLS_DIR] if SKILLS_DIR.exists() else []\n        try:\n            from agent.skill_utils import get_external_skills_dirs\n            all_dirs.extend(d for d in get_external_skills_dirs() if d.exists())\n        except Exception:\n            pass\n        if not all_dirs:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "skills_list",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def skills_list(category: str = None, task_id: str = None) -> str:\n    \"\"\"列出所有可用技能（渐进式披露 Tier 1 - 最小元数据）\n    仅返回名称+描述以最小化 token 使用量。使用 skill_view() 加载完整内容。\n    \"\"\"\n    try:\n        if not SKILLS_DIR.exists():\n            SKILLS_DIR.mkdir(parents=True, exist_ok=True)\n            return json.dumps(\n                {\n                    \"success\": True,",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "skill_view",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "def skill_view(name: str, file_path: str = None, task_id: str = None) -> str:\n    \"\"\"查看技能内容或技能目录中的特定文件\n    渐进式披露流程：\n    1. skill_view(name) -> SKILL.md 内容 + linked_files 字典\n    2. skill_view(name, file_path) -> 加载特定链接文件\n    \"\"\"\n    try:\n        from agent.skill_utils import get_external_skills_dirs\n        all_dirs = []\n        if SKILLS_DIR.exists():",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# 技能目录：~/.hermes/skills/（单点真相）\nHERMES_HOME = get_hermes_home()\nSKILLS_DIR = HERMES_HOME / \"skills\"\nMAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\n# 平台标识符映射\n_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "HERMES_HOME",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "HERMES_HOME = get_hermes_home()\nSKILLS_DIR = HERMES_HOME / \"skills\"\nMAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\n# 平台标识符映射\n_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",\n    \"windows\": \"win32\",\n}",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "SKILLS_DIR",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "SKILLS_DIR = HERMES_HOME / \"skills\"\nMAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\n# 平台标识符映射\n_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",\n    \"windows\": \"win32\",\n}\n_ENV_VAR_NAME_RE = re.compile(r\"^[A-Za-z_][A-Za-z0-9_]*$\")",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_NAME_LENGTH",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "MAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\n# 平台标识符映射\n_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",\n    \"windows\": \"win32\",\n}\n_ENV_VAR_NAME_RE = re.compile(r\"^[A-Za-z_][A-Za-z0-9_]*$\")\n_EXCLUDED_SKILL_DIRS = frozenset((\".git\", \".github\", \".hub\"))",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_DESCRIPTION_LENGTH",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "MAX_DESCRIPTION_LENGTH = 1024\n# 平台标识符映射\n_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",\n    \"windows\": \"win32\",\n}\n_ENV_VAR_NAME_RE = re.compile(r\"^[A-Za-z_][A-Za-z0-9_]*$\")\n_EXCLUDED_SKILL_DIRS = frozenset((\".git\", \".github\", \".hub\"))\n_REMOTE_ENV_BACKENDS = frozenset({\"docker\", \"singularity\", \"modal\", \"ssh\", \"daytona\"})",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "_PLATFORM_MAP",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "_PLATFORM_MAP = {\n    \"macos\": \"darwin\",\n    \"linux\": \"linux\",\n    \"windows\": \"win32\",\n}\n_ENV_VAR_NAME_RE = re.compile(r\"^[A-Za-z_][A-Za-z0-9_]*$\")\n_EXCLUDED_SKILL_DIRS = frozenset((\".git\", \".github\", \".hub\"))\n_REMOTE_ENV_BACKENDS = frozenset({\"docker\", \"singularity\", \"modal\", \"ssh\", \"daytona\"})\n_secret_capture_callback = None\ndef load_env() -> Dict[str, str]:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "_ENV_VAR_NAME_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "_ENV_VAR_NAME_RE = re.compile(r\"^[A-Za-z_][A-Za-z0-9_]*$\")\n_EXCLUDED_SKILL_DIRS = frozenset((\".git\", \".github\", \".hub\"))\n_REMOTE_ENV_BACKENDS = frozenset({\"docker\", \"singularity\", \"modal\", \"ssh\", \"daytona\"})\n_secret_capture_callback = None\ndef load_env() -> Dict[str, str]:\n    \"\"\"从 HERMES_HOME/.env 加载环境变量\"\"\"\n    env_path = get_hermes_home() / \".env\"\n    env_vars: Dict[str, str] = {}\n    if not env_path.exists():\n        return env_vars",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "_EXCLUDED_SKILL_DIRS",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "_EXCLUDED_SKILL_DIRS = frozenset((\".git\", \".github\", \".hub\"))\n_REMOTE_ENV_BACKENDS = frozenset({\"docker\", \"singularity\", \"modal\", \"ssh\", \"daytona\"})\n_secret_capture_callback = None\ndef load_env() -> Dict[str, str]:\n    \"\"\"从 HERMES_HOME/.env 加载环境变量\"\"\"\n    env_path = get_hermes_home() / \".env\"\n    env_vars: Dict[str, str] = {}\n    if not env_path.exists():\n        return env_vars\n    with env_path.open() as f:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "_REMOTE_ENV_BACKENDS",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "_REMOTE_ENV_BACKENDS = frozenset({\"docker\", \"singularity\", \"modal\", \"ssh\", \"daytona\"})\n_secret_capture_callback = None\ndef load_env() -> Dict[str, str]:\n    \"\"\"从 HERMES_HOME/.env 加载环境变量\"\"\"\n    env_path = get_hermes_home() / \".env\"\n    env_vars: Dict[str, str] = {}\n    if not env_path.exists():\n        return env_vars\n    with env_path.open() as f:\n        for line in f:",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "_secret_capture_callback",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "_secret_capture_callback = None\ndef load_env() -> Dict[str, str]:\n    \"\"\"从 HERMES_HOME/.env 加载环境变量\"\"\"\n    env_path = get_hermes_home() / \".env\"\n    env_vars: Dict[str, str] = {}\n    if not env_path.exists():\n        return env_vars\n    with env_path.open() as f:\n        for line in f:\n            line = line.strip()",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "SKILLS_LIST_SCHEMA",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "SKILLS_LIST_SCHEMA = {\n    \"name\": \"skills_list\",\n    \"description\": \"List available skills (name + description). Use skill_view(name) to load full content.\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"category\": {\n                \"type\": \"string\",\n                \"description\": \"Optional category filter to narrow results\",\n            }",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_VIEW_SCHEMA",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skills_tool",
+        "description": "v2026.4.8.tools.skills_tool",
+        "peekOfCode": "SKILL_VIEW_SCHEMA = {\n    \"name\": \"skill_view\",\n    \"description\": \"Skills allow for loading information about specific tasks and workflows, as well as scripts and templates. Load a skill's full content or access its linked files (references, templates, scripts). First call returns SKILL.md content plus a 'linked_files' dict showing available references/templates/scripts. To access those, call again with file_path parameter.\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"name\": {\n                \"type\": \"string\",\n                \"description\": \"The skill name (use skills_list to see available skills)\",\n            },",
+        "detail": "v2026.4.8.tools.skills_tool",
+        "documentation": {}
+    },
+    {
+        "label": "skill_manage",
+        "kind": 2,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "def skill_manage(\n    action: str,\n    name: str,\n    content: str = None,\n    category: str = None,\n    file_path: str = None,\n    file_content: str = None,\n    old_string: str = None,\n    new_string: str = None,\n    replace_all: bool = False,",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ntry:\n    from tools.skills_guard import scan_skill, should_allow_install, format_scan_report\n    _GUARD_AVAILABLE = True\nexcept ImportError:\n    _GUARD_AVAILABLE = False\ndef _security_scan_skill(skill_dir: Path) -> Optional[str]:\n    \"\"\"写入后扫描技能目录 - 被阻止时返回错误字符串\"\"\"\n    if not _GUARD_AVAILABLE:\n        return None",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "HERMES_HOME",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "HERMES_HOME = get_hermes_home()\nSKILLS_DIR = HERMES_HOME / \"skills\"\nMAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\nMAX_SKILL_CONTENT_CHARS = 100_000\nMAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "SKILLS_DIR",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "SKILLS_DIR = HERMES_HOME / \"skills\"\nMAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\nMAX_SKILL_CONTENT_CHARS = 100_000\nMAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_NAME_LENGTH",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "MAX_NAME_LENGTH = 64\nMAX_DESCRIPTION_LENGTH = 1024\nMAX_SKILL_CONTENT_CHARS = 100_000\nMAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_DESCRIPTION_LENGTH",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "MAX_DESCRIPTION_LENGTH = 1024\nMAX_SKILL_CONTENT_CHARS = 100_000\nMAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数\n# =============================================================================",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_SKILL_CONTENT_CHARS",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "MAX_SKILL_CONTENT_CHARS = 100_000\nMAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数\n# =============================================================================\ndef _validate_name(name: str) -> Optional[str]:",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_SKILL_FILE_BYTES",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "MAX_SKILL_FILE_BYTES = 1_048_576\n# 技能名称允许的字符（文件系统安全、URL 友好）\nVALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数\n# =============================================================================\ndef _validate_name(name: str) -> Optional[str]:\n    \"\"\"验证技能名称\"\"\"",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "VALID_NAME_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "VALID_NAME_RE = re.compile(r'^[a-z0-9][a-z0-9._-]*$')\n# write_file/remove_file 允许的子目录\nALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数\n# =============================================================================\ndef _validate_name(name: str) -> Optional[str]:\n    \"\"\"验证技能名称\"\"\"\n    if not name:\n        return \"Skill name is required.\"",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_SUBDIRS",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "ALLOWED_SUBDIRS = {\"references\", \"templates\", \"scripts\", \"assets\"}\n# =============================================================================\n# 验证辅助函数\n# =============================================================================\ndef _validate_name(name: str) -> Optional[str]:\n    \"\"\"验证技能名称\"\"\"\n    if not name:\n        return \"Skill name is required.\"\n    if len(name) > MAX_NAME_LENGTH:\n        return f\"Skill name exceeds {MAX_NAME_LENGTH} characters.\"",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_MANAGE_SCHEMA",
+        "kind": 5,
+        "importPath": "v2026.4.8.tools.skill_manager_tool",
+        "description": "v2026.4.8.tools.skill_manager_tool",
+        "peekOfCode": "SKILL_MANAGE_SCHEMA = {\n    \"name\": \"skill_manage\",\n    \"description\": (\n        \"Manage skills (create, update, delete). Skills are your procedural \"\n        \"memory — reusable approaches for recurring task types. \"\n        \"New skills go to ~/.hermes/skills/; existing skills can be modified wherever they live.\\n\\n\"\n        \"Actions: create (full SKILL.md + optional category), \"\n        \"patch (old_string/new_string — preferred for fixes), \"\n        \"edit (full SKILL.md rewrite — major overhauls only), \"\n        \"delete, write_file, remove_file.\\n\\n\"",
+        "detail": "v2026.4.8.tools.skill_manager_tool",
+        "documentation": {}
+    },
+    {
+        "label": "ChatConsole",
+        "kind": 6,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "class ChatConsole:\n    \"\"\"Rich Console adapter for prompt_toolkit's patch_stdout context.\n    Captures Rich's rendered ANSI output and routes it through _cprint\n    so colors and markup render correctly inside the interactive chat loop.\n    Drop-in replacement for Rich Console — just pass this to any function\n    that expects a console.print() interface.\n    \"\"\"\n    def __init__(self):\n        from io import StringIO\n        self._buffer = StringIO()",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "HermesCLI",
+        "kind": 6,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "class HermesCLI:\n    \"\"\"\n    Interactive CLI for the Hermes Agent.\n    Provides a REPL interface with rich formatting, command history,\n    and tool execution capabilities.\n    \"\"\"\n    def __init__(\n        self,\n        model: str = None,\n        toolsets: List[str] = None,",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "load_cli_config",
+        "kind": 2,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "def load_cli_config() -> Dict[str, Any]:\n    \"\"\"\n    Load CLI configuration from config files.\n    Config lookup order:\n    1. ~/.hermes/config.yaml (user config - preferred)\n    2. ./cli-config.yaml (project config - fallback)\n    Environment variables take precedence over config file values.\n    Returns default values if no config file exists.\n    \"\"\"\n    user_config_path = _hermes_home / 'config.yaml'",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "save_config_value",
+        "kind": 2,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "def save_config_value(key_path: str, value: any) -> bool:\n    \"\"\"\n    Save a value to the active config file at the specified key path.\n    Respects the same lookup order as load_cli_config():\n    1. ~/.hermes/config.yaml (user config - preferred, used if it exists)\n    2. ./cli-config.yaml (project config - fallback)\n    Args:\n        key_path: Dot-separated path like \"agent.system_prompt\"\n        value: Value to save\n    Returns:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "def main(\n    query: str = None,\n    q: str = None,\n    toolsets: str = None,\n    skills: str | list[str] | tuple[str, ...] = None,\n    model: str = None,\n    provider: str = None,\n    api_key: str = None,\n    base_url: str = None,\n    max_turns: int = None,",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nos.environ[\"HERMES_QUIET\"] = \"1\"\nimport yaml\nfrom prompt_toolkit.history import FileHistory\nfrom prompt_toolkit.styles import Style as PTStyle\nfrom prompt_toolkit.patch_stdout import patch_stdout\nfrom prompt_toolkit.application import Application\nfrom prompt_toolkit.layout import Layout, HSplit, Window, FormattedTextControl, ConditionalContainer\nfrom prompt_toolkit.layout.processors import Processor, Transformation, PasswordProcessor, ConditionalProcessor\nfrom prompt_toolkit.filters import Condition",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"HERMES_QUIET\"]",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "os.environ[\"HERMES_QUIET\"] = \"1\"\nimport yaml\nfrom prompt_toolkit.history import FileHistory\nfrom prompt_toolkit.styles import Style as PTStyle\nfrom prompt_toolkit.patch_stdout import patch_stdout\nfrom prompt_toolkit.application import Application\nfrom prompt_toolkit.layout import Layout, HSplit, Window, FormattedTextControl, ConditionalContainer\nfrom prompt_toolkit.layout.processors import Processor, Transformation, PasswordProcessor, ConditionalProcessor\nfrom prompt_toolkit.filters import Condition\nfrom prompt_toolkit.layout.dimension import Dimension",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_COMMAND_SPINNER_FRAMES",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_COMMAND_SPINNER_FRAMES = (\"⠋\", \"⠙\", \"⠹\", \"⠸\", \"⠼\", \"⠴\", \"⠦\", \"⠧\", \"⠇\", \"⠏\")\nfrom hermes_constants import get_hermes_home, display_hermes_home\nfrom hermes_cli.env_loader import load_hermes_dotenv\n_hermes_home = get_hermes_home()\n_project_env = Path(__file__).parent / '.env'\nload_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\ndef _load_prefill_messages(file_path: str) -> List[Dict[str, Any]]:\n    \"\"\"Load ephemeral prefill messages from a JSON file.\n    The file should contain a JSON array of {role, content} dicts, e.g.:\n        [{\"role\": \"user\", \"content\": \"Hi\"}, {\"role\": \"assistant\", \"content\": \"Hello!\"}]",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_hermes_home",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_hermes_home = get_hermes_home()\n_project_env = Path(__file__).parent / '.env'\nload_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\ndef _load_prefill_messages(file_path: str) -> List[Dict[str, Any]]:\n    \"\"\"Load ephemeral prefill messages from a JSON file.\n    The file should contain a JSON array of {role, content} dicts, e.g.:\n        [{\"role\": \"user\", \"content\": \"Hi\"}, {\"role\": \"assistant\", \"content\": \"Hello!\"}]\n    Relative paths are resolved from ~/.hermes/.\n    Returns an empty list if the path is empty or the file doesn't exist.\n    \"\"\"",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_project_env",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_project_env = Path(__file__).parent / '.env'\nload_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\ndef _load_prefill_messages(file_path: str) -> List[Dict[str, Any]]:\n    \"\"\"Load ephemeral prefill messages from a JSON file.\n    The file should contain a JSON array of {role, content} dicts, e.g.:\n        [{\"role\": \"user\", \"content\": \"Hi\"}, {\"role\": \"assistant\", \"content\": \"Hello!\"}]\n    Relative paths are resolved from ~/.hermes/.\n    Returns an empty list if the path is empty or the file doesn't exist.\n    \"\"\"\n    if not file_path:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "CLI_CONFIG",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "CLI_CONFIG = load_cli_config()\ntry:\n    from hermes_logging import setup_logging\n    setup_logging(mode=\"cli\")\nexcept Exception:\n    pass\ntry:\n    from hermes_cli.config import print_config_warnings\n    print_config_warnings()\nexcept Exception:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_cleanup_done",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_cleanup_done = False\n_active_agent_ref = None\ndef _run_cleanup():\n    \"\"\"Run resource cleanup exactly once.\"\"\"\n    global _cleanup_done\n    if _cleanup_done:\n        return\n    _cleanup_done = True\n    try:\n        _cleanup_all_terminals()",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_active_agent_ref",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_active_agent_ref = None\ndef _run_cleanup():\n    \"\"\"Run resource cleanup exactly once.\"\"\"\n    global _cleanup_done\n    if _cleanup_done:\n        return\n    _cleanup_done = True\n    try:\n        _cleanup_all_terminals()\n    except Exception:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_GOLD",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_GOLD = \"\\033[1;38;2;255;215;0m\"\n_BOLD = \"\\033[1m\"\n_DIM = \"\\033[2m\"\n_RST = \"\\033[0m\"\ndef _accent_hex() -> str:\n    \"\"\"Return the active skin accent color for legacy CLI output lines.\"\"\"\n    try:\n        from hermes_cli.skin_engine import get_active_skin\n        return get_active_skin().get_color(\"ui_accent\", \"#FFBF00\")\n    except Exception:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_BOLD",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_BOLD = \"\\033[1m\"\n_DIM = \"\\033[2m\"\n_RST = \"\\033[0m\"\ndef _accent_hex() -> str:\n    \"\"\"Return the active skin accent color for legacy CLI output lines.\"\"\"\n    try:\n        from hermes_cli.skin_engine import get_active_skin\n        return get_active_skin().get_color(\"ui_accent\", \"#FFBF00\")\n    except Exception:\n        return \"#FFBF00\"",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_DIM",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_DIM = \"\\033[2m\"\n_RST = \"\\033[0m\"\ndef _accent_hex() -> str:\n    \"\"\"Return the active skin accent color for legacy CLI output lines.\"\"\"\n    try:\n        from hermes_cli.skin_engine import get_active_skin\n        return get_active_skin().get_color(\"ui_accent\", \"#FFBF00\")\n    except Exception:\n        return \"#FFBF00\"\ndef _rich_text_from_ansi(text: str) -> _RichText:",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_RST",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_RST = \"\\033[0m\"\ndef _accent_hex() -> str:\n    \"\"\"Return the active skin accent color for legacy CLI output lines.\"\"\"\n    try:\n        from hermes_cli.skin_engine import get_active_skin\n        return get_active_skin().get_color(\"ui_accent\", \"#FFBF00\")\n    except Exception:\n        return \"#FFBF00\"\ndef _rich_text_from_ansi(text: str) -> _RichText:\n    \"\"\"Safely render assistant/tool output that may contain ANSI escapes.",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_IMAGE_EXTENSIONS",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_IMAGE_EXTENSIONS = frozenset({\n    '.png', '.jpg', '.jpeg', '.gif', '.webp',\n    '.bmp', '.tiff', '.tif', '.svg', '.ico',\n})\ndef _detect_file_drop(user_input: str) -> \"dict | None\":\n    \"\"\"Detect if *user_input* is a dragged/pasted file path, not a slash command.\n    When a user drags a file into the terminal, macOS pastes the absolute path\n    (e.g. ``/Users/roland/Desktop/file.png``) which starts with ``/`` and would\n    otherwise be mistaken for a slash command.\n    Returns a dict on match::",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "HERMES_AGENT_LOGO",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "HERMES_AGENT_LOGO = \"\"\"[bold #FFD700]██╗  ██╗███████╗██████╗ ███╗   ███╗███████╗███████╗       █████╗  ██████╗ ███████╗███╗   ██╗████████╗[/]\n[bold #FFD700]██║  ██║██╔════╝██╔══██╗████╗ ████║██╔════╝██╔════╝      ██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝[/]\n[#FFBF00]███████║█████╗  ██████╔╝██╔████╔██║█████╗  ███████╗█████╗███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║[/]\n[#FFBF00]██╔══██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══╝  ╚════██║╚════╝██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║[/]\n[#CD7F32]██║  ██║███████╗██║  ██║██║ ╚═╝ ██║███████╗███████║      ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║[/]\n[#CD7F32]╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝      ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝[/]\"\"\"\nHERMES_CADUCEUS = \"\"\"[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⣀⣀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#CD7F32]⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣇⠸⣿⣿⠇⣸⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀[/]\n[#FFBF00]⠀⢀⣠⣴⣶⠿⠋⣩⡿⣿⡿⠻⣿⡇⢠⡄⢸⣿⠟⢿⣿⢿⣍⠙⠿⣶⣦⣄⡀⠀[/]\n[#FFBF00]⠀⠀⠉⠉⠁⠶⠟⠋⠀⠉⠀⢀⣈⣁⡈⢁⣈⣁⡀⠀⠉⠀⠙⠻⠶⠈⠉⠉⠀⠀[/]",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "HERMES_CADUCEUS",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "HERMES_CADUCEUS = \"\"\"[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⣀⣀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#CD7F32]⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣇⠸⣿⣿⠇⣸⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀[/]\n[#FFBF00]⠀⢀⣠⣴⣶⠿⠋⣩⡿⣿⡿⠻⣿⡇⢠⡄⢸⣿⠟⢿⣿⢿⣍⠙⠿⣶⣦⣄⡀⠀[/]\n[#FFBF00]⠀⠀⠉⠉⠁⠶⠟⠋⠀⠉⠀⢀⣈⣁⡈⢁⣈⣁⡀⠀⠉⠀⠙⠻⠶⠈⠉⠉⠀⠀[/]\n[#FFD700]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⡿⠛⢁⡈⠛⢿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#FFD700]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣦⣤⣈⠁⢠⣴⣿⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#FFBF00]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠻⢿⣿⣦⡉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#FFBF00]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢷⣦⣈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⠦⠈⠙⠿⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]\n[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣤⡈⠁⢤⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "COMPACT_BANNER",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "COMPACT_BANNER = \"\"\"\n[bold #FFD700]╔══════════════════════════════════════════════════════════════╗[/]\n[bold #FFD700]║[/]  [#FFBF00]⚕ NOUS HERMES[/] [dim #B8860B]- AI Agent Framework[/]              [bold #FFD700]║[/]\n[bold #FFD700]║[/]  [#CD7F32]Messenger of the Digital Gods[/]    [dim #B8860B]Nous Research[/]   [bold #FFD700]║[/]\n[bold #FFD700]╚══════════════════════════════════════════════════════════════╝[/]\n\"\"\"\ndef _build_compact_banner() -> str:\n    \"\"\"Build a compact banner that fits the current terminal width.\"\"\"\n    try:\n        from hermes_cli.skin_engine import get_active_skin",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "_skill_commands",
+        "kind": 5,
+        "importPath": "v2026.4.8.cli",
+        "description": "v2026.4.8.cli",
+        "peekOfCode": "_skill_commands = scan_skill_commands()\ndef _get_plugin_cmd_handler_names() -> set:\n    \"\"\"Return plugin command names (without slash prefix) for dispatch matching.\"\"\"\n    try:\n        from hermes_cli.plugins import get_plugin_manager\n        return set(get_plugin_manager()._plugin_commands.keys())\n    except Exception:\n        return set()\ndef _parse_skills_argument(skills: str | list[str] | tuple[str, ...] | None) -> list[str]:\n    \"\"\"Normalize a CLI skills flag into a deduplicated list of skill identifiers.\"\"\"",
+        "detail": "v2026.4.8.cli",
+        "documentation": {}
+    },
+    {
+        "label": "SessionDB",
+        "kind": 6,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "class SessionDB:\n    \"\"\"基于 SQLite 的会话存储（支持 FTS5 搜索）\n    线程安全：WAL 模式下支持多读单写。每个方法打开自己的游标。\n    写竞争处理：使用短超时（1s）+ 随机 jitter 重试，避免 SQLite 内置\n    忙等待导致的 convoy 效应。\n    \"\"\"\n    # 【文档锚点 3O】持久化层：结构化保存 session/message，并提供后续检索与 lineage 能力\n    _WRITE_MAX_RETRIES = 15\n    _WRITE_RETRY_MIN_S = 0.020   # 20ms\n    _WRITE_RETRY_MAX_S = 0.150   # 150ms",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nT = TypeVar(\"T\")\nDEFAULT_DB_PATH = get_hermes_home() / \"state.db\"\nSCHEMA_VERSION = 6\nSCHEMA_SQL = \"\"\"\nCREATE TABLE IF NOT EXISTS schema_version (\n    version INTEGER NOT NULL\n);\nCREATE TABLE IF NOT EXISTS sessions (\n    id TEXT PRIMARY KEY,",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "T",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "T = TypeVar(\"T\")\nDEFAULT_DB_PATH = get_hermes_home() / \"state.db\"\nSCHEMA_VERSION = 6\nSCHEMA_SQL = \"\"\"\nCREATE TABLE IF NOT EXISTS schema_version (\n    version INTEGER NOT NULL\n);\nCREATE TABLE IF NOT EXISTS sessions (\n    id TEXT PRIMARY KEY,\n    source TEXT NOT NULL,",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_DB_PATH",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "DEFAULT_DB_PATH = get_hermes_home() / \"state.db\"\nSCHEMA_VERSION = 6\nSCHEMA_SQL = \"\"\"\nCREATE TABLE IF NOT EXISTS schema_version (\n    version INTEGER NOT NULL\n);\nCREATE TABLE IF NOT EXISTS sessions (\n    id TEXT PRIMARY KEY,\n    source TEXT NOT NULL,\n    user_id TEXT,",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_VERSION",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "SCHEMA_VERSION = 6\nSCHEMA_SQL = \"\"\"\nCREATE TABLE IF NOT EXISTS schema_version (\n    version INTEGER NOT NULL\n);\nCREATE TABLE IF NOT EXISTS sessions (\n    id TEXT PRIMARY KEY,\n    source TEXT NOT NULL,\n    user_id TEXT,\n    model TEXT,",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_SQL",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "SCHEMA_SQL = \"\"\"\nCREATE TABLE IF NOT EXISTS schema_version (\n    version INTEGER NOT NULL\n);\nCREATE TABLE IF NOT EXISTS sessions (\n    id TEXT PRIMARY KEY,\n    source TEXT NOT NULL,\n    user_id TEXT,\n    model TEXT,\n    model_config TEXT,",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "FTS_SQL",
+        "kind": 5,
+        "importPath": "v2026.4.8.hermes_state",
+        "description": "v2026.4.8.hermes_state",
+        "peekOfCode": "FTS_SQL = \"\"\"\nCREATE VIRTUAL TABLE IF NOT EXISTS messages_fts USING fts5(\n    content,\n    content=messages,\n    content_rowid=id\n);\nCREATE TRIGGER IF NOT EXISTS messages_fts_insert AFTER INSERT ON messages BEGIN\n    INSERT INTO messages_fts(rowid, content) VALUES (new.id, new.content);\nEND;\nCREATE TRIGGER IF NOT EXISTS messages_fts_delete AFTER DELETE ON messages BEGIN",
+        "detail": "v2026.4.8.hermes_state",
+        "documentation": {}
+    },
+    {
+        "label": "get_tool_definitions",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def get_tool_definitions(\n    enabled_toolsets: List[str] = None,\n    disabled_toolsets: List[str] = None,\n    quiet_mode: bool = False,\n) -> List[Dict[str, Any]]:\n    \"\"\"根据 toolset 过滤获取模型 API 调用的工具定义\n    所有工具必须属于某个 toolset 才能访问。\n    \"\"\"\n    # 工具可见面阶段：按 toolset 与 check_fn 过滤出本会话真实可见工具\n    tools_to_include: set = set()",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "coerce_tool_args",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def coerce_tool_args(tool_name: str, args: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"将工具调用参数强制转换为 JSON Schema 声明的类型\n    LLM 常将数字返回为字符串（\"42\" 而非 42），将布尔值返回为字符串（\"true\" 而非 true）。\n    本函数比较参数值与工具 registered JSON Schema，尝试安全转换。\n    \"\"\"\n    if not args or not isinstance(args, dict):\n        return args\n    schema = registry.get_schema(tool_name)\n    if not schema:\n        return args",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "handle_function_call",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def handle_function_call(\n    function_name: str,\n    function_args: Dict[str, Any],\n    task_id: Optional[str] = None,\n    tool_call_id: Optional[str] = None,\n    session_id: Optional[str] = None,\n    user_task: Optional[str] = None,\n    enabled_tools: Optional[List[str]] = None,\n) -> str:\n    \"\"\"主要函数调用分发器 - 将调用路由到工具注册中心\"\"\"",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_tool_names",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def get_all_tool_names() -> List[str]:\n    \"\"\"返回所有已注册工具名称\"\"\"\n    return registry.get_all_tool_names()\ndef get_toolset_for_tool(tool_name: str) -> Optional[str]:\n    \"\"\"返回工具所属的工具集\"\"\"\n    return registry.get_toolset_for_tool(tool_name)\ndef get_available_toolsets() -> Dict[str, dict]:\n    \"\"\"返回工具集可用性信息\"\"\"\n    return registry.get_available_toolsets()\ndef check_toolset_requirements() -> Dict[str, bool]:",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_for_tool",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def get_toolset_for_tool(tool_name: str) -> Optional[str]:\n    \"\"\"返回工具所属的工具集\"\"\"\n    return registry.get_toolset_for_tool(tool_name)\ndef get_available_toolsets() -> Dict[str, dict]:\n    \"\"\"返回工具集可用性信息\"\"\"\n    return registry.get_available_toolsets()\ndef check_toolset_requirements() -> Dict[str, bool]:\n    \"\"\"返回所有已注册工具集的可用性\"\"\"\n    return registry.check_toolset_requirements()\ndef check_tool_availability(quiet: bool = False) -> Tuple[List[str], List[dict]]:",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "get_available_toolsets",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def get_available_toolsets() -> Dict[str, dict]:\n    \"\"\"返回工具集可用性信息\"\"\"\n    return registry.get_available_toolsets()\ndef check_toolset_requirements() -> Dict[str, bool]:\n    \"\"\"返回所有已注册工具集的可用性\"\"\"\n    return registry.check_toolset_requirements()\ndef check_tool_availability(quiet: bool = False) -> Tuple[List[str], List[dict]]:\n    \"\"\"返回 (可用工具集, 不可用信息)\"\"\"\n    return registry.check_tool_availability(quiet=quiet)",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "check_toolset_requirements",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def check_toolset_requirements() -> Dict[str, bool]:\n    \"\"\"返回所有已注册工具集的可用性\"\"\"\n    return registry.check_toolset_requirements()\ndef check_tool_availability(quiet: bool = False) -> Tuple[List[str], List[dict]]:\n    \"\"\"返回 (可用工具集, 不可用信息)\"\"\"\n    return registry.check_tool_availability(quiet=quiet)",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "check_tool_availability",
+        "kind": 2,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "def check_tool_availability(quiet: bool = False) -> Tuple[List[str], List[dict]]:\n    \"\"\"返回 (可用工具集, 不可用信息)\"\"\"\n    return registry.check_tool_availability(quiet=quiet)",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# =============================================================================\n# 异步桥接 - 同步/异步工具 handler 的统一调用入口\n# =============================================================================\n_tool_loop = None          # CLI 主线程的持久化事件循环\n_tool_loop_lock = threading.Lock()\n_worker_thread_local = threading.local()  # 每个 worker 线程的持久化循环\ndef _get_tool_loop():\n    \"\"\"返回主线程的持久化事件循环 - 避免\"Event loop is closed\"错误\n    使用持久化循环（而非每次创建新循环的 asyncio.run()）可防止缓存的",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_tool_loop",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_tool_loop = None          # CLI 主线程的持久化事件循环\n_tool_loop_lock = threading.Lock()\n_worker_thread_local = threading.local()  # 每个 worker 线程的持久化循环\ndef _get_tool_loop():\n    \"\"\"返回主线程的持久化事件循环 - 避免\"Event loop is closed\"错误\n    使用持久化循环（而非每次创建新循环的 asyncio.run()）可防止缓存的\n    httpx/AsyncOpenAI 客户端在垃圾回收时尝试关闭已死循环。\n    \"\"\"\n    global _tool_loop\n    with _tool_loop_lock:",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_tool_loop_lock",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_tool_loop_lock = threading.Lock()\n_worker_thread_local = threading.local()  # 每个 worker 线程的持久化循环\ndef _get_tool_loop():\n    \"\"\"返回主线程的持久化事件循环 - 避免\"Event loop is closed\"错误\n    使用持久化循环（而非每次创建新循环的 asyncio.run()）可防止缓存的\n    httpx/AsyncOpenAI 客户端在垃圾回收时尝试关闭已死循环。\n    \"\"\"\n    global _tool_loop\n    with _tool_loop_lock:\n        if _tool_loop is None or _tool_loop.is_closed():",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_worker_thread_local",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_worker_thread_local = threading.local()  # 每个 worker 线程的持久化循环\ndef _get_tool_loop():\n    \"\"\"返回主线程的持久化事件循环 - 避免\"Event loop is closed\"错误\n    使用持久化循环（而非每次创建新循环的 asyncio.run()）可防止缓存的\n    httpx/AsyncOpenAI 客户端在垃圾回收时尝试关闭已死循环。\n    \"\"\"\n    global _tool_loop\n    with _tool_loop_lock:\n        if _tool_loop is None or _tool_loop.is_closed():\n            _tool_loop = asyncio.new_event_loop()",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_LEGACY_TOOLSET_MAP",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_LEGACY_TOOLSET_MAP = {\n    \"web_tools\": [\"web_search\", \"web_extract\"],\n    \"terminal_tools\": [\"terminal\"],\n    \"vision_tools\": [\"vision_analyze\"],\n    \"moa_tools\": [\"mixture_of_agents\"],\n    \"image_tools\": [\"image_generate\"],\n    \"skills_tools\": [\"skills_list\", \"skill_view\", \"skill_manage\"],\n    \"browser_tools\": [\n        \"browser_navigate\", \"browser_snapshot\", \"browser_click\",\n        \"browser_type\", \"browser_scroll\", \"browser_back\",",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_AGENT_LOOP_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_AGENT_LOOP_TOOLS = {\"todo\", \"memory\", \"session_search\", \"delegate_task\"}\n_READ_SEARCH_TOOLS = {\"read_file\", \"search_files\"}\n# =========================================================================\n# 工具参数类型强制转换\n# =========================================================================\ndef coerce_tool_args(tool_name: str, args: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"将工具调用参数强制转换为 JSON Schema 声明的类型\n    LLM 常将数字返回为字符串（\"42\" 而非 42），将布尔值返回为字符串（\"true\" 而非 true）。\n    本函数比较参数值与工具 registered JSON Schema，尝试安全转换。\n    \"\"\"",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "_READ_SEARCH_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.model_tools",
+        "description": "v2026.4.8.model_tools",
+        "peekOfCode": "_READ_SEARCH_TOOLS = {\"read_file\", \"search_files\"}\n# =========================================================================\n# 工具参数类型强制转换\n# =========================================================================\ndef coerce_tool_args(tool_name: str, args: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"将工具调用参数强制转换为 JSON Schema 声明的类型\n    LLM 常将数字返回为字符串（\"42\" 而非 42），将布尔值返回为字符串（\"true\" 而非 true）。\n    本函数比较参数值与工具 registered JSON Schema，尝试安全转换。\n    \"\"\"\n    if not args or not isinstance(args, dict):",
+        "detail": "v2026.4.8.model_tools",
+        "documentation": {}
+    },
+    {
+        "label": "IterationBudget",
+        "kind": 6,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "class IterationBudget:\n    \"\"\"Agent 迭代预算计数器（线程安全）。\n    每个 Agent（父级或子代理）都有独立的 ``IterationBudget``。\n    父级预算上限由 ``max_iterations`` 定义（默认 90）。\n    子代理拥有独立预算（默认 50），这意味着父子代理的总迭代次数可能超过父级上限。\n    ``execute_code``（编程工具调用）的迭代次数通过 :meth:`refund` 返还，不计入预算消耗。\n    \"\"\"\n    def __init__(self, max_total: int):\n        self.max_total = max_total\n        self._used = 0",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "AIAgent",
+        "kind": 6,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "class AIAgent:\n    \"\"\"\n    具备工具调用能力的 AI Agent 编排内核。\n    负责管理对话流（主循环）、工具执行以及 AI 模型的响应处理。\n    \"\"\"\n    @property\n    def base_url(self) -> str:\n        return self._base_url\n    @base_url.setter\n    def base_url(self, value: str) -> None:",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "def main(\n    query: str = None,\n    model: str = \"\",\n    api_key: str = None,\n    base_url: str = \"\",\n    max_turns: int = 10,\n    enabled_toolsets: str = None,\n    disabled_toolsets: str = None,\n    list_tools: bool = False,\n    save_trajectories: bool = False,",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nimport os\nimport random\nimport re\nimport sys\nimport tempfile\nimport time\nimport threading\nfrom types import SimpleNamespace\nimport uuid",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_hermes_home",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_hermes_home = get_hermes_home()\n_project_env = Path(__file__).parent / '.env'\n_loaded_env_paths = load_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\nif _loaded_env_paths:\n    for _env_path in _loaded_env_paths:\n        logger.info(\"Loaded environment variables from %s\", _env_path)\nelse:\n    logger.info(\"No .env file found. Using system environment variables.\")\nfrom model_tools import (\n    get_tool_definitions,",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_project_env",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_project_env = Path(__file__).parent / '.env'\n_loaded_env_paths = load_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\nif _loaded_env_paths:\n    for _env_path in _loaded_env_paths:\n        logger.info(\"Loaded environment variables from %s\", _env_path)\nelse:\n    logger.info(\"No .env file found. Using system environment variables.\")\nfrom model_tools import (\n    get_tool_definitions,\n    get_toolset_for_tool,",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_loaded_env_paths",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_loaded_env_paths = load_hermes_dotenv(hermes_home=_hermes_home, project_env=_project_env)\nif _loaded_env_paths:\n    for _env_path in _loaded_env_paths:\n        logger.info(\"Loaded environment variables from %s\", _env_path)\nelse:\n    logger.info(\"No .env file found. Using system environment variables.\")\nfrom model_tools import (\n    get_tool_definitions,\n    get_toolset_for_tool,\n    handle_function_call,",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_NEVER_PARALLEL_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_NEVER_PARALLEL_TOOLS = frozenset({\"clarify\"})\n# 只读工具，无共享可变会话状态。\n_PARALLEL_SAFE_TOOLS = frozenset({\n    \"ha_get_state\",\n    \"ha_list_entities\",\n    \"ha_list_services\",\n    \"read_file\",\n    \"search_files\",\n    \"session_search\",\n    \"skill_view\",",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_PARALLEL_SAFE_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_PARALLEL_SAFE_TOOLS = frozenset({\n    \"ha_get_state\",\n    \"ha_list_entities\",\n    \"ha_list_services\",\n    \"read_file\",\n    \"search_files\",\n    \"session_search\",\n    \"skill_view\",\n    \"skills_list\",\n    \"vision_analyze\",",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_PATH_SCOPED_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_PATH_SCOPED_TOOLS = frozenset({\"read_file\", \"write_file\", \"patch\"})\n# 并发工具执行的最大工作线程数。\n_MAX_TOOL_WORKERS = 8\n# 匹配可能修改/删除文件的终端命令模式。\n_DESTRUCTIVE_PATTERNS = re.compile(\n    r\"\"\"(?:^|\\s|&&|\\|\\||;|`)(?:\n        rm\\s|rmdir\\s|\n        mv\\s|\n        sed\\s+-i|\n        truncate\\s|",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_MAX_TOOL_WORKERS",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_MAX_TOOL_WORKERS = 8\n# 匹配可能修改/删除文件的终端命令模式。\n_DESTRUCTIVE_PATTERNS = re.compile(\n    r\"\"\"(?:^|\\s|&&|\\|\\||;|`)(?:\n        rm\\s|rmdir\\s|\n        mv\\s|\n        sed\\s+-i|\n        truncate\\s|\n        dd\\s|\n        shred\\s|",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_DESTRUCTIVE_PATTERNS",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_DESTRUCTIVE_PATTERNS = re.compile(\n    r\"\"\"(?:^|\\s|&&|\\|\\||;|`)(?:\n        rm\\s|rmdir\\s|\n        mv\\s|\n        sed\\s+-i|\n        truncate\\s|\n        dd\\s|\n        shred\\s|\n        git\\s+(?:reset|clean|checkout)\\s\n    )\"\"\",",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_REDIRECT_OVERWRITE",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_REDIRECT_OVERWRITE = re.compile(r'[^>]>[^>]|^>[^>]')\ndef _is_destructive_command(cmd: str) -> bool:\n    \"\"\"启发式判断：该终端命令是否包含修改或删除文件的操作？\"\"\"\n    if not cmd:\n        return False\n    if _DESTRUCTIVE_PATTERNS.search(cmd):\n        return True\n    if _REDIRECT_OVERWRITE.search(cmd):\n        return True\n    return False",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_SURROGATE_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_SURROGATE_RE = re.compile(r'[\\ud800-\\udfff]')\n_BUDGET_WARNING_RE = re.compile(\n    r\"\\[BUDGET(?:\\s+WARNING)?:\\s+Iteration\\s+\\d+/\\d+\\..*?\\]\",\n    re.DOTALL,\n)\ndef _sanitize_surrogates(text: str) -> str:\n    \"\"\"将文本中孤立的代理对（Surrogates）替换为 U+FFFD。\"\"\"\n    if _SURROGATE_RE.search(text):\n        return _SURROGATE_RE.sub('\\ufffd', text)\n    return text",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "_BUDGET_WARNING_RE",
+        "kind": 5,
+        "importPath": "v2026.4.8.run_agent",
+        "description": "v2026.4.8.run_agent",
+        "peekOfCode": "_BUDGET_WARNING_RE = re.compile(\n    r\"\\[BUDGET(?:\\s+WARNING)?:\\s+Iteration\\s+\\d+/\\d+\\..*?\\]\",\n    re.DOTALL,\n)\ndef _sanitize_surrogates(text: str) -> str:\n    \"\"\"将文本中孤立的代理对（Surrogates）替换为 U+FFFD。\"\"\"\n    if _SURROGATE_RE.search(text):\n        return _SURROGATE_RE.sub('\\ufffd', text)\n    return text\ndef _sanitize_messages_surrogates(messages: list) -> bool:",
+        "detail": "v2026.4.8.run_agent",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def get_toolset(name: str) -> Optional[Dict[str, Any]]:\n    \"\"\"按名称获取工具集定义\"\"\"\n    return TOOLSETS.get(name)\ndef resolve_toolset(name: str, visited: Set[str] = None) -> List[str]:\n    \"\"\"递归解析工具集获取所有工具名称\n    处理工具集组合：递归解析包含的工具集并合并所有工具。\n    支持别名 \"all\" 和 \"*\" 表示所有工具。\n    自动检测循环引用（菱形依赖）并跳过。\n    \"\"\"\n    if visited is None:",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_toolset",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def resolve_toolset(name: str, visited: Set[str] = None) -> List[str]:\n    \"\"\"递归解析工具集获取所有工具名称\n    处理工具集组合：递归解析包含的工具集并合并所有工具。\n    支持别名 \"all\" 和 \"*\" 表示所有工具。\n    自动检测循环引用（菱形依赖）并跳过。\n    \"\"\"\n    if visited is None:\n        visited = set()\n    # 别名：all 或 * 代表所有工具\n    if name in {\"all\", \"*\"}:",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_multiple_toolsets",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def resolve_multiple_toolsets(toolset_names: List[str]) -> List[str]:\n    \"\"\"解析多个工具集并合并其工具\"\"\"\n    all_tools = set()\n    for name in toolset_names:\n        tools = resolve_toolset(name)\n        all_tools.update(tools)\n    return list(all_tools)\ndef _get_plugin_toolset_names() -> Set[str]:\n    \"\"\"返回插件注册的工具集名称（来自工具注册中心但不在 TOOLSETS 字典中）\"\"\"\n    try:",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_toolsets",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def get_all_toolsets() -> Dict[str, Dict[str, Any]]:\n    \"\"\"获取所有可用工具集及其定义\n    包含静态定义的工具集和插件注册的工具集。\n    \"\"\"\n    result = TOOLSETS.copy()\n    # 添加插件提供的工具集\n    for ts_name in _get_plugin_toolset_names():\n        if ts_name not in result:\n            try:\n                from tools.registry import registry",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_names",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def get_toolset_names() -> List[str]:\n    \"\"\"获取所有可用工具集名称（不包括别名）\n    包含插件注册的工具集名称。\n    \"\"\"\n    names = set(TOOLSETS.keys())\n    names |= _get_plugin_toolset_names()\n    return sorted(names)\ndef validate_toolset(name: str) -> bool:\n    \"\"\"检查工具集名称是否有效\"\"\"\n    if name in {\"all\", \"*\"}:",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "validate_toolset",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def validate_toolset(name: str) -> bool:\n    \"\"\"检查工具集名称是否有效\"\"\"\n    if name in {\"all\", \"*\"}:\n        return True\n    if name in TOOLSETS:\n        return True\n    return name in _get_plugin_toolset_names()\ndef create_custom_toolset(\n    name: str,\n    description: str,",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "create_custom_toolset",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def create_custom_toolset(\n    name: str,\n    description: str,\n    tools: List[str] = None,\n    includes: List[str] = None\n) -> None:\n    \"\"\"运行时创建自定义工具集\"\"\"\n    TOOLSETS[name] = {\n        \"description\": description,\n        \"tools\": tools or [],",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "get_toolset_info",
+        "kind": 2,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "def get_toolset_info(name: str) -> Dict[str, Any]:\n    \"\"\"获取工具集的详细信息（包含解析后的工具）\"\"\"\n    toolset = get_toolset(name)\n    if not toolset:\n        return None\n    resolved_tools = resolve_toolset(name)\n    return {\n        \"name\": name,\n        \"description\": toolset[\"description\"],\n        \"direct_tools\": toolset[\"tools\"],",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "_HERMES_CORE_TOOLS",
+        "kind": 5,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "_HERMES_CORE_TOOLS = [\n    # Web\n    \"web_search\", \"web_extract\",\n    # 终端 + 进程管理\n    \"terminal\", \"process\",\n    # 文件操作\n    \"read_file\", \"write_file\", \"patch\", \"search_files\",\n    # 视觉 + 图像生成\n    \"vision_analyze\", \"image_generate\",\n    # 技能",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    },
+    {
+        "label": "TOOLSETS",
+        "kind": 5,
+        "importPath": "v2026.4.8.toolsets",
+        "description": "v2026.4.8.toolsets",
+        "peekOfCode": "TOOLSETS = {\n    # 基础工具集 - 单个工具类别\n    \"web\": {\n        \"description\": \"Web research and content extraction tools\",\n        \"tools\": [\"web_search\", \"web_extract\"],\n        \"includes\": []\n    },\n    \"search\": {\n        \"description\": \"Web search only (no content extraction/scraping)\",\n        \"tools\": [\"web_search\"],",
+        "detail": "v2026.4.8.toolsets",
+        "documentation": {}
+    }
+]

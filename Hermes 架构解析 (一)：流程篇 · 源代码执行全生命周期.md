@@ -255,16 +255,26 @@ Hermes 严格区分了两类上下文信息：
 
 #### 4.5.1 单轮如何结束
 
-这里需要特别区分：`run_conversation()` 的“多轮”是 **单个 Turn 内部的 API / Tool 编排循环**，不是用户视角的多轮会话。
+Hermes 是 **一个主循环 + 多种工具子拓扑**：
 
-单个 Turn 的结束条件在 `run_agent.py:run_conversation()` 中是明确存在的，主要有四类：
+Hermes 在同一个 `run_conversation()` 中混合了多种闭环形态：**维护型、阻塞交互型、委派型、普通执行型**。这些工具都会延长当前 Turn，但延长方式和结束条件并不一样。这里需要特别区分：`run_conversation()` 的“多轮”是 **单个 Turn 内部的 API / Tool 编排循环**，不是用户视角的多轮会话。
+
+| 工具类型 | 代表工具 | 在 Loop 中的拓扑 | 单轮何时继续 | 单轮何时结束 |
+| :--- | :--- | :--- | :--- | :--- |
+| **普通执行型** | `terminal`、文件工具、Web/MCP/Registry 工具 | 标准 `assistant -> tool -> assistant` 回注环 | 工具结果写回 `messages` 后，模型再次产生 `tool_calls` | 模型首次返回无 `tool_calls` 的可见内容；或预算/异常触发兜底结束 |
+| **维护型** | `memory`、`todo`、`session_search`、`skill_manage` | 轻量 side-effect 环，不改变主循环结构 | 工具结果写回后继续下一次采样，通常用于让模型“补完最终回复” | 若下一次模型不给新工具调用，则 Turn 收敛；若前一轮已给正文，甚至可直接用该正文作为最终答复 |
+| **阻塞交互型** | `clarify`；以及由 `terminal` / `skills_tool` 触发的 approval / secret capture | 当前迭代内部同步阻塞，等待人类输入 | 用户作答、超时、取消或拒绝后，工具返回结果，主循环继续 | 工具本身不会结束 Turn；只是在“人类响应返回”后，交还给主循环决定是否结束 |
+| **委派型** | `delegate_task` | 父 loop 内嵌一个子 agent loop | 子 agent 完成后结果回注父 loop，父 loop 再决定是否继续采样 | 子 agent 的结束不等于父 Turn 结束；父 Turn 仍需等模型消化委派结果并停止发新工具 |
+
+从 `run_agent.py` 的真实实现看，单个 Turn 的结束条件主要有五类：
 
 1. **正常收敛结束**：模型返回了可见文本，且本次响应不再携带 `tool_calls`，主循环直接 `break`，随后构造最终 assistant 消息并返回。
-2. **工具回路继续**：只要响应中仍包含 `tool_calls`，当前 Turn 就不会结束，而是执行工具、回写结果，再进入下一次 API 调用。
-3. **预算耗尽结束**：当 `while api_call_count < self.max_iterations and self.iteration_budget.remaining > 0` 不再满足时，本轮被强制收敛，并调用 `_handle_max_iterations()` 生成兜底总结。
-4. **异常/中断/部分完成结束**：包括无效工具名重试失败、参数 JSON 连续损坏、流式中断、Provider 错误无法恢复等，这些路径会提前 `return` 一个 `completed=False` 或 `partial=True` 的结果。
+2. **工具回路继续**：只要响应中仍包含 `tool_calls`，当前 Turn 就不会结束，而是进入对应工具子拓扑，再回到主循环。
+3. **正文提前交付但仍有维护型工具**：若 assistant 同时给出正文和维护型工具调用，Hermes 会先保留正文，再执行工具；后续若 follow-up 为空，可直接回退使用先前正文作为单轮结果。这是 Hermes 相比 `hello-harness` 中单一 follow-up loop 更细的一层优化。
+4. **预算耗尽结束**：当 `while api_call_count < self.max_iterations and self.iteration_budget.remaining > 0` 不再满足时，本轮被强制收敛，并调用 `_handle_max_iterations()` 生成兜底总结。
+5. **异常/中断/部分完成结束**：包括无效工具名重试失败、参数 JSON 连续损坏、流式中断、Provider 错误无法恢复、压缩重试耗尽等，这些路径会提前 `return` 一个 `completed=False` 或 `partial=True` 的结果。
 
-换句话说，**单轮结束的判断权完全在 `run_conversation()` 内部**；外壳层只负责把用户当前输入交给它，不决定本轮何时收敛。
+因此，**单轮结束的判断权始终在 `run_conversation()` 内部**；工具只决定“这一轮要不要继续展开”，不决定最终何时收敛。
 
 ### 4.6 异步后处理与复盘 (M → N → O → P)
 当最终响应构建完成（M）并落盘持久化（N）后，主响应即返回用户（O）。然而，Turn 级生命周期并未就此结束：
@@ -274,18 +284,31 @@ Hermes 严格区分了两类上下文信息：
 
 #### 4.6.1 多轮如何结束
 
-如果把用户连续多次发送消息理解为“多轮会话”，那么它的结束点 **不在 `run_conversation()` 中**，而在更外层的 **Session 生命周期**：
+如果把用户连续多次发送消息理解为“多轮会话”，那么它的结束点 **不在 `run_conversation()` 中**，而在更外层的 **Session 生命周期**。这也是 `hello-harness/13-agent-loop.md` 和 Hermes 源码对照后最值得强调的一点：**工具 loop 结束，不代表多轮会话结束。**
+
+不同工具类型对“多轮是否结束”的影响如下：
+
+| 工具类型 | 对多轮会话的影响 | 会不会天然切出新 Session |
+| :--- | :--- | :--- |
+| **普通执行型** | 只影响当前 Turn，不决定多轮边界 | 否 |
+| **维护型** | 更新记忆、检索历史、整理 todo，但仍附着在当前 Session 上 | 否 |
+| **阻塞交互型** | 让当前 Turn 暂停等待人类输入，本质上仍属于同一会话连续流 | 否 |
+| **委派型** | 会在父 Turn 内部派生子 agent / 子任务闭环，但父会话一般不因此结束 | 通常否；它更像局部派生执行，而不是用户会话切换 |
+| **压缩型边界** | 上下文压缩会触发新的 `session_id`，但通过 `parent_session_id` 连续成一条 lineage | **是，但属于 lineage split，不是用户语义上的会话结束** |
+
+真正决定多轮会话结束的，仍是外壳层 Session 边界：
 
 1. **CLI 显式开新会话**：`cli.py:new_session()` 会清空 `conversation_history`，重置 agent 的 session 状态，并对旧 `session_id` 调用 `SessionDB.end_session(..., "new_session")`。
 2. **CLI 退出当前会话**：CLI 关闭时会调用 `SessionDB.end_session(..., "cli_close")`，把这一整段多轮会话标记为结束。
 3. **Gateway `/new` / `/reset`**：网关路径会先结束旧 session，再创建新 session，并发出 `session:end`、`session:reset` 等边界事件。
 4. **自动会话边界**：Gateway 还存在基于 inactivity 或 daily reset 的自动重置；这类情况本质上也是“旧会话结束，新会话开始”。
+5. **压缩分裂**：`_compress_context()` 会结束旧 session、创建新 session，并用 `parent_session_id` 串起 lineage。它在存储层算“新 session”，但在用户心智里更像“同一会话被压缩续写”。
 
-因此，Hermes 实际上有两层结束语义：
-- **Turn 结束**：`run_conversation()` 内部，判断“这次用户请求是否已经收敛”。
-- **Session 结束**：CLI / Gateway / SessionDB 外壳层，判断“这一串多轮上下文是否还要继续复用”。
+因此，Hermes 至少有三层结束语义：
 
-这也是当前版本里容易被读者忽略的一点：**文档第 4 节主要讲的是 Turn 生命周期，不是 Session 生命周期**。如果不把这两层拆开，确实会产生“多轮结束条件被弱化”的阅读感受。
+- **工具级结束**：单个工具返回结果，交还主循环。
+- **Turn 结束**：`run_conversation()` 判断“这次请求是否已经收敛”。
+- **Session 结束**：CLI / Gateway / SessionDB 判断“这一串历史是否还继续复用”。
 
 ---
 
