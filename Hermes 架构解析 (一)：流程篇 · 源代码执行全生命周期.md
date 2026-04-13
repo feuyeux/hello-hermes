@@ -253,11 +253,39 @@ Hermes 严格区分了两类上下文信息：
 
     **收敛条件**：循环直至无 `tool_calls` 产生，或触发迭代预算耗尽（此时会强制生成一次总结）。
 
+#### 4.5.1 单轮如何结束
+
+这里需要特别区分：`run_conversation()` 的“多轮”是 **单个 Turn 内部的 API / Tool 编排循环**，不是用户视角的多轮会话。
+
+单个 Turn 的结束条件在 `run_agent.py:run_conversation()` 中是明确存在的，主要有四类：
+
+1. **正常收敛结束**：模型返回了可见文本，且本次响应不再携带 `tool_calls`，主循环直接 `break`，随后构造最终 assistant 消息并返回。
+2. **工具回路继续**：只要响应中仍包含 `tool_calls`，当前 Turn 就不会结束，而是执行工具、回写结果，再进入下一次 API 调用。
+3. **预算耗尽结束**：当 `while api_call_count < self.max_iterations and self.iteration_budget.remaining > 0` 不再满足时，本轮被强制收敛，并调用 `_handle_max_iterations()` 生成兜底总结。
+4. **异常/中断/部分完成结束**：包括无效工具名重试失败、参数 JSON 连续损坏、流式中断、Provider 错误无法恢复等，这些路径会提前 `return` 一个 `completed=False` 或 `partial=True` 的结果。
+
+换句话说，**单轮结束的判断权完全在 `run_conversation()` 内部**；外壳层只负责把用户当前输入交给它，不决定本轮何时收敛。
+
 ### 4.6 异步后处理与复盘 (M → N → O → P)
 当最终响应构建完成（M）并落盘持久化（N）后，主响应即返回用户（O）。然而，Turn 级生命周期并未就此结束：
 - **Memory 同步**：执行 `MemoryManager.sync_all()` 更新长期记忆。
 - **预热机制**：为下一轮 Recall 执行 Prefetch。
 - **后台复盘**：满足条件时，唤醒异步任务进行 `background_review`，实现系统的自我完善。
+
+#### 4.6.1 多轮如何结束
+
+如果把用户连续多次发送消息理解为“多轮会话”，那么它的结束点 **不在 `run_conversation()` 中**，而在更外层的 **Session 生命周期**：
+
+1. **CLI 显式开新会话**：`cli.py:new_session()` 会清空 `conversation_history`，重置 agent 的 session 状态，并对旧 `session_id` 调用 `SessionDB.end_session(..., "new_session")`。
+2. **CLI 退出当前会话**：CLI 关闭时会调用 `SessionDB.end_session(..., "cli_close")`，把这一整段多轮会话标记为结束。
+3. **Gateway `/new` / `/reset`**：网关路径会先结束旧 session，再创建新 session，并发出 `session:end`、`session:reset` 等边界事件。
+4. **自动会话边界**：Gateway 还存在基于 inactivity 或 daily reset 的自动重置；这类情况本质上也是“旧会话结束，新会话开始”。
+
+因此，Hermes 实际上有两层结束语义：
+- **Turn 结束**：`run_conversation()` 内部，判断“这次用户请求是否已经收敛”。
+- **Session 结束**：CLI / Gateway / SessionDB 外壳层，判断“这一串多轮上下文是否还要继续复用”。
+
+这也是当前版本里容易被读者忽略的一点：**文档第 4 节主要讲的是 Turn 生命周期，不是 Session 生命周期**。如果不把这两层拆开，确实会产生“多轮结束条件被弱化”的阅读感受。
 
 ---
 

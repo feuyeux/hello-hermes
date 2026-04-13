@@ -281,7 +281,158 @@ sequenceDiagram
 
 ---
 
-## 8. 横向对比：五大系统的数据模型深度异同
+## 8. 请求阶段的闭环：从旧 Memory 到新 Memory
+
+如果把一次请求看成一次“编译”，那么 Hermes 在请求阶段做的事情可以概括为：
+
+1. 从 **Session** 恢复可继续执行的历史消息。
+2. 把这些历史消息装配成当前轮的 **State**。
+3. 从 **Memory** 取回稳定记忆与瞬时 recall。
+4. 将 `state + memory + current user input` **投影**为本轮真正发送给模型的 **Context Window**。
+5. 在模型与工具循环结束后，把结果重新压缩、持久化，并同步成下一轮可复用的 **Memory**。
+
+这里最关键的一点是：**Session 不是直接送给模型的；模型看到的是 Session 在当前 State 下的一次投影结果。**
+
+### 8.1 简化伪代码：请求阶段涉及的核心数据结构
+
+下面这段伪代码是把请求阶段的关键数据对象抽出来，展示它们各自承载什么信息，以及它们之间如何映射。
+
+```python
+class SessionMessage:
+    role: Literal["system", "user", "assistant", "tool"]
+    content: str
+    tool_calls: list[ToolCall] | None
+    tool_call_id: str | None
+    reasoning: str | None
+
+
+class PersistedSession:
+    session_id: str
+    parent_session_id: str | None
+    system_prompt_snapshot: str | None
+    messages: list[SessionMessage]          # SQLite 恢复出的原始账本
+
+
+class StableMemory:
+    builtin_memory: str                     # MEMORY.md
+    user_profile: str                       # USER.md
+    provider_system_block: str              # external provider 的 system block
+
+
+class EphemeralRecall:
+    recalled_facts: str                     # prefetch_all() 结果
+    plugin_context: str                     # pre_llm_call 注入
+    subdir_hints: str | None
+    lifetime: Literal["current_turn_only"]  # 不写回 session
+
+
+class RuntimeState:
+    session_id: str
+    active_system_prompt: str
+    messages: list[SessionMessage]          # 运行态消息，可能已剥离告警并注入当前 user turn
+    todo_store: TodoState
+    token_budget: IterationBudget
+    current_turn_user_idx: int
+    context_pressure: float
+
+
+class SessionProjection:
+    head_messages: list[SessionMessage]     # 保留头部
+    middle_summary: str | None              # 中段摘要
+    tail_messages: list[SessionMessage]     # 保留尾部
+    was_compressed: bool
+    lineage_split: bool
+
+
+class ProjectedContextWindow:
+    system_block: str                       # stable system prompt + ephemeral system suffix
+    prefill_messages: list[SessionMessage]
+    projected_history: list[SessionMessage] # 本轮真正送入模型的消息视图
+    tools_schema: list[ToolSchema]
+    approx_tokens: int
+
+
+class ToolExchange:
+    assistant_message: SessionMessage
+    tool_results: list[SessionMessage]
+
+
+class TurnDelta:
+    appended_messages: list[SessionMessage] # 本轮新增 assistant / tool / final assistant
+    final_response: str
+    token_usage: TokenUsage
+
+
+class NewMemoryArtifacts:
+    builtin_memory_write: list[MemoryWrite]     # 模型显式调用 memory 工具产生
+    provider_sync_payload: ProviderSyncPayload   # sync_all() 产生
+    next_turn_prefetch_key: str                  # queue_prefetch_all() 预热键
+
+
+request_view = {
+    "persisted_session": PersistedSession,
+    "stable_memory": StableMemory,
+    "ephemeral_recall": EphemeralRecall,
+    "runtime_state": RuntimeState,
+    "session_projection": SessionProjection,
+    "context_window": ProjectedContextWindow,
+    "turn_delta": TurnDelta,
+    "new_memory": NewMemoryArtifacts,
+}
+```
+
+### 8.2 Mermaid：从恢复、投影、剪枝到再沉淀
+
+```mermaid
+flowchart TD
+    U[User Input] --> A[从 SQLite 恢复 Session Transcript]
+    A --> B[形成 Runtime State<br/>messages / todo / cached system prompt]
+
+    M1[MEMORY.md / USER.md] --> C[构建 Stable System Prompt]
+    M2[Memory Provider Prefetch] --> D[生成 Ephemeral Recall]
+    P[Plugin pre_llm_call] --> D
+
+    B --> E[把当前 user turn 并入 state]
+    C --> F[投影 Context Window 候选集]
+    D --> F
+    E --> F
+
+    F --> G{超过 context threshold?}
+    G -- 是 --> H[flush memories]
+    H --> I[剪枝旧 tool result]
+    I --> J[总结中间 turns]
+    J --> K[压缩 messages 并分裂 session<br/>parent_session_id 保留 lineage]
+    K --> L[重建 system prompt]
+    L --> N[编译最终 api_messages]
+    G -- 否 --> N[编译最终 api_messages]
+
+    N --> O[进入大模型]
+    O --> Q{返回 tool_calls?}
+    Q -- 是 --> R[执行工具并把 assistant/tool 写回 state]
+    R --> S{再次逼近 context window?}
+    S -- 是 --> I
+    S -- 否 --> N
+    Q -- 否 --> T[得到 final_response]
+
+    T --> V[写入 JSON Log + SQLite Delta]
+    T --> W[sync_all 到 external memory]
+    T --> X[queue_prefetch_all 预热下一轮 recall]
+    V --> Y[形成下一轮可恢复 Session]
+    W --> Z[形成下一轮可复用 Memory]
+    X --> Z
+```
+
+### 8.3 这张图真正说明了什么
+
+- **Memory 先分裂成两种形态**：稳定记忆进入 system prompt，瞬时 recall 注入当前 user turn。
+- **State 是编排中心**：`messages`、`todo_store`、`cached_system_prompt`、预算计数器都属于运行态，而不是持久化账本本身。
+- **Context Window 是投影结果**：真正发给模型的是 `api_messages`，不是原始 `conversation_history`。
+- **Session 压缩不是简单截断**：Hermes 会先给 `memory` 工具补录机会，再做“保头 + 保尾 + 中间摘要”，必要时还会新建子 session 并保留 `parent_session_id`。
+- **新 Memory 的形成有两条路径**：一条是模型显式调用 `memory` 工具写入内建记忆；另一条是 turn 结束后 `sync_all()/queue_prefetch_all()` 同步给外部 provider。
+
+---
+
+## 9. 横向对比：五大系统的数据模型深度异同
 
 | 概念 | Claude Code | Codex | OpenCode | Gemini CLI | **Hermes** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -292,7 +443,7 @@ sequenceDiagram
 
 ---
 
-## 9. 源码阅读路线图 (Roadmap)
+## 10. 源码阅读路线图 (Roadmap)
 
 如果你想在代码中验证上述理论，请遵循此路径：
 
