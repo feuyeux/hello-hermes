@@ -3,3 +3,4 @@ hermes-agent/
 __pycache__/
 .vscode/
 *.json
+.idea/

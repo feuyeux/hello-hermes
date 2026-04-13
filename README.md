@@ -1,4 +1,4 @@
-# 你好，Hermes Agent ☤
+# Hello Hermes Agent ☤
 
 这是一个用于探索和分析 [Hermes Agent](https://github.com/nousresearch/hermes-agent) `v0.8.0 (v2026.4.8)` `86960cdb` 的工作区。
 
