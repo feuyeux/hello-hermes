@@ -130,6 +130,32 @@ chat --quiet --toolsets web,terminal -q "Check the latest Python release and wri
 | Windows 路径问题 | 用反斜杠或 `pathlib.Path`，勿硬编码 Unix 路径 |
 | 断点停在 venv 代码 | PyCharm 中将 `venv` 标记为 Excluded |
 
+## 多轮会话调试
+
+运行完整的多轮对话时，用 `--resume` / `-r` 参数恢复以前的 session，保持完整的上下文：
+
+```bash
+# 第 1 轮：初始请求（返回 session_id）
+python hermes-agent/hermes_cli/main.py chat --quiet -q "Summarize the repository structure in 5 bullets"
+# Output: session_id: 20260413_194556_5aebb2
+
+# 第 2 轮：恢复 session，继续提问
+python hermes-agent/hermes_cli/main.py chat --quiet --resume 20260413_194556_5aebb2 -q "Based on your summary, what are the main entry points?"
+
+# 第 3 轮：再次恢复同一 session
+python hermes-agent/hermes_cli/main.py chat --quiet -r 20260413_194556_5aebb2 -q "How would I add a new tool to the system?"
+```
+
+**Session 管理**：
+
+| 命令 | 效果 |
+|---|---|
+| `-r <SESSION_ID>` / `--resume <SESSION_ID>` | 恢复特定 session |
+| `-c` / `--continue` | 恢复最近一次的 CLI session |
+| `-c "会话名称"` | 按名称恢复（需先用 `hermes sessions rename` 命名） |
+| `hermes sessions list` | 查看所有 session |
+| `hermes sessions export output.jsonl --session-id <ID>` | 导出特定 session |
+
 ---
 
 ## 相关资源
