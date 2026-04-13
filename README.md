@@ -13,7 +13,7 @@
 ## 源代码分析
 
 ```sh
-git clone https://github.com/nousresearch/hermes-agent
+git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-agent
 ```
 
 - [Hermes 架构解析 (一)：流程篇 · 源代码执行全生命周期](./Hermes%20架构解析%20(一)：流程篇%20·%20源代码执行全生命周期.md)
