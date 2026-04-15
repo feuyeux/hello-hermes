@@ -19,6 +19,7 @@ git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-ag
 - [Hermes 架构解析 (一)：流程篇 · 源代码执行全生命周期](./Hermes%20架构解析%20(一)：流程篇%20·%20源代码执行全生命周期.md)
 - [Hermes 架构解析 (二)：数据篇 · 状态模型与上下文治理](./Hermes%20架构解析%20(二)：数据篇%20·%20状态模型与上下文治理.md)
 - [Hermes 架构解析 (三)：扩展篇 · 插件与技能开发全指南](./Hermes%20架构解析%20(三)：扩展篇%20·%20插件与技能开发全指南.md)
+- [Hermes 架构解析 (四)：调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
 
 ## 快速开始
 
@@ -108,25 +109,9 @@ chat --quiet --toolsets web,terminal -q "Check the latest Python release and wri
 
 > **入口点**：`hermes_cli/main.py:main()` 是统一 CLI 入口（one-shot）。也可调试 `run_agent.py:main()`（agent kernel）或 `acp_adapter/entry.py:main()`（ACP 适配器）。对应关系见 [pyproject.toml](https://github.com/nousresearch/hermes-agent/blob/main/pyproject.toml) L99–102 `[project.scripts]`。
 
-```text
-[
-    ThinkingBlock(
-        signature='79c2901c8b0b08f74fbb99cb8038dbe7c94aff6ed7b8752ed9089ea0f490d549',
-        thinking='The user wants me to summarize the repository structure in 5 bullets. Looking at the loaded AGENTS.md file, it already contains a detailed Project Structure section that describes the repository layout. I can use that information to create a concise 5-bullet summary.', type='thinking'
-    ), 
-    ParsedTextBlock(
-        citations=None, 
-        text='- 
-        **Core agent engine** — `run_agent.py` (AIAgent class), `model_tools.py` (tool orchestration), `toolsets.py` (toolset definitions), `cli.py` (interactive CLI)\n- 
-        **Agent internals** — `agent/` subdirectory with prompt building, context compression, prompt caching, auxiliary LLM client, model metadata, display/spinner, skill commands, and trajectory saving\n- 
-        **CLI system** — `hermes_cli/` houses subcommands (`main.py`), config management, slash command registry, terminal callbacks, setup wizard, skin/theme engine, skills/tools configuration, model catalog, and auth handling\n- 
-        **Tool implementations** — `tools/` contains the central registry, terminal orchestration, file/web/browser/code execution/delegate/MCP tools, plus environment backends (local, docker, ssh, modal, daytona, singularity)\n- 
-        **Gateway & integrations** — `gateway/` for messaging platform adapters (telegram, discord, slack, whatsapp, etc.), `acp_adapter/` for VS Code/Zed/JetBrains, `cron/` for scheduling, `environments/` for RL training, and `tests/` with ~3000 tests', 
-        type='text', 
-        parsed_output=None
-    )
-]
-```
+进一步查看这条 one-shot 请求的完整调用链、启动链、工具分支与状态持久化路径，可直接参考：
+
+- [Hermes 架构解析 (四)：调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
 
 ## 多轮会话调试
 
