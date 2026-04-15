@@ -13,6 +13,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 - 格式统一为：`文件名::类名::方法名 方法的作用 ...`
 - 无类方法统一写成 `::<module>::`
 - 只给和 `状态 / 上下文 / 会话 / 记忆` 直接相关的方法打标签
+- `【自改进】` 标签：表示这个节点会把经验回写、复用，或触发后台沉淀；**不等于训练模型权重**
 - 本文以这个**具体命令**的真实路径为主，条件分支会单独标注 `条件：...`
 
 ## 1. 启动链
@@ -85,11 +86,11 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 15. `hermes_state.py::SessionDB::create_session` 创建本次 CLI session 记录 【**会话**】【**状态**】
 16. `hermes_state.py::SessionDB::_execute_write` 执行 `create_session` 的 SQLite 写事务 【**会话**】【**状态**】
 17. `tools/memory_tool.py::MemoryStore::__init__` 条件：开启 memory 时初始化记忆存储 【**记忆**】【**状态**】
-18. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆 【**记忆**】【**状态**】
+18. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆，作为后续 session 的可复用经验快照 【**记忆**】【**状态**】【**自改进**】
 19. `agent/subdirectory_hints.py::SubdirectoryHintTracker::__init__` 初始化目录上下文提示跟踪器 【**上下文**】【**状态**】
 20. `agent/context_compressor.py::ContextCompressor::__init__` 初始化上下文压缩器和阈值 【**上下文**】【**状态**】
 21. `plugins/context_engine/__init__.py::<module>::load_context_engine` 条件：开启 context engine 时装载上下文引擎 【**上下文**】【**状态**】
-22. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件 【**记忆**】【**状态**】
+22. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件，为后续 recall / sync / feedback 打开通路 【**记忆**】【**状态**】【**自改进**】
 
 ## 5. `run_conversation` 固定主干
 
@@ -109,7 +110,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 14. `agent/model_metadata.py::<module>::estimate_request_tokens_rough` 预估当前消息+工具 schema 的总 token 数 【**上下文**】【**状态**】
 15. `run_agent.py::AIAgent::_compress_context` 条件：历史已超过压缩阈值时先做 preflight compression 【**上下文**】【**会话**】【**记忆**】【**状态**】
 16. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`pre_llm_call`，允许插件把额外上下文注入到本轮 user message 【**上下文**】【**会话**】
-17. `agent/memory_manager.py::_MemoryManager::prefetch_all` 条件：外部记忆插件预取与本轮 query 相关的记忆片段 【**记忆**】【**上下文**】
+17. `agent/memory_manager.py::_MemoryManager::prefetch_all` 条件：外部记忆插件预取与本轮 query 相关的记忆片段，把过去沉淀重新带回当前推理链 【**记忆**】【**上下文**】【**自改进**】
 18. `run_agent.py::AIAgent::clear_interrupt` 清理本轮开始前的中断状态 【**状态**】
 
 ## 6. 主循环中每轮 API 调用前的固定链
@@ -131,9 +132,9 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 1. `run_agent.py::AIAgent::_build_system_prompt` 按固定层次拼接 identity、memory、skills、project context、timestamp、platform hints 【**上下文**】【**会话**】【**记忆**】
 2. `agent/prompt_builder.py::<module>::load_soul_md` 读取 `HERMES_HOME/SOUL.md` 作为 agent identity 【**上下文**】
 3. `agent/prompt_builder.py::<module>::build_nous_subscription_prompt` 条件：按可用工具生成 Nous 订阅提示
-4. `tools/memory_tool.py::MemoryStore::format_for_system_prompt` 条件：把本地 memory/user profile 格式化进 system prompt 【**记忆**】【**上下文**】
-5. `agent/memory_manager.py::_MemoryManager::build_system_prompt` 条件：把外部 memory provider 的 system prompt 块加入 prompt 【**记忆**】【**上下文**】
-6. `agent/prompt_builder.py::<module>::build_skills_system_prompt` 条件：当 `skills_list/skill_view/skill_manage` 可用时构造 skills 提示 【**上下文**】
+4. `tools/memory_tool.py::MemoryStore::format_for_system_prompt` 条件：把本地 memory/user profile 格式化进 system prompt，让历史经验在新 session 启动时直接生效 【**记忆**】【**上下文**】【**自改进**】
+5. `agent/memory_manager.py::_MemoryManager::build_system_prompt` 条件：把外部 memory provider 的 system prompt 块加入 prompt 【**记忆**】【**上下文**】【**自改进**】
+6. `agent/prompt_builder.py::<module>::build_skills_system_prompt` 条件：当 `skills_list/skill_view/skill_manage` 可用时构造 skills 提示，把已沉淀的方法论重新注入 system prompt 【**上下文**】【**自改进**】
 7. `agent/prompt_builder.py::<module>::build_context_files_prompt` 装载项目级上下文文件 【**上下文**】
 8. `agent/prompt_builder.py::<module>::_load_hermes_md` 条件：优先查找 `.hermes.md/HERMES.md` 【**上下文**】
 9. `agent/prompt_builder.py::<module>::_load_agents_md` 条件：若无 `.hermes.md`，读取仓库根 `AGENTS.md` 【**上下文**】
@@ -185,9 +186,9 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 12. `hermes_state.py::SessionDB::_execute_write` 执行 `append_message` 的 SQLite 写事务 【**会话**】【**状态**】
 13. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`post_llm_call`，允许插件在本轮完成后处理对话结果 【**会话**】
 14. `run_agent.py::AIAgent::clear_interrupt` 清理本轮中断状态 【**状态**】
-15. `agent/memory_manager.py::_MemoryManager::sync_all` 条件：把这轮 user/assistant 对话同步给外部 memory provider 【**记忆**】【**会话**】
-16. `agent/memory_manager.py::_MemoryManager::queue_prefetch_all` 条件：为下一轮 query 异步预取记忆 【**记忆**】【**状态**】
-17. `run_agent.py::AIAgent::_spawn_background_review` 条件：触发 memory/skills 的后台 review 【**记忆**】【**状态**】
+15. `agent/memory_manager.py::_MemoryManager::sync_all` 条件：把这轮 user/assistant 对话同步给外部 memory provider，供其做长期存储、抽取或索引 【**记忆**】【**会话**】【**自改进**】
+16. `agent/memory_manager.py::_MemoryManager::queue_prefetch_all` 条件：为下一轮 query 异步预取记忆，形成“本轮写入，下轮可取回”的闭环 【**记忆**】【**状态**】【**自改进**】
+17. `run_agent.py::AIAgent::_spawn_background_review` 条件：触发 memory/skills 的后台 review；fork 一个静默 agent 复盘本轮，并把值得保留的内容写入共享记忆或技能库 【**记忆**】【**状态**】【**自改进**】
 18. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`on_session_end`，允许插件在本轮结束时清理会话态 【**会话**】【**状态**】
 19. `cli.py::<module>::main` quiet one-shot 分支打印 `response`
 20. `cli.py::<module>::main` quiet one-shot 分支打印 `session_id`
@@ -205,11 +206,11 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 9. `run_agent.py::AIAgent::_execute_tool_calls_concurrent` 并发执行互不冲突的工具批
 10. `run_agent.py::AIAgent::_invoke_tool` 对单个工具做 agent 内建分发或 registry 分发
 11. `tools/todo_tool.py::<module>::todo_tool` 条件：执行内建 todo 工具 【**状态**】
-12. `tools/session_search_tool.py::<module>::session_search` 条件：执行 session_search 【**会话**】【**上下文**】
-13. `tools/memory_tool.py::<module>::memory_tool` 条件：执行内建 memory 工具 【**记忆**】【**状态**】
+12. `tools/session_search_tool.py::<module>::session_search` 条件：执行 session_search，从历史会话中召回相关经验而不是让用户重复说明 【**会话**】【**上下文**】【**自改进**】
+13. `tools/memory_tool.py::<module>::memory_tool` 条件：执行内建 memory 工具，把稳定事实写入 `MEMORY.md/USER.md` 【**记忆**】【**状态**】【**自改进**】
 14. `tools/clarify_tool.py::<module>::clarify_tool` 条件：向用户追问补充信息 【**上下文**】【**状态**】
-15. `tools/delegate_tool.py::<module>::delegate_task` 条件：创建子代理任务 【**状态**】
-16. `agent/memory_manager.py::_MemoryManager::handle_tool_call` 条件：执行外部 memory provider 暴露的工具 【**记忆**】【**状态**】
+15. `tools/delegate_tool.py::<module>::delegate_task` 条件：创建子代理任务；子任务完成后父代理可通过 `memory_manager.on_delegation(...)` 观察 task/result，供外部记忆系统吸收 【**状态**】【**自改进**】
+16. `agent/memory_manager.py::_MemoryManager::handle_tool_call` 条件：执行外部 memory provider 暴露的工具，例如显式记忆、检索、反馈打分等 【**记忆**】【**状态**】【**自改进**】
 17. `model_tools.py::<module>::handle_function_call` 执行普通 registry 工具的统一分发入口 【**状态**】
 18. `model_tools.py::<module>::coerce_tool_args` 按 schema 把工具参数字符串转换为目标类型 【**状态**】
 19. `tools/registry.py::ToolRegistry::dispatch` 把工具调用路由到具体 `tools/*.py` handler
@@ -230,10 +231,106 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 5. `hermes_state.py::SessionDB::create_session` 条件：压缩后创建新的 session lineage 节点 【**会话**】【**状态**】
 6. `hermes_state.py::SessionDB::set_session_title` 条件：给压缩后新 session 续写 lineage title 【**会话**】【**状态**】
 7. `tools/file_tools.py::<module>::reset_file_dedup` 条件：压缩后清空文件读取去重缓存 【**上下文**】【**状态**】
-8. `agent/memory_manager.py::_MemoryManager::on_memory_write` 条件：内建 memory 工具写入后桥接外部记忆系统 【**记忆**】【**状态**】
+8. `agent/memory_manager.py::_MemoryManager::on_memory_write` 条件：内建 memory 工具写入后桥接外部记忆系统，把显式记忆同步到插件后端 【**记忆**】【**状态**】【**自改进**】
 
 ## 结
 
 - 无工具调用的完整主链看到 10 为止
 - 有工具调用的完整链路在 10 之后继续接 11
 - 12 只是压缩 / SessionDB / 记忆相关的补充分支说明，不是主链尾部
+
+## 附录
+
+附录部分不再追加主链节点，而是集中补充三类容易在阅读源码时混淆的问题：Hermes 当前的在线自改进机制、`hermes-agent-self-evolution` 的离线进化规划、以及这些设计在实际使用中会呈现出的行为后果。
+
+### 1. 自改进链路补注
+
+Hermes 的“自学习”本质上不是训练模型参数，而是把任务过程中的**稳定事实、可复用方法、历史对话证据、外部记忆反馈**沉淀到下一轮还能继续使用的层。
+
+1. **显式记忆沉淀**
+   `tools/memory_tool.py::MemoryStore::add/replace/remove` 把稳定事实写入 `MEMORY.md` 或 `USER.md`，`load_from_disk` 与 `format_for_system_prompt` 会在后续 session 启动时重新注入这些内容。也就是说，Hermes 会“记住”用户偏好、环境约束、项目约定，但这份记忆是文件级持久化，不是模型权重更新。
+
+2. **后台复盘后自动写回**
+   `run_agent.py::AIAgent::_spawn_background_review` 是最像“自我复盘”的节点。它会在主任务答复结束后 fork 一个静默 agent，把 `_MEMORY_REVIEW_PROMPT / _SKILL_REVIEW_PROMPT / _COMBINED_REVIEW_PROMPT` 作为新一轮输入，检查这次对话里有没有值得沉淀的偏好、经验、坑点或可复用流程；若有，就直接调用 `memory` 或 `skill_manage` 写回共享存储。
+
+3. **技能是程序性记忆，不是普通笔记**
+   `tools/skill_manager_tool.py` 在源码开头就把 skills 定义为 `procedural memory`。它保存的是“某类任务应该怎么做”的操作套路，而不是用户画像。后续 `agent/prompt_builder.py::<module>::build_skills_system_prompt` 会重新扫描技能索引，并把可用技能压缩成 system prompt 的一部分，所以经验能跨任务复用。
+
+4. **跨会话召回让它看起来像‘记得以前做过’**
+   `tools/session_search_tool.py::<module>::session_search` 通过 SQLite FTS5 检索旧会话，再让辅助模型生成聚焦摘要；`agent/memory_manager.py::_MemoryManager::prefetch_all` 则允许外部记忆插件在每轮前预取相关事实。这两条链让 Hermes 可以在新任务里把旧任务的结论、命令、文件路径、决策重新带回来。
+
+5. **外部 memory provider 负责更强的抽取、索引和反馈**
+   `agent/memory_provider.py::MemoryProvider` 定义了 `prefetch / sync_turn / on_session_end / on_memory_write / on_delegation` 这组生命周期钩子。不同插件据此实现增强版“自改进”：
+   - `plugins/memory/openviking/__init__.py::OpenVikingMemoryProvider::on_session_end` 会在 session commit 时自动抽取 `profile / preferences / entities / events / cases / patterns`
+   - `plugins/memory/supermemory/__init__.py::SupermemoryProvider::sync_turn/on_session_end/on_memory_write` 会把 turn、session、显式记忆分别写入图状长期记忆
+   - `plugins/memory/holographic/store.py::MemoryStore::record_feedback` 支持 `fact_feedback(helpful/unhelpful)`，直接调整 fact trust score；这是真正意义上的“基于使用反馈修正记忆质量”
+
+6. **短期自修复和长期自改进要分开看**
+   类似 `run_agent.py::AIAgent::_repair_tool_call`、无效工具名重试、上下文压缩、重试回退，这些更偏向**运行时自修复**；它们能让当前回合少犯错，但不一定形成长期知识。真正会留下来、并在未来继续影响行为的，是记忆写回、技能沉淀、session recall、provider 同步与反馈打分这几条链。
+
+### 2. 对照 `hermes-agent-self-evolution` 计划再看一层
+
+参考 `NousResearch/hermes-agent-self-evolution` 的 `PLAN.md`，可以把 Hermes 的“自改进”再拆成两层：
+
+1. **Hermes 当前仓内已经存在的在线自改进层**
+   这一层就是本文前面标出的真实链路：`memory_tool`、`skill_manage`、`session_search`、`_spawn_background_review`、`memory_manager.prefetch_all/sync_all/on_memory_write`，以及各类外部 memory provider。它的特点是**边运行边沉淀**，目标是让同一个 agent 在后续 session 或后续 turn 更懂用户、更会复用经验。
+
+2. **`hermes-agent-self-evolution` 计划中的离线进化优化层**
+   这个计划明确写的是：它**不在 hermes-agent 仓内运行**，而是一个独立 repo，`operates ON hermes-agent — not part of it`。它要优化的也不是模型权重，而是**技能文本、工具描述、system prompt 片段、以及部分代码文件**。也就是说，它不是“在线记忆”，而是“离线把 agent 本身的策略文本和实现继续打磨”。
+
+3. **两层的目标不同，但素材来源是连通的**
+   `PLAN.md` 里的优化闭环依赖几类 Hermes 现成资产：
+   - `hermes_state.py` / SessionDB：挖真实使用数据，构造 eval dataset
+   - `batch_runner.py`：并行跑评测任务，比较 baseline 与 candidate
+   - `agent/trajectory.py` 与 trajectory 保存链：把执行轨迹提供给反思式优化器
+   - `skills/`：技能文本本身就是一号优化对象
+   - `tools/registry.py` / `tools/*.py`：工具 schema 的 description 是二号优化对象
+   - `agent/prompt_builder.py`：`MEMORY_GUIDANCE / SESSION_SEARCH_GUIDANCE / SKILLS_GUIDANCE` 等 prompt 片段是三号优化对象
+   - `tests/` 与 benchmark 环境：做 guardrail，避免“优化”变成回归
+
+4. **这说明当前 Hermes 已经具备“被进化”的接口面**
+   从源码现状看，很多关键支点已经存在：
+   - `batch_runner.py` 已经能并行跑任务并产出 trajectory
+   - `run_agent.py::AIAgent::_save_trajectory` / `agent/trajectory.py` 已经能保留执行轨迹
+   - `environments/benchmarks/tblite/`、`terminalbench_2/`、`yc_bench/` 已经提供 benchmark gate
+   - `prompt_builder.py` 里的 guidance 常量本身就是可参数化的 prompt section
+   - `skill_manage` 与技能目录让“程序性记忆”天然可版本化、可 diff、可回滚
+
+5. **`PLAN.md` 比当前仓内能力更进一步的地方**
+   当前 Hermes 主要做到“把经验留下来并复用”；而 self-evolution 计划想做的是“把这些经验转成可验证的优化实验”，核心新增的是：
+   - 用 DSPy + GEPA / MIPROv2 进化 skills、tool descriptions、prompt sections
+   - 用 Darwinian Evolver 进化代码实现
+   - 用 train / val / test 划分、LLM-as-judge rubric、benchmark gate 做严格比较
+   - 只在离线评估和人工审批通过后，才通过 git branch / PR 回灌到 `hermes-agent`
+
+6. **因此，严格说现在的 Hermes 是“可持续积累经验的 agent”，而不是完整的“自动进化系统”**
+   当前仓内已经实现了在线经验沉淀、跨会话召回、后台复盘、外部记忆反馈这些机制；但 `PLAN.md` 描述的 GEPA/DSPy/Darwinian 那套**离线 evolutionary optimization pipeline**，还属于仓外规划能力，而不是本文这条调试链里已经发生的默认行为。
+
+7. **两者拼起来，才是更完整的 self-improving 图景**
+   - 在线层：解决“这次学到的东西，下次能不能记住并用上”
+   - 离线层：解决“这些记忆、轨迹、失败样本，能不能系统性反哺技能、prompt、工具描述甚至代码本身”
+
+换句话说，本文前面标出的链路解释了**Hermes 现在怎样在产品内自我改进**；而 `hermes-agent-self-evolution/PLAN.md` 则补上了**Hermes 未来怎样把这些运行痕迹变成可测量、可回滚、可审查的离线进化工程**。
+
+### 3. 来自 [Hermes Agent 从中级到高级进阶指南](https://x.com/BTCqzy1/status/2044259795499450414)
+
+1. **为什么很多人会觉得 Hermes “写了记忆却没立刻记住”**
+   这不是单纯的体验问题，而是源码里的明确设计：`tools/memory_tool.py::MemoryStore` 维护两套状态，一套是 `_system_prompt_snapshot`，在 `load_from_disk()` 时冻结；另一套才是运行中可变的 live memory。前者中途不变，是为了保持 prefix cache 稳定；后者会立刻写盘，但通常要到后续 session 或 system prompt 重建后才真正稳定地影响模型行为。
+
+2. **`nudge_interval` 的语义，最好按“用户轮次”理解，不要按 tool call 理解**
+   `run_agent.py::AIAgent::run_conversation` 在每次新的用户输入开始时递增 `_user_turn_count`，并用 `_turns_since_memory` 判断是否触发 memory review；这说明 `memory.nudge_interval` 更接近“若干次用户回合后触发一次记忆复盘”。
+   相对地，技能侧是另一套节奏：`_iters_since_skill` 在 agent loop 的工具迭代里累计，`skills.creation_nudge_interval` 更接近“若干次工具驱动迭代后，触发一次 skill review”。
+
+3. **`SOUL.md`、`AGENTS.md`、`MEMORY.md/USER.md` 在源码里属于不同层，不应该混写**
+   从 `_build_system_prompt` 看，Hermes 大致按 `SOUL.md -> memory/user profile -> external memory block -> skills -> AGENTS.md/.hermes.md/...` 的顺序组装上下文：
+   - `SOUL.md` 更接近 agent identity / 长期行为准则
+   - `AGENTS.md` 更接近项目级规范和仓库约束
+   - `MEMORY.md / USER.md` 更接近 agent-curated 的稳定事实与偏好
+   所以 `temp` 里“不要把应该写在 SOUL.md 的东西塞进 MEMORY.md”这个提醒是有借鉴价值的，而且和当前源码的 prompt 分层是一致的。
+
+4. **本文里凡是写到 `~/.hermes/...`，都应该脑补成“当前 `HERMES_HOME` 对应路径”**
+   `MemoryStore.get_memory_dir()`、`load_soul_md()` 等入口都通过 `get_hermes_home()` 取路径，说明这些文件并不是硬编码绑死在默认 profile。也就是说，在 profile 场景下，本篇提到的 `MEMORY.md`、`USER.md`、`SOUL.md`、`skills/` 本质上都应该理解为“当前 profile 的数据根目录下的对应文件”。
+
+5. **子 Agent 不会天然继承主 Agent 的完整上下文，这一点在调试 delegation 时很关键**
+   `tools/delegate_tool.py` 明确把 `memory` 从子 Agent 可用工具里禁掉，并在创建 child 时传 `skip_memory=True`。同时它的 tool schema 也直接写了：subagent 对父上下文是未知的，`goal` 和 `context` 必须写得自足。
+   这意味着：当你在 delegation 链路里看到子 Agent “不知道刚才那个文件”或“没继承主线偏好”，默认应该先怀疑 `delegate_task(context=...)` 是否写得不够完整，而不是先怀疑记忆系统失效。
