@@ -71,26 +71,27 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 
 1. `run_agent.py::<module>::_install_safe_stdio` 用安全包装器接管 stdout/stderr，防止 broken pipe 异常
 2. `hermes_cli/model_normalize.py::<module>::normalize_model_for_provider` 规范化 model 名称和 provider 约束 【**状态**】
-3. `run_agent.py::AIAgent::_is_direct_openai_url` 判断当前 base_url 是否是原生 OpenAI URL 【**状态**】
-4. `run_agent.py::AIAgent::_model_requires_responses_api` 判断当前模型是否必须改走 Responses API 【**状态**】
-5. `run_agent.py::AIAgent::_create_openai_client` 条件：`chat_completions/codex_responses` 路径下创建 OpenAI 兼容 client 【**状态**】
-6. `agent/anthropic_adapter.py::<module>::build_anthropic_client` 条件：`anthropic_messages` 路径下创建 Anthropic client 【**状态**】
-7. `model_tools.py::<module>::get_tool_definitions` 根据启用 toolsets 构造本次 session 可用工具 schema 【**状态**】【**上下文**】
-8. `model_tools.py::<module>::_discover_tools` 导入并注册内置工具
-9. `tools/mcp_tool.py::<module>::discover_mcp_tools` 发现配置中的 MCP 工具
-10. `hermes_cli/plugins.py::<module>::discover_plugins` 发现插件工具
-11. `tools/registry.py::ToolRegistry::get_definitions` 从 registry 取出通过可用性校验的工具 schema 【**状态**】
-12. `model_tools.py::<module>::check_toolset_requirements` 检查 toolset 依赖项是否齐备
-13. `tools/checkpoint_manager.py::CheckpointManager::__init__` 初始化文件回滚快照管理器 【**状态**】
-14. `tools/todo_tool.py::TodoStore::__init__` 初始化内存中的 todo store 【**状态**】
-15. `hermes_state.py::SessionDB::create_session` 创建本次 CLI session 记录 【**会话**】【**状态**】
-16. `hermes_state.py::SessionDB::_execute_write` 执行 `create_session` 的 SQLite 写事务 【**会话**】【**状态**】
-17. `tools/memory_tool.py::MemoryStore::__init__` 条件：开启 memory 时初始化记忆存储 【**记忆**】【**状态**】
-18. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆，作为后续 session 的可复用经验快照 【**记忆**】【**状态**】【**自改进**】
-19. `agent/subdirectory_hints.py::SubdirectoryHintTracker::__init__` 初始化目录上下文提示跟踪器 【**上下文**】【**状态**】
-20. `agent/context_compressor.py::ContextCompressor::__init__` 初始化上下文压缩器和阈值 【**上下文**】【**状态**】
-21. `plugins/context_engine/__init__.py::<module>::load_context_engine` 条件：开启 context engine 时装载上下文引擎 【**上下文**】【**状态**】
-22. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件，为后续 recall / sync / feedback 打开通路 【**记忆**】【**状态**】【**自改进**】
+3. `run_agent.py::AIAgent::__init__` 生成或接收 `session_id`；若未传入则生成格式为 `{timestamp}_{uuid[:6]}` 的新 ID 【**会话**】【**状态**】
+4. `run_agent.py::AIAgent::_is_direct_openai_url` 判断当前 base_url 是否是原生 OpenAI URL 【**状态**】
+5. `run_agent.py::AIAgent::_model_requires_responses_api` 判断当前模型是否必须改走 Responses API 【**状态**】
+6. `run_agent.py::AIAgent::_create_openai_client` 条件：`chat_completions/codex_responses` 路径下创建 OpenAI 兼容 client 【**状态**】
+7. `agent/anthropic_adapter.py::<module>::build_anthropic_client` 条件：`anthropic_messages` 路径下创建 Anthropic client 【**状态**】
+8. `model_tools.py::<module>::get_tool_definitions` 根据启用 toolsets 构造本次 session 可用工具 schema 【**状态**】【**上下文**】
+9. `model_tools.py::<module>::_discover_tools` 导入并注册内置工具
+10. `tools/mcp_tool.py::<module>::discover_mcp_tools` 发现配置中的 MCP 工具
+11. `hermes_cli/plugins.py::<module>::discover_plugins` 发现插件工具
+12. `tools/registry.py::ToolRegistry::get_definitions` 从 registry 取出通过可用性校验的工具 schema 【**状态**】
+13. `model_tools.py::<module>::check_toolset_requirements` 检查 toolset 依赖项是否齐备
+14. `tools/checkpoint_manager.py::CheckpointManager::__init__` 初始化文件回滚快照管理器 【**状态**】
+15. `tools/todo_tool.py::TodoStore::__init__` 初始化内存中的 todo store 【**状态**】
+16. `hermes_state.py::SessionDB::create_session` 创建本次 CLI session 记录 【**会话**】【**状态**】
+17. `hermes_state.py::SessionDB::_execute_write` 执行 `create_session` 的 SQLite 写事务 【**会话**】【**状态**】
+18. `tools/memory_tool.py::MemoryStore::__init__` 条件：开启 memory 时初始化记忆存储 【**记忆**】【**状态**】
+19. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆，作为后续 session 的可复用经验快照 【**记忆**】【**状态**】【**自改进**】
+20. `agent/subdirectory_hints.py::SubdirectoryHintTracker::__init__` 初始化目录上下文提示跟踪器 【**上下文**】【**状态**】
+21. `agent/context_compressor.py::ContextCompressor::__init__` 初始化上下文压缩器和阈值 【**上下文**】【**状态**】
+22. `plugins/context_engine/__init__.py::<module>::load_context_engine` 条件：开启 context engine 时装载上下文引擎 【**上下文**】【**状态**】
+23. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件，为后续 recall / sync / feedback 打开通路 【**记忆**】【**状态**】【**自改进**】
 
 ## 5. `run_conversation` 固定主干
 
@@ -233,11 +234,135 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 7. `tools/file_tools.py::<module>::reset_file_dedup` 条件：压缩后清空文件读取去重缓存 【**上下文**】【**状态**】
 8. `agent/memory_manager.py::_MemoryManager::on_memory_write` 条件：内建 memory 工具写入后桥接外部记忆系统，把显式记忆同步到插件后端 【**记忆**】【**状态**】【**自改进**】
 
+## 13. `session_id` 生成位置汇总
+
+`session_id` 是 Hermes 会话追踪的核心标识符，在多个入口点生成，格式统一为 `{timestamp}_{uuid}`：
+
+### 13.1 CLI 路径生成
+
+1. **`cli.py::HermesCLI::__init__` (L1798-1799)**
+   ```python
+   timestamp_str = self.session_start.strftime("%Y%m%d_%H%M%S")
+   short_uuid = uuid.uuid4().hex[:6]
+   self.session_id = f"{timestamp_str}_{short_uuid}"
+   ```
+   - 触发时机：CLI 交互模式启动时
+   - 格式：`20260416_143025_a3f2c1` (6位 UUID)
+   - 传递路径：`HermesCLI.__init__` → `_init_agent()` → `AIAgent.__init__(session_id=...)`
+
+2. **`cli.py::HermesCLI::_branch_session` (L4249-4250)**
+   ```python
+   timestamp_str = now.strftime("%Y%m%d_%H%M%S")
+   short_uuid = uuid.uuid4().hex[:6]
+   new_session_id = f"{timestamp_str}_{short_uuid}"
+   ```
+   - 触发时机：用户执行 `/branch` 命令创建会话分支时
+   - 用途：从当前会话派生新的独立会话线
+
+### 13.2 Agent 内核生成
+
+3. **`run_agent.py::AIAgent::__init__` (L1149-1150)**
+   ```python
+   timestamp_str = self.session_start.strftime("%Y%m%d_%H%M%S")
+   short_uuid = uuid.uuid4().hex[:6]
+   self.session_id = f"{timestamp_str}_{short_uuid}"
+   ```
+   - 触发时机：`AIAgent` 初始化时未传入 `session_id` 参数
+   - 格式：`20260416_143025_a3f2c1` (6位 UUID)
+   - 说明：这是 agent 内核的兜底生成逻辑
+
+4. **`run_agent.py::AIAgent::_compress_context` (L7093)**
+   ```python
+   self.session_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:6]}"
+   ```
+   - 触发时机：上下文压缩后创建新 session lineage 节点
+   - 用途：压缩会切断旧会话并开启新会话，保持 lineage 链
+
+### 13.3 Gateway 路径生成
+
+5. **`gateway/session.py::SessionStore::get_or_create_session` (L734)**
+   ```python
+   session_id = f"{now.strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+   ```
+   - 触发时机：Gateway 平台（Telegram/Discord/Slack 等）创建新会话时
+   - 格式：`20260416_143025_a3f2c1b4` (8位 UUID，比 CLI 多2位)
+   - 说明：Gateway 使用稍长的 UUID 以降低多平台并发冲突概率
+
+6. **`gateway/session.py::SessionStore::branch_session` (L843)**
+   ```python
+   session_id = f"{now.strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+   ```
+   - 触发时机：Gateway 平台执行会话分支时
+   - 用途：与 CLI 分支类似，但在消息平台环境
+
+7. **`gateway/run.py::_branch_session` (L6429)**
+   ```python
+   new_session_id = f"{timestamp_str}_{short_uuid}"
+   ```
+   - 触发时机：Gateway 运行时分支逻辑
+   - 说明：Gateway 的另一个分支入口
+
+8. **`gateway/platforms/api_server.py::_handle_chat_completions` (L1489)**
+   ```python
+   session_id = stored_session_id or str(uuid.uuid4())
+   ```
+   - 触发时机：OpenAI 兼容 API 服务器处理请求时
+   - 格式：纯 UUID（无时间戳前缀），与其他路径不同
+   - 说明：优先复用已存储的 `session_id`，否则生成纯 UUID
+
+### 13.4 其他组件生成
+
+9. **`acp_adapter/session.py::SessionManager::create_session` (L98)**
+   ```python
+   session_id = str(uuid.uuid4())
+   ```
+   - 触发时机：ACP (Agent Communication Protocol) 适配器创建会话时
+   - 格式：纯 UUID 字符串
+   - 说明：ACP 协议使用标准 UUID 格式
+
+### 13.5 格式差异总结
+
+| 生成位置 | 格式 | UUID 长度 | 示例 |
+|---------|------|----------|------|
+| CLI / Agent 内核 | `{timestamp}_{uuid}` | 6位 | `20260416_143025_a3f2c1` |
+| Gateway 平台 | `{timestamp}_{uuid}` | 8位 | `20260416_143025_a3f2c1b4` |
+| API Server | 纯 UUID | 完整 | `550e8400-e29b-41d4-a716-446655440000` |
+| ACP 适配器 | 纯 UUID | 完整 | `550e8400-e29b-41d4-a716-446655440000` |
+
+### 13.6 设计要点
+
+1. **时间戳前缀的作用**：
+   - 便于按时间排序和检索
+   - 人类可读性强，调试时能快速定位会话时间
+   - 文件系统友好（`session_{session_id}.json` 自然按时间排序）
+
+2. **UUID 长度权衡**：
+   - CLI 使用 6位：单用户环境，冲突概率极低
+   - Gateway 使用 8位：多平台并发，需要更高唯一性保证
+   - 完整 UUID：跨系统通信（API/ACP），需要标准格式
+
+3. **生成时机**：
+   - 入口层（CLI/Gateway）：在用户交互开始时生成
+   - 内核层（AIAgent）：兜底生成，确保总有有效 ID
+   - 压缩时：创建新 lineage 节点，保持会话链可追溯
+
+4. **传递链路**：
+   ```
+   CLI/Gateway 生成 session_id
+     ↓
+   传递给 AIAgent.__init__(session_id=...)
+     ↓
+   AIAgent 使用该 ID 创建 SessionDB 记录
+     ↓
+   所有消息、工具调用、压缩事件都关联到该 ID
+   ```
+
 ## 结
 
 - 无工具调用的完整主链看到 10 为止
 - 有工具调用的完整链路在 10 之后继续接 11
 - 12 只是压缩 / SessionDB / 记忆相关的补充分支说明，不是主链尾部
+- 13 补充了 `session_id` 在各个入口点的生成逻辑和格式差异
 
 ## 附录
 

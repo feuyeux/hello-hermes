@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2000" width="1600" height="2000">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap');
+      
+      text {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 13px;
+        fill: #1f2937;
+      }
+      
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+        fill: #111827;
+      }
+      
+      .subtitle {
+        font-size: 12px;
+        fill: #6b7280;
+      }
+      
+      .class-box {
+        fill: #ffffff;
+        stroke: #e5e7eb;
+        stroke-width: 2;
+        rx: 8;
+      }
+      
+      .class-header {
+        fill: #f9fafb;
+        stroke: #e5e7eb;
+        stroke-width: 1;
+      }
+      
+      .connector {
+        stroke: #9ca3af;
+        stroke-width: 2;
+        fill: none;
+        stroke-linejoin: round;
+      }
+      
+      .dependency {
+        stroke: #60a5fa;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 5,5;
+      }
+      
+      .composition {
+        stroke: #10b981;
+        stroke-width: 2;
+        fill: none;
+      }
+      
+      .label {
+        font-size: 11px;
+        fill: #6b7280;
+      }
+      
+      .layer-label {
+        font-size: 14px;
+        font-weight: 600;
+        fill: #4b5563;
+      }
+    </style>
+    
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af"/>
+    </marker>
+    
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/>
+    </marker>
+    
+    <marker id="diamond" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+      <path d="M0,6 L6,0 L12,6 L6,12 z" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="800" y="40" text-anchor="middle" class="title">Hermes 核心类关系图</text>
+  <text x="800" y="65" text-anchor="middle" class="subtitle">v2026.4.8 · 6 层架构 · 15+ 核心类</text>
+  
+  <!-- 图例 -->
+  <g transform="translate(50, 90)">
+    <text x="0" y="0" class="label">图例:</text>
+    <line x1="50" y1="-5" x2="100" y2="-5" class="connector" marker-end="url(#arrow)"/>
+    <text x="110" y="0" class="label">调用/使用</text>
+    
+    <line x1="200" y1="-5" x2="250" y2="-5" class="dependency" marker-end="url(#arrow-blue)"/>
+    <text x="260" y="0" class="label">依赖</text>
+    
+    <line x1="350" y1="-5" x2="400" y2="-5" class="composition" marker-start="url(#diamond)"/>
+    <text x="410" y="0" class="label">组合/持有</text>
+  </g>
+  
+  <!-- 层标签 -->
+  <text x="30" y="180" class="layer-label">编排层</text>
+  <text x="30" y="420" class="layer-label">状态层</text>
+  <text x="30" y="720" class="layer-label">工具层</text>
+  <text x="30" y="1020" class="layer-label">上下文层</text>
+  <text x="30" y="1320" class="layer-label">适配层</text>
+  <text x="30" y="1620" class="layer-label">记忆层</text>
+  
+  <!-- 第1层: 编排层 -->
+  <g id="orchestration-layer">
+    <!-- AIAgent -->
+    <rect x="600" y="140" width="400" height="220" class="class-box"/>
+    <rect x="600" y="140" width="400" height="40" class="class-header"/>
+    <text x="800" y="165" text-anchor="middle" class="title">AIAgent</text>
+    <text x="610" y="195" class="subtitle">run_agent.py</text>
+    
+    <text x="610" y="220">• run_conversation()</text>
+    <text x="610" y="240">• _build_system_prompt()</text>
+    <text x="610" y="260">• _execute_tool_calls()</text>
+    <text x="610" y="280">• _compress_context()</text>
+    <text x="610" y="300">• _persist_session()</text>
+    <text x="610" y="320">• messages: List[Dict]</text>
+    <text x="610" y="340">• iteration_budget: IterationBudget</text>
+    
+    <!-- IterationBudget -->
+    <rect x="1100" y="160" width="280" height="140" class="class-box"/>
+    <rect x="1100" y="160" width="280" height="40" class="class-header"/>
+    <text x="1240" y="185" text-anchor="middle" class="title">IterationBudget</text>
+    <text x="1110" y="215" class="subtitle">run_agent.py</text>
+    
+    <text x="1110" y="240">• consume() → bool</text>
+    <text x="1110" y="260">• refund()</text>
+    <text x="1110" y="280">• max_total: int</text>
+  </g>
+  
+  <!-- 第2层: 状态层 -->
+  <g id="state-layer">
+    <!-- SessionDB -->
+    <rect x="200" y="400" width="350" height="260" class="class-box"/>
+    <rect x="200" y="400" width="350" height="40" class="class-header"/>
+    <text x="375" y="425" text-anchor="middle" class="title">SessionDB</text>
+    <text x="210" y="455" class="subtitle">hermes_state.py</text>
+    
+    <text x="210" y="480">• create_session()</text>
+    <text x="210" y="500">• append_message()</text>
+    <text x="210" y="520">• update_token_counts()</text>
+    <text x="210" y="540">• search_messages() [FTS5]</text>
+    <text x="210" y="560">• get_session_lineage()</text>
+    <text x="210" y="580">• _execute_write() [WAL]</text>
+    <text x="210" y="600">• sessions 表</text>
+    <text x="210" y="620">• messages 表</text>
+    <text x="210" y="640">• messages_fts 虚拟表</text>
+    
+    <!-- MemoryStore -->
+    <rect x="600" y="420" width="320" height="200" class="class-box"/>
+    <rect x="600" y="420" width="320" height="40" class="class-header"/>
+    <text x="760" y="445" text-anchor="middle" class="title">MemoryStore</text>
+    <text x="610" y="475" class="subtitle">tools/memory_tool.py</text>
+    
+    <text x="610" y="500">• load_from_disk()</text>
+    <text x="610" y="520">• format_for_system_prompt()</text>
+    <text x="610" y="540">• add/replace/remove()</text>
+    <text x="610" y="560">• MEMORY.md</text>
+    <text x="610" y="580">• USER.md</text>
+    <text x="610" y="600">• _system_prompt_snapshot</text>
+    
+    <!-- TodoStore -->
+    <rect x="970" y="440" width="280" height="140" class="class-box"/>
+    <rect x="970" y="440" width="280" height="40" class="class-header"/>
+    <text x="1110" y="465" text-anchor="middle" class="title">TodoStore</text>
+    <text x="980" y="495" class="subtitle">tools/todo_tool.py</text>
+    
+    <text x="980" y="520">• add/list/complete()</text>
+    <text x="980" y="540">• _hydrate_from_messages()</text>
+    <text x="980" y="560">• 内存存储 (不持久化)</text>
+    
+    <!-- CheckpointManager -->
+    <rect x="1300" y="440" width="280" height="140" class="class-box"/>
+    <rect x="1300" y="440" width="280" height="40" class="class-header"/>
+    <text x="1440" y="465" text-anchor="middle" class="title">CheckpointManager</text>
+    <text x="1310" y="495" class="subtitle">tools/checkpoint_manager.py</text>
+    
+    <text x="1310" y="520">• create_checkpoint()</text>
+    <text x="1310" y="540">• restore_checkpoint()</text>
+    <text x="1310" y="560">• 文件快照回滚</text>
+  </g>
+  
+  <!-- 第3层: 工具层 -->
+  <g id="tool-layer">
+    <!-- ToolRegistry -->
+    <rect x="400" y="720" width="400" height="240" class="class-box"/>
+    <rect x="400" y="720" width="400" height="40" class="class-header"/>
+    <text x="600" y="745" text-anchor="middle" class="title">ToolRegistry</text>
+    <text x="410" y="775" class="subtitle">tools/registry.py</text>
+    
+    <text x="410" y="800">• register(name, handler, schema)</text>
+    <text x="410" y="820">• dispatch(name, args)</text>
+    <text x="410" y="840">• get_definitions(toolsets)</text>
+    <text x="410" y="860">• get_tool_to_toolset_map()</text>
+    <text x="410" y="880">• check_toolset_requirements()</text>
+    <text x="410" y="900">• _tools: Dict[str, ToolEntry]</text>
+    <text x="410" y="920">• 自注册模式</text>
+    <text x="410" y="940">• 异步桥接 (_run_async)</text>
+    
+    <!-- model_tools -->
+    <rect x="850" y="760" width="320" height="160" class="class-box"/>
+    <rect x="850" y="760" width="320" height="40" class="class-header"/>
+    <text x="1010" y="785" text-anchor="middle" class="title">model_tools</text>
+    <text x="860" y="815" class="subtitle">model_tools.py</text>
+    
+    <text x="860" y="840">• get_tool_definitions()</text>
+    <text x="860" y="860">• handle_function_call()</text>
+    <text x="860" y="880">• coerce_tool_args()</text>
+    <text x="860" y="900">• TOOL_TO_TOOLSET_MAP</text>
+    
+    <!-- toolsets -->
+    <rect x="1220" y="780" width="280" height="120" class="class-box"/>
+    <rect x="1220" y="780" width="280" height="40" class="class-header"/>
+    <text x="1360" y="805" text-anchor="middle" class="title">toolsets</text>
+    <text x="1230" y="835" class="subtitle">toolsets.py</text>
+    
+    <text x="1230" y="860">• resolve_toolset()</text>
+    <text x="1230" y="880">• validate_toolset()</text>
+  </g>
+  
+  <!-- 第4层: 上下文层 -->
+  <g id="context-layer">
+    <!-- ContextCompressor -->
+    <rect x="300" y="1020" width="380" height="220" class="class-box"/>
+    <rect x="300" y="1020" width="380" height="40" class="class-header"/>
+    <text x="490" y="1045" text-anchor="middle" class="title">ContextCompressor</text>
+    <text x="310" y="1075" class="subtitle">agent/context_compressor.py</text>
+    
+    <text x="310" y="1100">• compress(messages)</text>
+    <text x="310" y="1120">• update_from_response()</text>
+    <text x="310" y="1140">• 保留前 N + 压缩中段 + 保留后 M</text>
+    <text x="310" y="1160">• 生成结构化摘要:</text>
+    <text x="310" y="1180">  Goal/Progress/Decisions/</text>
+    <text x="310" y="1200">  Files/Next Steps/Context</text>
+    <text x="310" y="1220">• 触发 session lineage 切换</text>
+    
+    <!-- PromptBuilder -->
+    <rect x="730" y="1040" width="380" height="180" class="class-box"/>
+    <rect x="730" y="1040" width="380" height="40" class="class-header"/>
+    <text x="920" y="1065" text-anchor="middle" class="title">PromptBuilder</text>
+    <text x="740" y="1095" class="subtitle">agent/prompt_builder.py</text>
+    
+    <text x="740" y="1120">• load_soul_md()</text>
+    <text x="740" y="1140">• build_skills_system_prompt()</text>
+    <text x="740" y="1160">• build_context_files_prompt()</text>
+    <text x="740" y="1180">• build_environment_hints()</text>
+    <text x="740" y="1200">• 固定层次组装 system prompt</text>
+    
+    <!-- SubdirectoryHintTracker -->
+    <rect x="1160" y="1060" width="340" height="140" class="class-box"/>
+    <rect x="1160" y="1060" width="340" height="40" class="class-header"/>
+    <text x="1330" y="1085" text-anchor="middle" class="title">SubdirectoryHintTracker</text>
+    <text x="1170" y="1115" class="subtitle">agent/subdirectory_hints.py</text>
+    
+    <text x="1170" y="1140">• check_tool_call()</text>
+    <text x="1170" y="1160">• 根据工具调用附加目录提示</text>
+    <text x="1170" y="1180">• "You are now in src/utils/"</text>
+  </g>
+  
+  <!-- 第5层: 适配层 -->
+  <g id="adapter-layer">
+    <!-- AnthropicAdapter -->
+    <rect x="400" y="1320" width="380" height="200" class="class-box"/>
+    <rect x="400" y="1320" width="380" height="40" class="class-header"/>
+    <text x="590" y="1345" text-anchor="middle" class="title">AnthropicAdapter</text>
+    <text x="410" y="1375" class="subtitle">agent/anthropic_adapter.py</text>
+    
+    <text x="410" y="1400">• build_anthropic_kwargs()</text>
+    <text x="410" y="1420">• normalize_anthropic_response()</text>
+    <text x="410" y="1440">• build_anthropic_client()</text>
+    <text x="410" y="1460">• OpenAI format ↔ Anthropic API</text>
+    <text x="410" y="1480">• 提取 thinking block → reasoning</text>
+    <text x="410" y="1500">• tool_use block → tool_calls</text>
+    
+    <!-- BedrockAdapter -->
+    <rect x="830" y="1340" width="340" height="160" class="class-box"/>
+    <rect x="830" y="1340" width="340" height="40" class="class-header"/>
+    <text x="1000" y="1365" text-anchor="middle" class="title">BedrockAdapter</text>
+    <text x="840" y="1395" class="subtitle">agent/bedrock_adapter.py</text>
+    
+    <text x="840" y="1420">• build_bedrock_kwargs()</text>
+    <text x="840" y="1440">• normalize_bedrock_response()</text>
+    <text x="840" y="1460">• OpenAI format ↔ Bedrock API</text>
+    <text x="840" y="1480">• Converse API 协议转换</text>
+    
+    <!-- prompt_caching -->
+    <rect x="1220" y="1360" width="300" height="120" class="class-box"/>
+    <rect x="1220" y="1360" width="300" height="40" class="class-header"/>
+    <text x="1370" y="1385" text-anchor="middle" class="title">prompt_caching</text>
+    <text x="1230" y="1415" class="subtitle">agent/prompt_caching.py</text>
+    
+    <text x="1230" y="1440">• apply_anthropic_cache_control()</text>
+    <text x="1230" y="1460">• 设置 cache breakpoint</text>
+  </g>
+  
+  <!-- 第6层: 记忆层 -->
+  <g id="memory-layer">
+    <!-- MemoryManager -->
+    <rect x="400" y="1620" width="380" height="240" class="class-box"/>
+    <rect x="400" y="1620" width="380" height="40" class="class-header"/>
+    <text x="590" y="1645" text-anchor="middle" class="title">MemoryManager</text>
+    <text x="410" y="1675" class="subtitle">agent/memory_manager.py</text>
+    
+    <text x="410" y="1700">• prefetch_all(query)</text>
+    <text x="410" y="1720">• sync_all(user_msg, assistant_msg)</text>
+    <text x="410" y="1740">• build_system_prompt()</text>
+    <text x="410" y="1760">• on_memory_write()</text>
+    <text x="410" y="1780">• on_delegation()</text>
+    <text x="410" y="1800">• 协调内建 + 外部记忆</text>
+    <text x="410" y="1820">• 生命周期钩子调度</text>
+    <text x="410" y="1840">• _providers: List[MemoryProvider]</text>
+    
+    <!-- MemoryProvider -->
+    <rect x="830" y="1640" width="380" height="200" class="class-box"/>
+    <rect x="830" y="1640" width="380" height="40" class="class-header"/>
+    <text x="1020" y="1665" text-anchor="middle" class="title">MemoryProvider</text>
+    <text x="840" y="1695" class="subtitle">agent/memory_provider.py</text>
+    
+    <text x="840" y="1720">• prefetch_all() [抽象]</text>
+    <text x="840" y="1740">• sync_turn() [抽象]</text>
+    <text x="840" y="1760">• on_session_end() [抽象]</text>
+    <text x="840" y="1780">• on_memory_write() [抽象]</text>
+    <text x="840" y="1800">• on_delegation() [抽象]</text>
+    <text x="840" y="1820">• 插件接口 (OpenViking/Supermemory)</text>
+  </g>
+  
+  <!-- 连接线 -->
+  
+  <!-- AIAgent → SessionDB -->
+  <path d="M 600 300 C 500 300 450 350 400 400" class="composition" marker-start="url(#diamond)"/>
+  <text x="480" y="360" class="label">持有</text>
+  
+  <!-- AIAgent → MemoryStore -->
+  <path d="M 700 360 L 700 420" class="composition" marker-start="url(#diamond)"/>
+  <text x="710" y="395" class="label">持有</text>
+  
+  <!-- AIAgent → TodoStore -->
+  <path d="M 900 360 C 950 360 1000 400 1050 440" class="composition" marker-start="url(#diamond)"/>
+  <text x="980" y="410" class="label">持有</text>
+  
+  <!-- AIAgent → CheckpointManager -->
+  <path d="M 1000 320 C 1100 320 1200 380 1300 440" class="composition" marker-start="url(#diamond)"/>
+  <text x="1150" y="390" class="label">持有</text>
+  
+  <!-- AIAgent → IterationBudget -->
+  <path d="M 1000 250 L 1100 230" class="composition" marker-start="url(#diamond)"/>
+  <text x="1040" y="235" class="label">持有</text>
+  
+  <!-- AIAgent → ToolRegistry -->
+  <path d="M 700 360 C 650 500 550 650 550 720" class="connector" marker-end="url(#arrow)"/>
+  <text x="580" y="550" class="label">调用</text>
+  
+  <!-- AIAgent → ContextCompressor -->
+  <path d="M 600 320 C 500 500 450 800 450 1020" class="composition" marker-start="url(#diamond)"/>
+  <text x="460" y="680" class="label">持有</text>
+  
+  <!-- AIAgent → PromptBuilder -->
+  <path d="M 850 360 C 850 600 850 800 850 1040" class="connector" marker-end="url(#arrow)"/>
+  <text x="860" y="700" class="label">调用</text>
+  
+  <!-- AIAgent → MemoryManager -->
+  <path d="M 650 360 C 600 800 550 1200 550 1620" class="composition" marker-start="url(#diamond)"/>
+  <text x="560" y="1000" class="label">持有</text>
+  
+  <!-- AIAgent → AnthropicAdapter -->
+  <path d="M 750 360 C 700 700 650 1000 650 1320" class="dependency" marker-end="url(#arrow-blue)"/>
+  <text x="660" y="850" class="label">依赖</text>
+  
+  <!-- AIAgent → BedrockAdapter -->
+  <path d="M 850 360 C 900 700 950 1000 950 1340" class="dependency" marker-end="url(#arrow-blue)"/>
+  <text x="910" y="850" class="label">依赖</text>
+  
+  <!-- ToolRegistry → model_tools -->
+  <path d="M 800 820 L 850 820" class="connector" marker-end="url(#arrow)"/>
+  <text x="810" y="815" class="label">被调用</text>
+  
+  <!-- model_tools → toolsets -->
+  <path d="M 1170 840 L 1220 840" class="connector" marker-end="url(#arrow)"/>
+  <text x="1180" y="835" class="label">查询</text>
+  
+  <!-- ContextCompressor → SessionDB -->
+  <path d="M 400 1020 C 350 900 350 750 350 660" class="connector" marker-end="url(#arrow)"/>
+  <text x="310" y="850" class="label">切换 lineage</text>
+  
+  <!-- PromptBuilder → MemoryStore -->
+  <path d="M 800 1040 C 800 900 800 750 800 620" class="connector" marker-end="url(#arrow)"/>
+  <text x="810" y="830" class="label">读取</text>
+  
+  <!-- MemoryManager → MemoryProvider -->
+  <path d="M 780 1740 L 830 1740" class="composition" marker-start="url(#diamond)"/>
+  <text x="790" y="1735" class="label">持有列表</text>
+  
+  <!-- MemoryManager → MemoryStore -->
+  <path d="M 600 1620 C 650 1400 700 1000 700 620" class="connector" marker-end="url(#arrow)"/>
+  <text x="660" y="1120" class="label">桥接</text>
+  
+  <!-- SubdirectoryHintTracker → ToolRegistry -->
+  <path d="M 1160 1140 C 1000 1100 800 1000 650 960" class="connector" marker-end="url(#arrow)"/>
+  <text x="900" y="1050" class="label">监听工具调用</text>
+  
+  <!-- prompt_caching → AnthropicAdapter -->
+  <path d="M 1220 1420 C 1100 1420 900 1420 780 1420" class="connector" marker-end="url(#arrow)"/>
+  <text x="1000" y="1415" class="label">应用缓存</text>
+  
+  <!-- 底部说明 -->
+  <g transform="translate(50, 1920)">
+    <text x="0" y="0" class="subtitle">核心设计模式:</text>
+    <text x="0" y="20" class="label">• 自注册模式 (ToolRegistry) • 策略模式 (Adapters) • 观察者模式 (Plugin Hooks)</text>
+    <text x="0" y="40" class="label">• 模板方法模式 (MemoryProvider) • 单例模式 (registry) • 组合模式 (AIAgent 持有多个组件)</text>
+  </g>
+</svg>
