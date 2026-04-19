@@ -10,93 +10,156 @@
 > 
 > ✖️ **Hermès**: `/ɛʁ.mɛs/` — Французский люксовый бренд.
 
-## Анализ исходного кода
+## 1 Анализ исходного кода Hermes Agent
 
 ```sh
 git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-agent
 ```
 
-- [Анализ архитектуры Hermes (часть 1): Поток · Полный жизненный цикл выполнения исходного кода](./Hermes%20架构解析%20(一)：流程篇%20·%20源代码执行全生命周期.md)
-- [Анализ архитектуры Hermes (часть 2): Данные · Модель состояния и управление контекстом](./Hermes%20架构解析%20(二)：数据篇%20·%20状态模型与上下文治理.md)
-- [Анализ архитектуры Hermes (часть 3): Расширение · Полное руководство по разработке плагинов и навыков](./Hermes%20架构解析%20(三)：扩展篇%20·%20插件与技能开发全指南.md)
+| Область интереса | Рекомендуемое чтение |
+|------------------|----------------------|
+| 🚀 Быстрый старт | Часть 1 (Поток) |
+| 🗄️ Сохранение данных | Часть 2 (Данные) |
+| 🔧 Разработка новых инструментов/плагинов | Часть 3 (Расширение) |
+| 🐛 Отладка и устранение неполадок | Часть 4 (Отладка) |
+| 🏗️ Понимание архитектуры системы | Часть 5 (Связи классов) |
 
-## Быстрый старт
 
-```bash
+## 2 Использование Hermes Agent
+
+### Установка
+
+```sh
 # Linux / macOS / WSL2 / Android (Termux)
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 # Windows
 powershell -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.ps1 | iex"
 ```
 
-```bash
+### Обновление
+
+```sh
+hermes update
+hermes version
+```
+
+### Конфигурация
+
+```sh
 # Запустить мастер настройки
 hermes setup
 
 # Просмотреть/отредактировать конфигурацию
 code ~/.hermes/
+```
 
+```yaml
+model:
+  default: kr/claude-sonnet-4.5
+  provider: custom
+  base_url: http://localhost:20128/v1
+```
+
+### Использование
+```sh
 # Начать интерактивный чат
 hermes
 ```
 
-## Отладка с точками останова в PyCharm
+## 3 Отладка с точками останова в PyCharm
 
-Отладка `hermes-agent/` с точками останова PyCharm:
+### 1. Сборка
 
-### 1. Настройка проекта
-
-```bash
+```sh
 cd hermes-agent
-uv venv venv --python 3.11
-source venv/bin/activate   # Windows: venv\Scripts\activate
-uv pip install -e ".[all,dev]"
+rm -rf venv
+uv venv venv --python 3.14.3
+# macOS: source venv/bin/activate
+# Windows: venv\Scripts\activate
+uv pip install -e ".[dev,cli,pty,mcp]"
 ```
 
-### 2. Настройка PyCharm
+### 2. Директория `.run/`
 
-1. **Интерпретатор Python**: File → Project Structure → Add Python Interpreter, выберите `hermes-agent/venv/bin/python` (или `venv\Scripts\python.exe` в Windows)
-2. **Корневая директория SDK**: Project → Project Structure, пометьте `hermes-agent/` как Sources
-3. **Рабочая директория**: Project Structure → Modules → Paths → Add Content Root, добавьте `hermes-agent/src` (если существует)
+Примеры конфигураций находятся в корневой директории `.run/`
 
-### 3. Настройка конфигурации запуска
+| Файл `.run/` | Соответствующее расположение `.idea/` | Назначение |
+|---|---|---|
+| `main.run.xml` | _(остаётся в `.run/`)_ | Общая конфигурация запуска |
+| `workspace.xml` | `workspace.xml` | Пример локального RunManager |
+| `misc.xml` | `misc.xml` | Пример привязки интерпретатора |
+| `modules.xml` | `modules.xml` | Пример регистрации модуля |
+| `hello-hermes.iml` | `hello-hermes.iml` | Пример привязки SDK |
 
-| Поле | Значение |
-|------|----------|
-| **Script path** | `hermes-agent/src/hermes_cli/main.py` |
-| **Working directory** | `hermes-agent/` |
-| **Environment variables** | `PYTHONPATH=hermes-agent/src` |
+> **Частая путаница**: `.run/main.run.xml` соответствует `RunManager > configuration name="main"` в `.idea/workspace.xml`, а не одноимённому файлу, скопированному в `.idea/`. Если нужно скопировать в `.idea/`, используйте `.run/workspace.xml`.
 
-> **Точка входа**: `hermes_cli/main.py`'s `main()` — унифицированная точка входа CLI. Также можно отлаживать `run_agent.py:main()` (автономный режим ядра агента) или `acp_adapter/entry.py:main()` (режим адаптера ACP). См. [pyproject.toml](https://github.com/nousresearch/hermes-agent/blob/main/pyproject.toml) строки 99–102.
+### 3. Отладка с точками останова
 
-### 4. Добавление точек останова
+1. Сделайте резервную копию `.idea/`, скопируйте одноимённые файлы из `.run/` в неё
+2. Замените следующие заполнители на ваши локальные значения:
 
-| Файл | Расположение | Назначение |
-|------|--------------|------------|
-| `run_agent.py` | `AIAgent.run()` L433 | Вход в главный цикл |
-| `run_agent.py` | `run_conversation()` | Логика выполнения Turn |
-| `run_agent.py` | `AIAgent.__call__()` | Внешний интерфейс |
-| `cli.py` | `HermesCLI.cmd_chat()` | Обработка команд TUI |
-| `model_tools.py` | `_discover_tools()` | Обнаружение инструментов |
-| `hermes_state.py` | Методы `SessionDB` | Сохранение состояния |
+```xml
+<env name="HERMES_HOME" value="<YOUR_HERMES_HOME>" />
+<env name="PYTHONPATH" value="<YOUR_PROJECT_DIR>\hermes-agent" />
+<option name="WORKING_DIRECTORY" value="<YOUR_PROJECT_DIR>\hermes-agent" />
+<option name="PARAMETERS" value='chat --quiet -q "<YOUR_DEBUG_PROMPT>"' />
+<option name="sdkName" value="<YOUR_PYCHARM_SDK_NAME>" />
+<orderEntry type="jdk" jdkName="<YOUR_PYCHARM_SDK_NAME>" jdkType="Python SDK" />
+```
 
-### 5. Запуск отладки
+<img src="pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
 
-Нажмите Debug (зелёный жук) в PyCharm или используйте контекстное меню → "Debug 'main'".
+| Элемент | Значение |
+|---|---|
+| Точка входа | `$PROJECT_DIR$/hermes-agent/hermes_cli/main.py` |
+| Рабочая директория | `<YOUR_PROJECT_DIR>/hermes-agent` |
+| Параметры по умолчанию | `chat --quiet -q "<YOUR_DEBUG_PROMPT>"` |
+| Переменные окружения | `HERMES_HOME`, `PYTHONPATH`, `PYTHONIOENCODING=utf-8`, `PYTHONUNBUFFERED=1` |
 
-### Частые проблемы
+`chat --quiet -q` использует путь одиночного запроса, избегая интерактивного TUI, чтобы предотвратить `NoConsoleScreenBufferError` в окне запуска PyCharm. `HERMES_HOME` явно указан для повторного использования локальной конфигурации и ключей; `PYTHONPATH` / `WORKING_DIRECTORY` зафиксированы на `hermes-agent/` для соответствия реальной среде командной строки.
 
-- **Точки останова не срабатывают**: Убедитесь, что `venv` — единственный интерпретатор проекта, а не системный Python.
-- **Модуль не найден** (`ModuleNotFoundError`): Проверьте, что `PYTHONPATH` содержит `hermes-agent/src`.
-- **Проблемы с путями в Windows**: Используйте обратные слэши или `pathlib.Path`, избегайте жёстко заданных Unix-путей.
-- **Остановка в venv**: Пометьте папку `venv` как Excluded в PyCharm.
+Для отладки других запросов просто измените `PARAMETERS`:
+
+```sh
+chat --quiet -q "Read the current repo and explain the startup flow"
+chat --quiet -q "Return only JSON: {status, summary}"
+chat --quiet --toolsets web,terminal -q "Check the latest Python release and write notes to notes/python.md"
+```
+
+Для полного прохождения цепочки вызовов одиночного запроса, цепочки запуска, ветвей инструментов и путей сохранения состояния обратитесь к: [Анализ архитектуры Hermes (часть 4): Отладка · Полное прохождение связей](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
+
+### 4 Отладка многораундовых сессий
+
+При запуске полных многораундовых диалогов используйте параметр `--resume` / `-r` для возобновления предыдущих сессий и сохранения полного контекста:
+
+```sh
+# Раунд 1: Начальный запрос (возвращает session_id)
+python hermes-agent/hermes_cli/main.py chat --quiet -q "Summarize the repository structure in 5 bullets"
+# Вывод: session_id: 20260413_194556_5aebb2
+
+# Раунд 2: Возобновить сессию, продолжить вопросы
+python hermes-agent/hermes_cli/main.py chat --quiet --resume 20260413_194556_5aebb2 -q "Based on your summary, what are the main entry points?"
+
+# Раунд 3: Снова возобновить ту же сессию
+python hermes-agent/hermes_cli/main.py chat --quiet -r 20260413_194556_5aebb2 -q "How would I add a new tool to the system?"
+```
+
+**Управление сессиями**:
+
+| Команда | Эффект |
+|---|---|
+| `-r <SESSION_ID>` / `--resume <SESSION_ID>` | Возобновить конкретную сессию |
+| `-c` / `--continue` | Возобновить последнюю CLI-сессию |
+| `-c "имя сессии"` | Возобновить по имени (требуется предварительное именование с помощью `hermes sessions rename`) |
+| `hermes sessions list` | Просмотреть все сессии |
+| `hermes sessions export output.jsonl --session-id <ID>` | Экспортировать конкретную сессию |
 
 ---
 
-## Ресурсы
+## 4 Ресурсы Hermes Agent
 
-- **Официальный репозиторий**: https://github.com/nousresearch/hermes-agent
-- **Официальный сайт**: https://hermes-agent.nousresearch.com
-- **Документация по быстрому старту**: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart
+- **Официальный репозиторий**: <https://github.com/nousresearch/hermes-agent>
+- **Официальный сайт**: <https://hermes-agent.nousresearch.com>
+- **Документация по быстрому старту**: <https://hermes-agent.nousresearch.com/docs/getting-started/quickstart>
 
 <img src="hello-hermes.png" alt="hello-hermes" style="height:800px; display: block; margin-left: 0;" />

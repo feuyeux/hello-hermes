@@ -2,7 +2,7 @@
 
 示例命令：
 
-```bash
+```sh
 python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in 5 bullets"
 ```
 

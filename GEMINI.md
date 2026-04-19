@@ -5,7 +5,7 @@ This file provides guidance to Gemini (Google AI Studio, Gemini Code Assist) whe
 ## Quick Reference
 
 **Identity for commits**:
-```bash
+```sh
 git commit --author="Gemini <noreply@google.com>" \
   -m "Co-authored-by: Gemini <noreply@google.com>"
 ```
@@ -71,7 +71,7 @@ HermesCLI → AIAgent
 ### Building and Running
 Always operate from the `hermes-agent/` directory for code-related tasks.
 
-```bash
+```sh
 cd hermes-agent
 
 # Setup environment
@@ -94,7 +94,7 @@ python run_agent.py
 - **Execution**: `python -m pytest tests/` (skips integration tests by default)
 - **Conventions**: New features/fixes MUST include corresponding tests in `tests/`
 
-```bash
+```sh
 # Run all tests
 pytest tests/ -q --ignore=tests/integration --ignore=tests/e2e --tb=short -n auto
 
@@ -109,7 +109,7 @@ pytest tests/integration/ -v
 ```
 
 ### Documentation Development
-```bash
+```sh
 cd website
 npm install
 npm run start           # Development server
@@ -192,14 +192,14 @@ See `CONTRIBUTING.md` section "Should it be a Skill or a Tool?" for detailed gui
 
 ### Commit Identity & Co-Authorship (MANDATORY)
 When committing as Gemini, use the following identity:
-```bash
+```sh
 git commit -m "<type>(<scope>): <message>" \
   --author="Gemini <noreply@google.com>" \
   -m "Co-authored-by: Gemini <noreply@google.com>"
 ```
 
 **Examples**:
-```bash
+```sh
 git commit -m "feat(tools): add web scraping with rate limiting" \
   --author="Gemini <noreply@google.com>" \
   -m "Co-authored-by: Gemini <noreply@google.com>"
@@ -259,12 +259,12 @@ How to use it.
 ```
 
 ### Running Integration Tests
-```bash
+```sh
 pytest tests/integration/ -v --tb=short
 ```
 
 ### Building Documentation
-```bash
+```sh
 cd website
 npm run build
 npm run serve  # Preview production build

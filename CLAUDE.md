@@ -5,7 +5,7 @@ This file provides guidance to Claude (claude.ai, Claude Code, Kiro) when workin
 ## Quick Reference
 
 **Identity for commits**:
-```bash
+```sh
 git commit --author="Claude <noreply@anthropic.com>" \
   -m "Co-authored-by: Claude <noreply@anthropic.com>"
 ```
@@ -27,7 +27,7 @@ This is a workspace for analyzing [Hermes Agent](https://github.com/nousresearch
 
 ## Development Commands
 
-```bash
+```sh
 cd hermes-agent
 
 # Setup
@@ -218,12 +218,12 @@ How to use it.
 ```
 
 ### Running Integration Tests
-```bash
+```sh
 pytest tests/integration/ -v --tb=short
 ```
 
 ### Building Documentation
-```bash
+```sh
 cd website
 npm run build
 npm run serve  # Preview production build
@@ -234,7 +234,7 @@ npm run serve  # Preview production build
 Follow the canonical commit identity rules in `AGENTS.md`.
 
 **For Claude**:
-```bash
+```sh
 git commit -m "feat(tools): add new web scraping tool" \
   --author="Claude <noreply@anthropic.com>" \
   -m "Co-authored-by: Claude <noreply@anthropic.com>"

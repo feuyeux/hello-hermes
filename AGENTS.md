@@ -25,7 +25,7 @@ hermes-agent/
 Run commands from `hermes-agent/` unless you are editing root-level notes.
 
 ### Environment Setup
-```bash
+```sh
 cd hermes-agent
 uv venv venv --python 3.11
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -34,7 +34,7 @@ npm install  # For website development
 ```
 
 ### Testing
-```bash
+```sh
 # Run all tests (excludes integration/e2e by default)
 python -m pytest tests/ -q --ignore=tests/integration --ignore=tests/e2e --tb=short -n auto
 
@@ -46,7 +46,7 @@ pytest tests/ --cov=agent --cov=tools --cov-report=html
 ```
 
 ### Running Hermes
-```bash
+```sh
 # Health check after installation
 hermes doctor
 
@@ -58,7 +58,7 @@ python run_agent.py
 ```
 
 ### Documentation Development
-```bash
+```sh
 cd website
 npm install
 npm run start           # Development server
@@ -220,7 +220,7 @@ When committing as an AI tool, the commit author and `Co-authored-by` MUST both 
 | Gemini | `Gemini <noreply@google.com>` | `Co-authored-by: Gemini <noreply@google.com>` |
 | OpenCode | `OpenCode <opencode@ai.local>` | `Co-authored-by: OpenCode <opencode@ai.local>` |
 
-```bash
+```sh
 git commit -m "<type>(<scope>): <message>" \
   --author="<ToolName> <noreply@xxx.com>" \
   -m "Co-authored-by: <ToolName> <noreply@xxx.com>"

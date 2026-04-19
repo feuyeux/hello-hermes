@@ -10,53 +10,11 @@
 >
 > ✖️ **Hermès**: `/ɛʁ.mɛs/` — 法国奢侈品牌（爱马仕）。
 
-## 源代码分析
+## 1 Hermes Agent 源代码分析
 
 ```sh
 git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-agent
 ```
-
-### 📚 Hermes 架构解析系列
-
-完整的架构解析文档,从入门到精通:
-
-1. **[流程篇 · 源代码执行全生命周期](./Hermes%20架构解析%20(一)：流程篇%20·%20源代码执行全生命周期.md)**
-   - 从命令行启动到 LLM 响应的完整调用链
-   - 6 层架构详解 (Entry → Control → Shells → Core → Capabilities → State)
-   - 关键节点与数据流转
-
-2. **[数据篇 · 状态模型与上下文治理](./Hermes%20架构解析%20(二)：数据篇%20·%20状态模型与上下文治理.md)**
-   - SessionDB 设计 (SQLite + WAL + FTS5)
-   - 上下文压缩策略与 session lineage
-   - Token 预算管理与 prompt caching
-
-3. **[扩展篇 · 插件与技能开发全指南](./Hermes%20架构解析%20(三)：扩展篇%20·%20插件与技能开发全指南.md)**
-   - 工具自注册机制 (ToolRegistry)
-   - 技能系统 (Skills) 与程序性记忆
-   - 插件开发 (Plugin Hooks + Memory Providers)
-
-4. **[调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)**
-   - 真实命令执行路径追踪
-   - 状态/上下文/会话/记忆节点标注
-   - 自改进机制详解 (在线 vs 离线)
-
-5. **[类关系篇 · 核心对象与协作模式](./Hermes%20架构解析%20(五)：类关系篇%20·%20核心对象与协作模式.md)** ⭐ **NEW**
-   - 15+ 核心类职责划分与依赖关系
-   - 类协作时序图 (对话流程/工具调用/上下文压缩)
-   - 设计模式总结 (自注册/策略/观察者/模板方法)
-   - 关键设计决策解析 (WAL/预算共享/记忆双态/并行策略)
-
-### 🎨 可视化资源
-
-- **类关系图**: [images/hermes-class-diagram.svg](images/hermes-class-diagram.svg)
-  - 6 层架构可视化 (编排/状态/工具/上下文/适配/记忆)
-  - 组合/依赖/调用关系标注
-  - 核心设计模式图例
-
-- **记忆系统图**: [images/hermes-memory-system.drawio](images/hermes-memory-system.drawio)
-- **自进化流程图**: [images/hermes-self-evolution.drawio](images/hermes-self-evolution.drawio)
-
-### 🧭 快速导航
 
 | 关注点 | 推荐阅读 |
 |--------|----------|
@@ -66,44 +24,53 @@ git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-ag
 | 🐛 调试与问题排查 | 第四篇 (调试篇) |
 | 🏗️ 理解系统设计 | 第五篇 (类关系篇) |
 
-### 📖 文档特色
 
-- ✅ **基于真实代码**: 所有分析基于 v2026.4.8 源代码
-- ✅ **图文并茂**: 类关系图、时序图、架构图
-- ✅ **实战导向**: 包含常见问题、扩展点、调试技巧
-- ✅ **设计解析**: 深入解释关键设计决策的动机
-- [Hermes 架构解析 (三)：扩展篇 · 插件与技能开发全指南](./Hermes%20架构解析%20(三)：扩展篇%20·%20插件与技能开发全指南.md)
-- [Hermes 架构解析 (四)：调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
+## 2 Hermes Agent 使用
 
-## 快速开始
+### 安装
 
-```bash
+```sh
 # Linux / macOS / WSL2 / Android (Termux)
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 # Windows
 powershell -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.ps1 | iex"
 ```
 
-```bash
+### 更新
+
+```sh
+hermes update
+hermes version
+```
+
+### 配置
+
+```sh
 # Run the setup wizard
 hermes setup
 
 # View/edit configuration
 code ~/.hermes/
+```
 
+```yaml
+model:
+  default: kr/claude-sonnet-4.5
+  provider: custom
+  base_url: http://localhost:20128/v1
+```
+
+### 配置
+```sh
 # Start interactive chat
 hermes
 ```
 
-## PyCharm 断点调试
+## 3 Hermes Agent 断点调试(PyCharm)
 
-![pycharm-debug](pycharm-debug.png)
+### 1. 编译
 
-示例配置在根目录 `.run/`。README 用占位符，XML 保留真实值供对照。
-
-### 1. 配置项目
-
-```bash
+```sh
 cd hermes-agent
 rm -rf venv
 uv venv venv --python 3.14.3
@@ -112,7 +79,9 @@ uv venv venv --python 3.14.3
 uv pip install -e ".[dev,cli,pty,mcp]"
 ```
 
-### 2. `.run/` 文件说明
+### 2. `.run/` 
+
+示例配置在根目录 `.run/`
 
 | `.run/` 文件 | 对应 `.idea/` 位置 | 作用 |
 |---|---|---|
@@ -138,11 +107,7 @@ uv pip install -e ".[dev,cli,pty,mcp]"
 <orderEntry type="jdk" jdkName="<YOUR_PYCHARM_SDK_NAME>" jdkType="Python SDK" />
 ```
 
-1. 在 `Run/Debug Configurations` 面板运行 `main`
-
-> PyCharm 若能直接识别 `.run/main.run.xml`，可跳过复制，直接在 IDE 改上述字段。
-
-**关键配置**：
+<img src="pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
 
 | 项 | 值 |
 |---|---|
@@ -151,27 +116,23 @@ uv pip install -e ".[dev,cli,pty,mcp]"
 | 默认参数 | `chat --quiet -q "<YOUR_DEBUG_PROMPT>"` |
 | 环境变量 | `HERMES_HOME`、`PYTHONPATH`、`PYTHONIOENCODING=utf-8`、`PYTHONUNBUFFERED=1` |
 
-**为什么这样设置**：`chat --quiet -q` 走 one-shot 路径，不进交互式 TUI，避免 PyCharm Run 窗口触发 `NoConsoleScreenBufferError`。`HERMES_HOME` 显式指定以复用本机配置和密钥；`PYTHONPATH` / `WORKING_DIRECTORY` 固定到 `hermes-agent/` 贴近命令行实际环境。
+`chat --quiet -q` 走 one-shot 路径，不进交互式 TUI，避免 PyCharm Run 窗口触发 `NoConsoleScreenBufferError`。`HERMES_HOME` 显式指定以复用本机配置和密钥；`PYTHONPATH` / `WORKING_DIRECTORY` 固定到 `hermes-agent/` 贴近命令行实际环境。
 
 调试其他请求只需改 `PARAMETERS`：
 
-```bash
+```sh
 chat --quiet -q "Read the current repo and explain the startup flow"
 chat --quiet -q "Return only JSON: {status, summary}"
 chat --quiet --toolsets web,terminal -q "Check the latest Python release and write notes to notes/python.md"
 ```
 
-> **入口点**：`hermes_cli/main.py:main()` 是统一 CLI 入口（one-shot）。也可调试 `run_agent.py:main()`（agent kernel）或 `acp_adapter/entry.py:main()`（ACP 适配器）。对应关系见 [pyproject.toml](https://github.com/nousresearch/hermes-agent/blob/main/pyproject.toml) L99–102 `[project.scripts]`。
+进一步查看这条 one-shot 请求的完整调用链、启动链、工具分支与状态持久化路径，可直接参考：[Hermes 架构解析 (四)：调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
 
-进一步查看这条 one-shot 请求的完整调用链、启动链、工具分支与状态持久化路径，可直接参考：
-
-- [Hermes 架构解析 (四)：调试篇 · 完整链路走查](./Hermes%20架构解析%20(四)：调试篇%20·%20完整链路走查.md)
-
-## 多轮会话调试
+### 4 多轮会话调试
 
 运行完整的多轮对话时，用 `--resume` / `-r` 参数恢复以前的 session，保持完整的上下文：
 
-```bash
+```sh
 # 第 1 轮：初始请求（返回 session_id）
 python hermes-agent/hermes_cli/main.py chat --quiet -q "Summarize the repository structure in 5 bullets"
 # Output: session_id: 20260413_194556_5aebb2
@@ -195,7 +156,7 @@ python hermes-agent/hermes_cli/main.py chat --quiet -r 20260413_194556_5aebb2 -q
 
 ---
 
-## 相关资源
+## 4 Hermes Agent 资源
 
 - **官方仓库**: <https://github.com/nousresearch/hermes-agent>
 - **官方网站**: <https://hermes-agent.nousresearch.com>
