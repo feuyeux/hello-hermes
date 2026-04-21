@@ -107,7 +107,7 @@ Example configurations are in the root `.run/` directory
 <orderEntry type="jdk" jdkName="<YOUR_PYCHARM_SDK_NAME>" jdkType="Python SDK" />
 ```
 
-<img src="pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
+<img src="images/pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
 
 | Item | Value |
 |---|---|
@@ -162,4 +162,4 @@ python hermes-agent/hermes_cli/main.py chat --quiet -r 20260413_194556_5aebb2 -q
 - **Official Website**: <https://hermes-agent.nousresearch.com>
 - **Quickstart Documentation**: <https://hermes-agent.nousresearch.com/docs/getting-started/quickstart>
 
-<img src="hello-hermes.png" alt="hello-hermes" style="height:800px; display: block; margin-left: 0;" />
+<img src="images/hello-hermes.png" alt="hello-hermes" style="height:800px; display: block; margin-left: 0;" />

@@ -107,7 +107,7 @@ uv pip install -e ".[dev,cli,pty,mcp]"
 <orderEntry type="jdk" jdkName="<YOUR_PYCHARM_SDK_NAME>" jdkType="Python SDK" />
 ```
 
-<img src="pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
+<img src="images/pycharm-debug.png" alt="pycharm-debug" style="height:500px; display: block; margin-left: 0;"/>
 
 | 项 | 值 |
 |---|---|
@@ -162,4 +162,4 @@ python hermes-agent/hermes_cli/main.py chat --quiet -r 20260413_194556_5aebb2 -q
 - **官方网站**: <https://hermes-agent.nousresearch.com>
 - **快速入门文档**: <https://hermes-agent.nousresearch.com/docs/getting-started/quickstart>
 
-<img src="hello-hermes.png" alt="hello-hermes" style="height:800px; display: block; margin-left: 0;" />
+<img src="images/hello-hermes.png" alt="hello-hermes" style="height:800px; display: block; margin-left: 0;" />
