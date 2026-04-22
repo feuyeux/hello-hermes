@@ -1,6 +1,6 @@
 # Hermes 架构解析 (六)：提示词全谱篇 -- 系统提示词完整目录与设计解析 (v2026.4.16)
 
-> 基于第五篇《类关系篇》,本文对 Hermes Agent 源代码中**每一条**发送给 LLM 的提示词进行逐一拆解——涵盖系统提示词（System Prompt）、临时注入（Ephemeral Injection）、工具描述（Tool Schema Description）、后台审查提示（Background Review Prompt）、压缩摘要指令（Compression Summarizer Prompt）、辅助模型指令（Auxiliary Model Prompt）以及各类运行时标记（Runtime Markers）。**不遗漏任何一条**。
+> 本文对 Hermes Agent 源代码中**每一条**发送给 LLM 的提示词进行逐一拆解——涵盖系统提示词（System Prompt）、临时注入（Ephemeral Injection）、工具描述（Tool Schema Description）、后台审查提示（Background Review Prompt）、压缩摘要指令（Compression Summarizer Prompt）、辅助模型指令（Auxiliary Model Prompt）以及各类运行时标记（Runtime Markers）。**不遗漏任何一条**。
 
 ---
 
