@@ -23,6 +23,7 @@ git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-ag
 | 🔧 开发新工具/插件 | 第三篇 (扩展篇) |
 | 🐛 调试与问题排查 | 第四篇 (调试篇) |
 | 🏗️ 理解系统设计 | 第五篇 (类关系篇) |
+| 📝 提示词工程 | 第六篇 (提示词全谱篇) |
 
 
 ## 2 Hermes Agent 使用

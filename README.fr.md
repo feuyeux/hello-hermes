@@ -23,6 +23,7 @@ git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-ag
 | 🔧 Développement de nouveaux outils/plugins | Partie 3 (Extension) |
 | 🐛 Débogage et dépannage | Partie 4 (Débogage) |
 | 🏗️ Comprendre la conception du système | Partie 5 (Relations de classes) |
+| 📝 Ingénierie des prompts | Partie 6 (Catalogue des prompts) |
 
 
 ## 2 Utilisation de Hermes Agent

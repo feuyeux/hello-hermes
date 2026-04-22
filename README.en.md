@@ -23,6 +23,7 @@ git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-ag
 | 🔧 Developing New Tools/Plugins | Part 3 (Extension) |
 | 🐛 Debugging & Troubleshooting | Part 4 (Debugging) |
 | 🏗️ Understanding System Design | Part 5 (Class Relationships) |
+| 📝 Prompt Engineering | Part 6 (Prompt Catalog) |
 
 
 ## 2 Hermes Agent Usage
