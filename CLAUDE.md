@@ -14,7 +14,7 @@ git commit --author="Claude <noreply@anthropic.com>" \
 
 ## Project Overview
 
-This is a workspace for analyzing [Hermes Agent](https://github.com/nousresearch/hermes-agent) v0.8.0. The actual source lives in `hermes-agent/`. The root contains reference documentation and analysis notes.
+This is a workspace for analyzing [Hermes Agent](https://github.com/nousresearch/hermes-agent) v0.10.0 (v2026.4.16). The actual source lives in `hermes-agent/`. The root contains reference documentation and analysis notes.
 
 ### Technology Stack
 - **Python 3.11+**: Core language
@@ -176,7 +176,7 @@ User config lives in `~/.hermes/` (not in the repo):
 
 - `hermes-agent/AGENTS.md` — development guide for AI coding assistants (important for prompt engineering context)
 - `hermes-agent/CONTRIBUTING.md` — full contributing guide with architecture overview and tool/skill authoring patterns
-- Root-level `hermes-agent v2026.4.8 源代码分析.md` — Chinese-language architecture analysis (reference material)
+- Root-level `hermes-agent v2026.4.16 源代码分析.md` — Chinese-language architecture analysis (reference material)
 - `hermes-agent/website/` — Docusaurus documentation site
 - `hermes-agent/.plans/` — Design documents for upcoming features
 - `hermes-agent/docs/specs/` — Technical specifications
@@ -238,4 +238,11 @@ Follow the canonical commit identity rules in `AGENTS.md`.
 git commit -m "feat(tools): add new web scraping tool" \
   --author="Claude <noreply@anthropic.com>" \
   -m "Co-authored-by: Claude <noreply@anthropic.com>"
+```
+
+**For Qoder**:
+```sh
+git commit -m "feat(tools): add new web scraping tool" \
+  --author="Qoder <noreply@qoder.com>" \
+  -m "Co-authored-by: Qoder <noreply@qoder.com>"
 ```

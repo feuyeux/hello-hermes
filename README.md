@@ -1,6 +1,6 @@
 # Hello Hermes Agent ☤
 
-这是一个用于分析 [Hermes Agent](https://github.com/nousresearch/hermes-agent) `v0.8.0 (v2026.4.8)` `86960cdb` 的工作区。
+这是一个用于分析 [Hermes Agent](https://github.com/nousresearch/hermes-agent) `v0.10.0 (v2026.4.16)` `1dd6b5d5` 的工作区。
 
 > ## 正确发音
 >
@@ -13,7 +13,7 @@
 ## 1 Hermes Agent 源代码分析
 
 ```sh
-git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-agent
+git clone --depth 1 --branch v2026.4.16 https://github.com/nousresearch/hermes-agent
 ```
 
 | 关注点 | 推荐阅读 |

@@ -1,6 +1,6 @@
 # Hello Hermes Agent ☤
 
-Это рабочее пространство для изучения и анализа [Hermes Agent](https://github.com/nousresearch/hermes-agent) `v0.8.0 (v2026.4.8)` `86960cdb`.
+Это рабочее пространство для изучения и анализа [Hermes Agent](https://github.com/nousresearch/hermes-agent) `v0.10.0 (v2026.4.16)` `1dd6b5d5`.
 
 > ## Произношение
 > 
@@ -13,7 +13,7 @@
 ## 1 Анализ исходного кода Hermes Agent
 
 ```sh
-git clone --depth 1 --branch v2026.4.8 https://github.com/nousresearch/hermes-agent
+git clone --depth 1 --branch v2026.4.16 https://github.com/nousresearch/hermes-agent
 ```
 
 | Область интереса | Рекомендуемое чтение |

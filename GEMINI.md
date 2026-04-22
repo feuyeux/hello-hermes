@@ -14,7 +14,7 @@ git commit --author="Gemini <noreply@google.com>" \
 
 ## Project Overview
 
-This workspace is dedicated to the development, analysis, and exploration of the **Hermes Agent** (specifically version `v0.8.0 / v2026.4.8`). It contains the core `hermes-agent` source code and high-level architectural analysis.
+This workspace is dedicated to the development, analysis, and exploration of the **Hermes Agent** (specifically version `v0.10.0 / v2026.4.16`). It contains the core `hermes-agent` source code and high-level architectural analysis.
 
 - **Purpose:** A self-improving AI agent system featuring built-in learning loops (memories/skills), multi-platform messaging (Telegram, Discord, etc.), and a powerful terminal interface.
 - **Main Technologies:**
@@ -198,6 +198,13 @@ git commit -m "<type>(<scope>): <message>" \
   -m "Co-authored-by: Gemini <noreply@google.com>"
 ```
 
+When committing as Qoder, use the following identity:
+```sh
+git commit -m "<type>(<scope>): <message>" \
+  --author="Qoder <noreply@qoder.com>" \
+  -m "Co-authored-by: Qoder <noreply@qoder.com>"
+```
+
 **Examples**:
 ```sh
 git commit -m "feat(tools): add web scraping with rate limiting" \
@@ -285,7 +292,7 @@ User config lives in `~/.hermes/` (not in the repo):
 - `AGENTS.md`: **CRITICAL** — Detailed repository guidelines, commit rules, and diagram standards (applies to all AI assistants)
 - `CLAUDE.md`: Claude-specific patterns and workflows (also useful for Gemini)
 - `GEMINI.md`: This file — Gemini-specific guidance
-- `hermes-agent v2026.4.8 源代码分析.md`: Deep-dive architectural mapping (Chinese)
+- `hermes-agent v2026.4.16 源代码分析.md`: Deep-dive architectural mapping (Chinese)
 - `hermes-agent/CONTRIBUTING.md`: Full guide for Tool/Skill authoring and contribution process
 - `hermes-agent/.plans/`: Design documents for upcoming features
 - `hermes-agent/docs/specs/`: Technical specifications

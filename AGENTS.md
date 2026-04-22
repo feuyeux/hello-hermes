@@ -1,6 +1,6 @@
 # Repository Guidelines for AI Coding Assistants
 
-This document provides comprehensive guidelines for AI coding assistants (Claude, Gemini, Codex, etc.) working with this repository.
+This document provides comprehensive guidelines for AI coding assistants (Claude, Gemini, Codex, Qoder, etc.) working with this repository.
 
 ## Project Structure & Module Organization
 
@@ -218,6 +218,7 @@ When committing as an AI tool, the commit author and `Co-authored-by` MUST both 
 | Claude | `Claude <noreply@anthropic.com>` | `Co-authored-by: Claude <noreply@anthropic.com>` |
 | Codex | `Codex <noreply@openai.com>` | `Co-authored-by: Codex <noreply@openai.com>` |
 | Gemini | `Gemini <noreply@google.com>` | `Co-authored-by: Gemini <noreply@google.com>` |
+| Qoder | `Qoder <noreply@qoder.com>` | `Co-authored-by: Qoder <noreply@qoder.com>` |
 | OpenCode | `OpenCode <opencode@ai.local>` | `Co-authored-by: OpenCode <opencode@ai.local>` |
 
 ```sh
