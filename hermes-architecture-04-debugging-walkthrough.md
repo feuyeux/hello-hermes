@@ -1,4 +1,4 @@
-# Hermes 架构解析 (四)：调试篇 · 完整链路走查 (v2026.4.8)
+# Hermes 架构解析 (四)：调试篇 · 完整链路走查 (v2026.4.16)
 
 示例命令：
 
@@ -69,31 +69,41 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 
 ## 4. `AIAgent.__init__` 初始化链
 
+> v0.10.0 变化：`AIAgent.__init__` 从 L1149 移到 **L552**（类定义在 L535）。新增大量参数：`provider`、`api_mode`、`acp_command/args`、`enabled/disabled_toolsets`、多种回调参数（`tool_progress_callback`、`thinking_callback`、`reasoning_callback`、`stream_delta_callback` 等）、`session_db`、`parent_session_id`、`iteration_budget`、`fallback_model`、`credential_pool`、`checkpoints_enabled`、`checkpoint_max_snapshots`、`pass_session_id`、`persist_session`。
+
 1. `run_agent.py::<module>::_install_safe_stdio` 用安全包装器接管 stdout/stderr，防止 broken pipe 异常
 2. `hermes_cli/model_normalize.py::<module>::normalize_model_for_provider` 规范化 model 名称和 provider 约束 【**状态**】
-3. `run_agent.py::AIAgent::__init__` 生成或接收 `session_id`；若未传入则生成格式为 `{timestamp}_{uuid[:6]}` 的新 ID 【**会话**】【**状态**】
-4. `run_agent.py::AIAgent::_is_direct_openai_url` 判断当前 base_url 是否是原生 OpenAI URL 【**状态**】
-5. `run_agent.py::AIAgent::_model_requires_responses_api` 判断当前模型是否必须改走 Responses API 【**状态**】
-6. `run_agent.py::AIAgent::_create_openai_client` 条件：`chat_completions/codex_responses` 路径下创建 OpenAI 兼容 client 【**状态**】
-7. `agent/anthropic_adapter.py::<module>::build_anthropic_client` 条件：`anthropic_messages` 路径下创建 Anthropic client 【**状态**】
-8. `model_tools.py::<module>::get_tool_definitions` 根据启用 toolsets 构造本次 session 可用工具 schema 【**状态**】【**上下文**】
-9. `model_tools.py::<module>::_discover_tools` 导入并注册内置工具
-10. `tools/mcp_tool.py::<module>::discover_mcp_tools` 发现配置中的 MCP 工具
-11. `hermes_cli/plugins.py::<module>::discover_plugins` 发现插件工具
-12. `tools/registry.py::ToolRegistry::get_definitions` 从 registry 取出通过可用性校验的工具 schema 【**状态**】
-13. `model_tools.py::<module>::check_toolset_requirements` 检查 toolset 依赖项是否齐备
-14. `tools/checkpoint_manager.py::CheckpointManager::__init__` 初始化文件回滚快照管理器 【**状态**】
-15. `tools/todo_tool.py::TodoStore::__init__` 初始化内存中的 todo store 【**状态**】
-16. `hermes_state.py::SessionDB::create_session` 创建本次 CLI session 记录 【**会话**】【**状态**】
-17. `hermes_state.py::SessionDB::_execute_write` 执行 `create_session` 的 SQLite 写事务 【**会话**】【**状态**】
-18. `tools/memory_tool.py::MemoryStore::__init__` 条件：开启 memory 时初始化记忆存储 【**记忆**】【**状态**】
-19. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆，作为后续 session 的可复用经验快照 【**记忆**】【**状态**】【**自改进**】
-20. `agent/subdirectory_hints.py::SubdirectoryHintTracker::__init__` 初始化目录上下文提示跟踪器 【**上下文**】【**状态**】
-21. `agent/context_compressor.py::ContextCompressor::__init__` 初始化上下文压缩器和阈值 【**上下文**】【**状态**】
-22. `plugins/context_engine/__init__.py::<module>::load_context_engine` 条件：开启 context engine 时装载上下文引擎 【**上下文**】【**状态**】
-23. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件，为后续 recall / sync / feedback 打开通路 【**记忆**】【**状态**】【**自改进**】
+3. `run_agent.py::AIAgent::__init__` (L552) 生成或接收 `session_id`；若未传入则生成格式为 `{timestamp}_{uuid[:6]}` 的新 ID 【**会话**】【**状态**】
+4. `run_agent.py::AIAgent::__init__` **api_mode 自动检测链** (L686-746)：根据 provider/base_url/model 自动选择 API 模式 【**状态**】
+   - `openai-codex` → `codex_responses`
+   - `xai` → `codex_responses`
+   - 原生 Anthropic endpoint → `anthropic_messages`
+   - AWS Bedrock endpoint → `bedrock_converse`
+   - 需要 Responses API 的模型 → 自动升级为 `codex_responses`
+5. `run_agent.py::AIAgent::_is_direct_openai_url` 判断当前 base_url 是否是原生 OpenAI URL 【**状态**】
+6. `run_agent.py::AIAgent::_model_requires_responses_api` 判断当前模型是否必须改走 Responses API 【**状态**】
+7. `run_agent.py::AIAgent::_create_openai_client` 条件：`chat_completions/codex_responses` 路径下创建 OpenAI 兼容 client 【**状态**】
+8. `agent/anthropic_adapter.py::<module>::build_anthropic_client` 条件：`anthropic_messages` 路径下创建 Anthropic client 【**状态**】
+9. `model_tools.py::<module>::get_tool_definitions` 根据启用 toolsets 构造本次 session 可用工具 schema 【**状态**】【**上下文**】
+10. `model_tools.py::<module>::_discover_tools` 三阶段工具发现：builtin → MCP → plugins
+11. `tools/mcp_tool.py::<module>::discover_mcp_tools` 发现配置中的 MCP 工具
+12. `hermes_cli/plugins.py::<module>::discover_plugins` 发现插件工具
+13. `tools/registry.py::ToolRegistry::get_definitions` 从 registry 取出通过可用性校验的工具 schema 【**状态**】
+14. `model_tools.py::<module>::check_toolset_requirements` 检查 toolset 依赖项是否齐备
+15. `tools/checkpoint_manager.py::CheckpointManager::__init__` 初始化文件回滚快照管理器 【**状态**】
+16. `tools/todo_tool.py::TodoStore::__init__` 初始化内存中的 todo store 【**状态**】
+17. `hermes_state.py::SessionDB::create_session` 创建本次 CLI session 记录（schema v6：新增 title、billing/cost、reasoning tokens 字段）【**会话**】【**状态**】
+18. `hermes_state.py::SessionDB::_execute_write` 执行 `create_session` 的 SQLite 写事务（WAL 模式 + jitter retry + 定期 checkpoint）【**会话**】【**状态**】
+19. `tools/memory_tool.py::MemoryStore::__init__` 条件：开启 memory 时初始化记忆存储 【**记忆**】【**状态**】
+20. `tools/memory_tool.py::MemoryStore::load_from_disk` 条件：从 `MEMORY.md/USER.md` 载入本地记忆，作为后续 session 的可复用经验快照 【**记忆**】【**状态**】【**自改进**】
+21. `agent/subdirectory_hints.py::SubdirectoryHintTracker::__init__` 初始化目录上下文提示跟踪器 【**上下文**】【**状态**】
+22. `agent/context_compressor.py::ContextCompressor::__init__` 初始化上下文压缩器和阈值 【**上下文**】【**状态**】
+23. `plugins/context_engine/__init__.py::<module>::load_context_engine` 条件：开启 context engine 时装载上下文引擎 【**上下文**】【**状态**】
+24. `agent/memory_manager.py::_MemoryManager::initialize_all` 条件：初始化外部 memory provider 插件，为后续 recall / sync / feedback 打开通路 【**记忆**】【**状态**】【**自改进**】
 
 ## 5. `run_conversation` 固定主干
+
+> v0.10.0 关键方法位置更新：`run_conversation` → L8172，`_build_system_prompt` → L3335，`_build_api_kwargs` → L6432，`_flush_messages_to_session_db` → L2493，`_compress_context` → L7136，`_execute_tool_calls` → L7238，`_invoke_tool` → L7261，`_persist_session` → L2480，`_hydrate_todo_store` → L3289。
 
 1. `run_agent.py::AIAgent::run_conversation` 执行一次完整的用户请求主循环 【**状态**】【**上下文**】【**会话**】【**记忆**】
 2. `run_agent.py::<module>::_install_safe_stdio` 再次确保当前线程标准输出安全
@@ -212,10 +222,11 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 14. `tools/clarify_tool.py::<module>::clarify_tool` 条件：向用户追问补充信息 【**上下文**】【**状态**】
 15. `tools/delegate_tool.py::<module>::delegate_task` 条件：创建子代理任务；子任务完成后父代理可通过 `memory_manager.on_delegation(...)` 观察 task/result，供外部记忆系统吸收 【**状态**】【**自改进**】
 16. `agent/memory_manager.py::_MemoryManager::handle_tool_call` 条件：执行外部 memory provider 暴露的工具，例如显式记忆、检索、反馈打分等 【**记忆**】【**状态**】【**自改进**】
-17. `model_tools.py::<module>::handle_function_call` 执行普通 registry 工具的统一分发入口 【**状态**】
-18. `model_tools.py::<module>::coerce_tool_args` 按 schema 把工具参数字符串转换为目标类型 【**状态**】
-19. `tools/registry.py::ToolRegistry::dispatch` 把工具调用路由到具体 `tools/*.py` handler
-20. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`post_tool_call`，允许插件观察工具执行结果 【**状态**】【**会话**】
+17. `model_tools.py::<module>::handle_function_call` 执行普通 registry 工具的统一分发入口（v0.10.0 扩展签名 L421-430：新增 `tool_call_id`、`session_id`、`enabled_tools`、`skip_pre_tool_call_hook`）【**状态**】
+18. `model_tools.py::<module>::coerce_tool_args` (L334) 按 schema 把工具参数字符串转换为目标类型 【**状态**】
+19. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`pre_tool_call`，插件可阻止工具执行（L454-472 blocking hook）【**状态**】
+20. `tools/registry.py::ToolRegistry::dispatch` 把工具调用路由到具体 `tools/*.py` handler
+21. `hermes_cli/plugins.py::<module>::invoke_hook` 事件：`post_tool_call`（L514-525），允许插件观察工具执行结果 【**状态**】【**会话**】
 21. `tools/tool_result_storage.py::<module>::maybe_persist_tool_result` 条件：把大型工具结果替换为可复用引用，控制上下文膨胀 【**上下文**】【**状态**】
 22. `agent/subdirectory_hints.py::SubdirectoryHintTracker::check_tool_call` 根据工具调用结果附加目录上下文提示 【**上下文**】【**状态**】
 23. `tools/tool_result_storage.py::<module>::enforce_turn_budget` 限制单轮工具结果总量，避免消息爆炸 【**上下文**】【**状态**】
@@ -240,7 +251,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 
 ### 13.1 CLI 路径生成
 
-1. **`cli.py::HermesCLI::__init__` (L1798-1799)**
+1. **`cli.py::HermesCLI::__init__` (L1598；类定义在 L1590)**
    ```python
    timestamp_str = self.session_start.strftime("%Y%m%d_%H%M%S")
    short_uuid = uuid.uuid4().hex[:6]
@@ -250,7 +261,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
    - 格式：`20260416_143025_a3f2c1` (6位 UUID)
    - 传递路径：`HermesCLI.__init__` → `_init_agent()` → `AIAgent.__init__(session_id=...)`
 
-2. **`cli.py::HermesCLI::_branch_session` (L4249-4250)**
+2. **`cli.py::HermesCLI::_branch_session` (L4049-4050)**
    ```python
    timestamp_str = now.strftime("%Y%m%d_%H%M%S")
    short_uuid = uuid.uuid4().hex[:6]
@@ -261,7 +272,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 
 ### 13.2 Agent 内核生成
 
-3. **`run_agent.py::AIAgent::__init__` (L1149-1150)**
+3. **`run_agent.py::AIAgent::__init__` (L552；类定义在 L535)**
    ```python
    timestamp_str = self.session_start.strftime("%Y%m%d_%H%M%S")
    short_uuid = uuid.uuid4().hex[:6]
@@ -271,7 +282,7 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
    - 格式：`20260416_143025_a3f2c1` (6位 UUID)
    - 说明：这是 agent 内核的兜底生成逻辑
 
-4. **`run_agent.py::AIAgent::_compress_context` (L7093)**
+4. **`run_agent.py::AIAgent::_compress_context` (L7136)**
    ```python
    self.session_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:6]}"
    ```
@@ -363,6 +374,48 @@ python hermes_cli/main.py chat --quiet -q "Summarize the repository structure in
 - 有工具调用的完整链路在 10 之后继续接 11
 - 12 只是压缩 / SessionDB / 记忆相关的补充分支说明，不是主链尾部
 - 13 补充了 `session_id` 在各个入口点的生成逻辑和格式差异
+- 14 补充了 v0.10.0 新增的调试与运行时特性
+
+## 14. v0.10.0 新增调试相关特性
+
+### 14.1 新调试命令
+
+1. **`/debug` 命令**：在 CLI 交互模式中快速查看当前 session 状态、token 用量、provider 信息
+2. **`hermes debug share`**：导出当前 session 诊断信息，便于远程排错
+3. **Tool Gateway 状态检查**：检查 MCP 和外部工具连接的健康状态
+4. **插件命令分发**：插件可以注册自定义 `/` 命令
+5. **Reasoning 预览**：CLI 中可实时显示模型的 reasoning/thinking 增量内容
+
+### 14.2 凭据轮换与回退子系统
+
+`run_agent.py` L4307-4924 新增运行时凭据管理子系统：
+- `credential_pool`：多个 API key 的负载均衡与故障切换
+- `fallback_model`：主模型不可用时自动降级
+- `_restore_primary_runtime`：上一轮 fallback 后恢复主 provider
+
+### 14.3 SessionDB schema v6
+
+- sessions 表新增字段：`title`、`billing`/`cost`、`reasoning_tokens`
+- messages 表新增字段：`reasoning`、`reasoning_details`、`codex_reasoning_items`
+- SQLite 启用 WAL 模式 + jitter retry + 定期 checkpoint
+
+### 14.4 新 Gateway 平台适配器
+
+v0.10.0 新增多个平台适配器：BlueBubbles、WeCom 回调、Email、SMS、Home Assistant
+
+### 14.5 model_tools.py 工具分发链更新
+
+- 三阶段工具发现：builtin → MCP → plugins
+- `coerce_tool_args` (L334)：参数类型自动强制转换
+- `pre_tool_call` blocking hook (L454-472)：插件可阻止工具执行
+- `post_tool_call` hook (L514-525)：插件可观察/修改工具结果
+- `handle_function_call` 扩展签名 (L421-430)：新增 `tool_call_id`、`session_id`、`enabled_tools`、`skip_pre_tool_call_hook`
+
+### 14.6 其他运行时新特性
+
+- **语音模式（Voice mode）**：通过 `faster-whisper` + `elevenlabs` 支持语音输入输出
+- **后台任务监控**：CLI 可查看后台 review/delegation 任务状态
+- **api_mode 自动检测**：根据 provider/model 自动选择 `chat_completions`、`codex_responses`、`anthropic_messages`、`bedrock_converse` 模式
 
 ## 附录
 

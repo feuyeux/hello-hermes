@@ -1,4 +1,4 @@
-# Hermes 架构解析 (五)：类关系篇 · 核心对象与协作模式 (v2026.4.8)
+# Hermes 架构解析 (五)：类关系篇 · 核心对象与协作模式 (v2026.4.16)
 
 > 基于第四篇《调试篇 · 完整链路走查》,本文聚焦 Hermes 核心类的职责划分、依赖关系与协作模式,帮助开发者快速定位关键对象并理解系统设计意图。
 
@@ -6,12 +6,14 @@
 
 Hermes 的类设计遵循**单一职责**与**分层解耦**原则:
 
-- **编排层** (`AIAgent`) 负责对话循环、工具调度、上下文管理
+- **编排层** (`AIAgent`) 负责对话循环、工具调度、上下文管理、凭据恢复与 provider fallback
 - **状态层** (`SessionDB`, `MemoryStore`, `TodoStore`) 负责持久化与会话管理
-- **工具层** (`ToolRegistry`, 各 `*_tool.py`) 负责能力扩展与自注册
+- **工具层** (`ToolRegistry`, 各 `*_tool.py`, `ManagedToolGateway`) 负责能力扩展、自注册与托管后端
 - **上下文层** (`ContextCompressor`, `PromptBuilder`) 负责 token 预算与 prompt 组装
-- **适配层** (`AnthropicAdapter`, `BedrockAdapter`) 负责多 provider 协议转换
+- **适配层** (`AnthropicAdapter`, `BedrockAdapter`, Responses API) 负责多 provider 协议转换
 - **记忆层** (`MemoryManager`, `MemoryProvider`) 负责长期记忆与自改进
+- **浏览器层** (`BrowserProvider`, `Browserbase`, `BrowserUse`, `Firecrawl`) 负责可插拔浏览器后端
+- **插件层** (`DashboardPlugin`, Theme System) 负责 Dashboard 扩展与主题定制
 
 ![Hermes 类关系图](images/hermes-class-diagram.svg)
 
@@ -19,21 +21,22 @@ Hermes 的类设计遵循**单一职责**与**分层解耦**原则:
 
 ## 1. 核心编排类：`AIAgent`
 
-**位置**: `hermes-agent/run_agent.py`
+**位置**: `hermes-agent/run_agent.py` (L535, `__init__` at L552)
 
 **职责**: 对话主循环编排器,负责:
-- LLM API 调用 (流式/非流式)
+- LLM API 调用 (流式/非流式,支持 4 种 api_mode)
 - 工具调用批次执行 (串行/并行)
 - 上下文压缩触发
 - 会话持久化协调
 - 中断与重试处理
+- 凭据轮换与 provider fallback
 
 **关键属性**:
 ```python
 class AIAgent:
     model: str                          # 当前使用的模型名
     api_mode: str                       # "chat_completions" | "anthropic_messages" | "codex_responses" | "bedrock_converse"
-    provider: str                       # "anthropic" | "openai" | "openrouter" | "bedrock" | ...
+    provider: str                       # "anthropic" | "openai" | "openrouter" | "bedrock" | "xai" | "ollama" | ...
     base_url: str                       # API endpoint
     
     # 状态管理
@@ -51,14 +54,46 @@ class AIAgent:
     # 工具集
     enabled_toolsets: List[str]         # 启用的工具集
     tool_definitions: List[Dict]        # 当前可用工具 schema
+    
+    # v0.10.0 新增
+    reasoning_config: Dict              # 推理配置 (extended thinking 等)
+    service_tier: str                   # 服务层级 (default / priority)
+    fallback_model: str                 # 主模型不可用时的回退模型
+    credential_pool: List[Dict]         # 凭据池 (多 API key 轮换)
+    checkpoints_enabled: bool           # 是否启用文件快照
+    gateway_session_key: str            # Gateway 会话密钥
 ```
 
 **核心方法**:
 - `run_conversation(user_input)` — 主循环入口,处理单次用户请求
-- `_build_system_prompt()` — 组装 system prompt (SOUL.md + memory + skills + context files)
-- `_compress_context()` — 触发上下文压缩并切换 session lineage
+- `_build_system_prompt()` — 组装 system prompt (L3335, SOUL.md + memory + skills + context files)
+- `_compress_context()` — 触发上下文压缩 (L7136) 并切换 session lineage
 - `_execute_tool_calls()` — 批量执行工具调用 (支持并行)
 - `_persist_session()` — 统一持久化到 JSON log + SQLite
+
+**v0.10.0 新增方法族**:
+
+*Responses API (L3673-4699)*:
+- `_responses_tools()` — 将工具 schema 转换为 Responses API 格式
+- `_chat_messages_to_responses_input()` — 对话历史 → Responses input items
+- `_normalize_codex_response()` — Codex response → 统一 assistant message
+- `_run_codex_stream()` — Codex/Responses API 流式调用
+
+*凭据管理 (L4777-4924)*:
+- `_recover_with_credential_pool()` — 凭据池轮换恢复
+- `_swap_credential()` — 切换到下一个可用凭据
+- `_try_refresh_*_client_credentials()` — 刷新 OAuth / API key
+
+*Provider Fallback (L5911-6215)*:
+- `_try_activate_fallback()` — 激活回退模型
+- `_restore_primary_runtime()` — 恢复主 provider
+- `_try_recover_primary_transport()` — 尝试恢复主传输通道
+
+*流式增强 (L5168-5262)*:
+- `_reset_stream_delivery_tracking()` — 重置流式传输跟踪
+- `_emit_interim_assistant_message()` — 发射中间 assistant 消息
+- `_fire_stream_delta()` — 触发流式内容 delta 事件
+- `_fire_reasoning_delta()` — 触发推理内容 delta 事件
 
 **协作模式**:
 ```
@@ -80,14 +115,17 @@ class AIAgent:
 
 ## 2. 状态持久化类：`SessionDB`
 
-**位置**: `hermes-agent/hermes_state.py`
+**位置**: `hermes-agent/hermes_state.py` (L115)
+
+**Schema 版本**: 6
 
 **职责**: SQLite 会话存储,提供:
-- 会话元数据管理 (创建/结束/恢复)
+- 会话元数据管理 (创建/结束/恢复/重新打开)
 - 消息历史持久化
 - FTS5 全文检索
-- Token/Cost 统计
+- Token/Cost 统计 (含缓存与推理 token)
 - Session lineage 管理 (压缩后的父子链)
+- 会话标题与层级管理
 
 **核心表结构**:
 ```sql
@@ -99,9 +137,15 @@ sessions:
   - parent_session_id (压缩后的父会话)
   - started_at, ended_at
   - message_count, tool_call_count
-  - input_tokens, output_tokens, cache_read_tokens, reasoning_tokens
-  - estimated_cost_usd, actual_cost_usd
   - title (可选,用于会话命名)
+  -- Token 统计 (v0.10.0 扩展)
+  - input_tokens, output_tokens
+  - cache_read_tokens, cache_write_tokens  -- 缓存读写 token
+  - reasoning_tokens                       -- 推理消耗 token
+  -- 费用追踪 (v0.10.0 新增)
+  - billing_provider                       -- 计费 provider
+  - estimated_cost_usd                     -- 预估费用
+  - actual_cost_usd                        -- 实际费用
 
 messages:
   - id (AUTOINCREMENT)
@@ -110,8 +154,10 @@ messages:
   - content
   - tool_calls (JSON)
   - reasoning (推理文本)
+  - reasoning_details (结构化推理详情)
+  - codex_reasoning_items (Codex 推理项)
+  - finish_reason (停止原因: stop | tool_calls | length | ...)
   - timestamp
-  - finish_reason
 
 messages_fts (FTS5 虚拟表):
   - 对 messages.content 建立全文索引
@@ -119,15 +165,23 @@ messages_fts (FTS5 虚拟表):
 
 **关键方法**:
 - `create_session()` — 创建新会话记录
+- `reopen_session()` — 重新打开已结束的会话
+- `ensure_session()` — 确保会话存在,不存在则创建
+- `resolve_session_id()` — 模糊匹配会话 ID (前缀匹配)
 - `append_message()` — 追加消息到历史
 - `update_token_counts()` — 更新 token/cost 统计
 - `search_messages()` — FTS5 全文检索
 - `get_session_lineage()` — 获取压缩链 (parent → child)
+- `list_sessions_rich()` — 富格式会话列表 (含标题、费用、token 统计)
+- `set_title()` / `get_title()` — 会话标题管理
 
 **并发安全**:
 - WAL 模式 (多读单写)
 - `_execute_write()` 使用 `BEGIN IMMEDIATE` + 随机 jitter 重试
 - 每 50 次写操作触发一次 PASSIVE checkpoint
+
+**删除行为**:
+- 删除会话时,子会话变为孤儿 (orphan) 而非级联删除,保留压缩历史的可追溯性
 
 ---
 
@@ -140,6 +194,14 @@ messages_fts (FTS5 虚拟表):
 - 工具可用性检查 (`check_fn`)
 - 工具分发 (`dispatch`)
 - Toolset 映射管理
+- 动态 schema 重写 (如 `execute_code` 根据运行时环境调整参数)
+
+**3 阶段工具发现** (`model_tools.py`):
+```
+Phase 1: Builtin — 导入 tools/*.py,触发 registry.register()
+Phase 2: MCP — 连接 MCP server,注册远程工具
+Phase 3: Plugins — 加载插件定义的工具与 toolset
+```
 
 **注册模式**:
 ```python
@@ -156,11 +218,17 @@ registry.register(
 
 **分发流程**:
 ```
-model_tools.handle_function_call(name, args)
+model_tools.handle_function_call(name, args, context=...)
+    ↓
+coerce_tool_args(name, args)          # 类型强制转换 (str→int 等)
+    ↓
+invoke_hook("pre_tool_call", name, args)  # 插件 pre-hook
     ↓
 registry.dispatch(name, args, task_id=...)
     ↓
 _run_async(handler(args)) if asyncio.iscoroutinefunction(handler)
+    ↓
+invoke_hook("post_tool_call", name, args, result)  # 插件 post-hook
     ↓
 返回 JSON 字符串结果
 ```
@@ -169,12 +237,13 @@ _run_async(handler(args)) if asyncio.iscoroutinefunction(handler)
 - `toolsets.py` 定义工具集 (web, terminal, file, browser, ...)
 - `get_tool_definitions(enabled_toolsets)` 按 toolset 过滤工具
 - 支持 `--toolsets web,file` 或 `--disable-toolsets browser`
+- v0.10.0: 插件可定义自己的 toolset,与内建 toolset 统一管理
 
 ---
 
 ## 4. 上下文压缩：`ContextCompressor`
 
-**位置**: `hermes-agent/agent/context_compressor.py`
+**位置**: `hermes-agent/agent/context_compressor.py` (压缩逻辑入口 `_compress_context` 位于 `run_agent.py` L7136)
 
 **职责**: 当对话历史超过 token 阈值时,生成中段摘要并保留前后关键消息
 
@@ -190,6 +259,7 @@ _run_async(handler(args)) if asyncio.iscoroutinefunction(handler)
    Critical Context: ...
    ```
 3. **保留最近 M 条消息** (当前工作上下文)
+4. **v0.10.0 修复**: 始终保留尾部最后一条 user 消息,防止活跃任务上下文丢失
 
 **触发时机**:
 - `run_conversation()` 开始前 (preflight compression)
@@ -205,7 +275,7 @@ _run_async(handler(args)) if asyncio.iscoroutinefunction(handler)
 
 ## 5. Prompt 组装：`PromptBuilder`
 
-**位置**: `hermes-agent/agent/prompt_builder.py`
+**位置**: `hermes-agent/agent/prompt_builder.py` (`_build_system_prompt` 位于 `run_agent.py` L3335)
 
 **职责**: 按固定层次组装 system prompt
 
@@ -269,13 +339,25 @@ class MemoryProvider:
 
 ---
 
-## 7. 多 Provider 适配：`AnthropicAdapter` / `BedrockAdapter`
+## 7. 多 Provider 适配：`AnthropicAdapter` / `BedrockAdapter` / Responses API
 
 **位置**:
 - `hermes-agent/agent/anthropic_adapter.py`
 - `hermes-agent/agent/bedrock_adapter.py`
+- Responses API 逻辑内联于 `run_agent.py` (L3673-4699)
 
 **职责**: 协议转换,统一不同 provider 的 API 差异
+
+**api_mode 路由** (v0.10.0):
+```
+provider        → api_mode
+─────────────────────────────────
+openai/openrouter → chat_completions
+xai             → codex_responses
+anthropic       → anthropic_messages
+bedrock         → bedrock_converse
+ollama          → chat_completions
+```
 
 **Anthropic 适配**:
 ```python
@@ -312,6 +394,22 @@ build_bedrock_kwargs(messages, tools, model, ...)
     "inferenceConfig": {...},
 }
 ```
+
+**Responses API 适配** (v0.10.0 新增):
+```python
+# OpenAI format → Responses API (xAI / Codex)
+_chat_messages_to_responses_input(messages)
+    ↓
+_responses_tools(tool_definitions)
+    ↓
+_run_codex_stream(input_items, tools, ...)
+    ↓
+_normalize_codex_response(response) → 统一 assistant message
+```
+
+**v0.10.0 新增 Provider**:
+- **xAI**: 通过 `codex_responses` api_mode 路由
+- **Ollama Cloud**: 作为内建 provider,使用 `chat_completions` api_mode
 
 ---
 
@@ -374,6 +472,70 @@ SubdirectoryHintTracker.check_tool_call(...)
     ↓
 附加提示: "You are now working in src/utils/"
 ```
+
+### 9.4 `ManagedToolGateway` (v0.10.0 新增)
+**位置**: `hermes-agent/tools/managed_tool_gateway.py`
+
+**职责**: 托管工具后端网关,将特定工具的 API 调用透明路由到 Nous 托管服务
+
+**核心组件**:
+- `ManagedToolGatewayConfig` — 配置 dataclass (gateway URL、auth token、超时)
+- Nous auth token 自动管理 (获取/刷新/缓存)
+- Gateway URL 构造与解析
+- 按工具粒度 opt-in (`use_gateway` 配置项)
+
+**工作模式**:
+```
+工具调用 → 检查 use_gateway 配置
+           ├─ true  → ManagedToolGateway.proxy(name, args) → Nous 托管 API
+           └─ false → 本地 handler 执行
+```
+
+**优势**: 用户无需管理第三方 API key,由 Nous 统一托管
+
+### 9.5 `BrowserProvider` 层 (v0.10.0 新增)
+**位置**: `hermes-agent/tools/browser_providers/`
+
+**职责**: 可插拔浏览器自动化后端,使用策略模式
+
+**类层次**:
+```python
+browser_providers/
+  ├─ base.py            # BrowserProvider (抽象基类)
+  ├─ browserbase.py     # Browserbase 云端浏览器
+  ├─ browser_use.py     # BrowserUse 本地浏览器
+  └─ firecrawl.py       # Firecrawl 爬虫后端
+```
+
+**抽象接口**:
+```python
+class BrowserProvider(ABC):
+    def navigate(url: str) → PageContent
+    def screenshot() → bytes
+    def execute_js(script: str) → Any
+    def close()
+```
+
+### 9.6 Dashboard 插件系统 (v0.10.0 新增)
+**位置**: `hermes-agent/plugins/`, `hermes-agent/web/src/plugins/`
+
+**职责**: Dashboard UI 扩展框架
+
+**核心组件**:
+- **Plugin Manifest** — 声明插件元数据、依赖、入口
+- **Plugin Registry** — 插件发现、加载、生命周期管理
+- **Plugin SDK** — 标准化的插件开发接口
+- 支持自定义 Tab、CSS/JS 注入
+
+### 9.7 Dashboard 主题系统 (v0.10.0 新增)
+**位置**: `hermes-agent/web/src/themes/`
+
+**职责**: Dashboard 主题定制与实时切换
+
+**核心组件**:
+- **Theme Presets** — 预设主题 (dark, light, ...)
+- **ThemeContext** — React Context 提供主题状态
+- **Live Switching** — 运行时主题热切换
 
 ---
 
@@ -500,6 +662,21 @@ _invalidate_system_prompt() (使缓存失效)
 - `registry` 是模块级单例
 - 所有工具注册到同一个 registry 实例
 
+### 11.6 策略模式 (Browser Providers, v0.10.0)
+- `browser_providers/base.py` 定义抽象基类 `BrowserProvider`
+- 具体实现: `Browserbase`, `BrowserUse`, `Firecrawl`
+- 运行时根据配置选择具体后端
+
+### 11.7 托管后端模式 (Managed Tool Gateway, v0.10.0)
+- `ManagedToolGateway` 透明代理工具调用到 Nous 托管服务
+- 工具代码无需修改,配置 `use_gateway=true` 即可切换
+- 本地执行 ↔ 托管执行 对调用者透明
+
+### 11.8 注册 + Hook 模式 (Dashboard Plugin, v0.10.0)
+- Plugin Registry 负责发现与加载
+- Hook 机制注入自定义 Tab、CSS/JS
+- 生命周期: discover → validate → load → activate
+
 ---
 
 ## 12. 关键设计决策
@@ -528,6 +705,24 @@ _invalidate_system_prompt() (使缓存失效)
 - **历史追溯**: 压缩后的摘要不应该覆盖原始历史
 - **父子链**: `parent_session_id` 形成压缩链,可回溯完整历史
 - **Title 继承**: 压缩后自动生成 "title #2", "title #3"
+
+### 12.6 为什么 Tool Gateway 优先采用托管后端而非直接 API key? (v0.10.0)
+- **降低用户门槛**: 用户无需逐一申请第三方 API key
+- **统一计费**: Nous 平台统一管理费用,简化成本追踪
+- **安全隔离**: API key 不暴露给客户端,由网关代理
+- **透明切换**: 工具代码不感知后端变化,配置即切换
+
+### 12.7 为什么推理字段要持久化到 SessionDB? (v0.10.0)
+- **可审计**: reasoning/reasoning_details 记录模型思考过程
+- **调试支持**: 可回溯 LLM 决策链路,定位工具调用异常
+- **成本分析**: reasoning_tokens 独立计量,支持精细费用分析
+- **Codex 兼容**: codex_reasoning_items 保留 Codex 特有的推理结构
+
+### 12.8 为什么采用 3 阶段工具发现? (v0.10.0)
+- **确定性**: Builtin 工具优先注册,保证核心能力稳定
+- **扩展性**: MCP 和 Plugin 阶段按需加载,不影响启动速度
+- **冲突解决**: 后注册的同名工具不覆盖先注册的,Builtin 优先
+- **Schema 重写**: 动态阶段可根据运行时环境调整工具参数 (如 execute_code)
 
 ---
 
@@ -581,6 +776,49 @@ def on_pre_tool_call(tool_name, args, **kwargs):
         return "Blocked: destructive command"
     return None  # 允许执行
 ```
+
+### 13.4 通过 Tool Gateway 新增托管工具 (v0.10.0)
+```yaml
+# config.yaml
+tool_gateway:
+  enabled: true
+  tools:
+    my_saas_tool:
+      use_gateway: true    # 路由到 Nous 托管后端
+      # 无需配置 API key,网关自动管理
+```
+工具代码照常编写并注册到 `ToolRegistry`,配置 `use_gateway: true` 后调用自动通过网关代理。
+
+### 13.5 新增 Dashboard 插件 (v0.10.0)
+```json
+// plugins/my_plugin/manifest.json
+{
+  "name": "my_plugin",
+  "version": "0.1.0",
+  "tabs": [{"id": "my_tab", "label": "My Tab", "component": "./MyTab.tsx"}],
+  "css": ["./style.css"],
+  "hooks": ["on_session_change"]
+}
+```
+
+### 13.6 新增 Browser Provider (v0.10.0)
+```python
+# tools/browser_providers/my_browser.py
+from tools.browser_providers.base import BrowserProvider
+
+class MyBrowserProvider(BrowserProvider):
+    def navigate(self, url: str):
+        # 实现导航逻辑
+        ...
+    
+    def screenshot(self):
+        # 实现截图逻辑
+        ...
+    
+    def close(self):
+        ...
+```
+在配置中指定 `browser_provider: my_browser` 即可切换。
 
 ---
 

@@ -1,4 +1,4 @@
-# Hermes 架构解析 (二)：数据篇 · 状态模型与上下文治理 (v2026.4.8)
+# Hermes 架构解析 (二)：数据篇 · 状态模型与上下文治理 (v2026.4.16)
 
 在 Hermes 的工程实现中，**State (状态)**、**Session (会话)**、**Memory (记忆)** 与 **Context (上下文)** 是四个核心概念。它们既紧密相关，又有极其严格的工程边界。
 
@@ -16,6 +16,8 @@ flowchart TD
         Agent["AIAgent 实例"]
         Registry["工具注册表"]
         Gway["Gateway Context"]
+        ToolGW["Tool Gateway Config"]
+        DashPlugin["Dashboard Plugin State"]
     end
 
     subgraph Persistence["持久化账本 (Session)"]
@@ -130,7 +132,9 @@ flowchart LR
 ```
 
 1.  **AIAgent 运行时**：分散在 `AIAgent`、`ToolRegistry`、`ContextCompressor` 等 Python 对象中。
-2.  **Gateway Context**：在 `gateway/session.py` 中，定义了消息来源（平台、Chat ID）。它决定了消息“从哪来，回哪去”。
+2.  **Gateway Context**：在 `gateway/session.py` 中，定义了消息来源（平台、Chat ID）。它决定了消息”从哪来，回哪去”。
+3.  **Tool Gateway State**（v0.10.0 新增）：管理 tool gateway 配置、Nous auth token 以及每个工具的 `use_gateway` 偏好。
+4.  **Dashboard Plugin State**（v0.10.0 新增）：plugin manifests、registry；主题预设与用户偏好。
 
 ---
 
@@ -170,7 +174,12 @@ flowchart TD
     class SQLite,Logic container;
 ```
 
-- **SessionDB**：保存 User/Assistant 消息、Tool Call 轨迹、Reasoning 元数据。
+- **SessionDB**：保存 User/Assistant 消息、Tool Call 轨迹、Reasoning 元数据。Schema 版本已演进至 **v6**，迁移历史：v2 增加 `finish_reason`，v3 增加 `title`，v4 增加 title 唯一部分索引，v5 增加 token/cost/billing 字段，v6 增加 reasoning 字段。
+- **Session 表新增字段**：`title`（会话标题）、`parent_session_id`（继承链）、计费/成本字段（`cache_read_tokens`、`cache_write_tokens`、`reasoning_tokens`、`billing_provider`、`billing_base_url`、`billing_mode`、`estimated_cost_usd`、`actual_cost_usd`、`cost_status`、`cost_source`、`pricing_version`）。
+- **Message 表新增字段**：`finish_reason`、`reasoning`、`reasoning_details`、`codex_reasoning_items`。Assistant 消息现在持久化推理过程，支持多轮对话中 reasoning 的连续性。
+- **并发优化**：启用 WAL 模式，应用层写重试带随机抖动（randomized jitter），每 50 次写入执行一次被动 WAL checkpoint。
+- **新增方法**：`reopen_session`、`ensure_session`、`resolve_session_id`；标题/谱系方法（`sanitize_title`、`set_session_title`、`get_session_title`、`get_session_by_title`、`resolve_session_by_title`、`get_next_title_in_lineage`）；`list_sessions_rich`；`get_messages_as_conversation` 中自动 rehydrate reasoning 字段。
+- **删除行为变更**：删除 session 时不再级联删除子 session，而是将子 session 变为孤儿（orphan）。
 - **分裂机制**：Context 压缩时会分裂 Session，但通过 `parent_session_id` 保留 Lineage，确保历史可追溯。
 
 ---
@@ -231,7 +240,7 @@ flowchart LR
 
     subgraph Ephemeral["Ephemeral Injections (Volatile)"]
         Rec[Memory Recall]
-        Plugin[Plugin Context]
+        Plugin[Plugin Context / Hooks]
         Hints[Subdir Hints]
     end
 
@@ -254,6 +263,9 @@ flowchart LR
 
 - **Stable (系统级)**：倾向于使用 Prompt Cache 缓存。
 - **Ephemeral (请求级)**：包含 recall、`ephemeral_system_prompt`、子目录 hints。**这类内容不写回 Session 账本**，仅在当前 Turn 有效。
+- **api_mode 分化**：v0.10.0 支持 4 种 API 模式：`chat_completions`、`codex_responses`、`anthropic_messages`、`bedrock_converse`。Responses API 通过归一化层编译 Context，`codex_responses` 模式的 payload 格式与 Chat Completions 有显著差异。
+- **压缩改进**：Context 压缩现在始终保留最后一条 user message 在 tail 中，防止活跃任务上下文丢失。
+- **Plugin Hooks**：`pre_llm_call` / `post_llm_call` 钩子可注入或观察 Context；`pre_tool_call` / `post_tool_call` 钩子在 `model_tools.py` 中执行。
 
 ---
 
@@ -304,13 +316,22 @@ class SessionMessage:
     tool_calls: list[ToolCall] | None
     tool_call_id: str | None
     reasoning: str | None
+    reasoning_details: list[dict] | None      # v0.10.0: 结构化推理细节
+    codex_reasoning_items: list[dict] | None  # v0.10.0: Codex 推理条目
+    finish_reason: str | None                 # v0.10.0: 模型停止原因
 
 
 class PersistedSession:
     session_id: str
     parent_session_id: str | None
+    title: str | None                         # v0.10.0: 会话标题
     system_prompt_snapshot: str | None
-    messages: list[SessionMessage]          # SQLite 恢复出的原始账本
+    messages: list[SessionMessage]            # SQLite 恢复出的原始账本
+    # v0.10.0: 计费/成本追踪
+    estimated_cost_usd: float | None
+    actual_cost_usd: float | None
+    billing_provider: str | None
+    cost_status: str | None
 
 
 class StableMemory:
@@ -429,6 +450,8 @@ flowchart LR
 - **Context Window 是投影结果**：真正发给模型的是 `api_messages`，不是原始 `conversation_history`。
 - **Session 压缩不是简单截断**：Hermes 会先给 `memory` 工具补录机会，再做“保头 + 保尾 + 中间摘要”，必要时还会新建子 session 并保留 `parent_session_id`。
 - **新 Memory 的形成有两条路径**：一条是模型显式调用 `memory` 工具写入内建记忆；另一条是 turn 结束后 `sync_all()/queue_prefetch_all()` 同步给外部 provider。
+- **Reasoning 持久化**（v0.10.0）：Assistant 消息的 `reasoning`、`reasoning_details`、`codex_reasoning_items` 被完整写入 SQLite，在 `get_messages_as_conversation` 时自动 rehydrate，确保多轮对话中推理链的连续性。
+- **成本追踪**（v0.10.0）：每个 session 记录 token 用量（含 cache read/write、reasoning tokens）和费用估算/实际值，支持多 billing provider 和 pricing version。
 
 ---
 
@@ -462,8 +485,8 @@ flowchart LR
     class S1,S2,S3,S4 highlight;
 ```
 
-1.  **Stable Context**：`run_agent.py:2328` (`_build_system_prompt`)
-2.  **Ephemeral Injection**：`run_agent.py:6672` (API 调用前的瞬时拼装)
-3.  **Persistence**：`run_agent.py:1640` (`_flush_messages_to_session_db`)
-4.  **Compression & Lineage**：`run_agent.py:5467` (`_compress_context`)
+1.  **Stable Context**：`run_agent.py:3335` (`_build_system_prompt`)
+2.  **Ephemeral Injection**：`run_agent.py:6432` (`_build_api_kwargs`，API 调用前的瞬时拼装)
+3.  **Persistence**：`run_agent.py:2493` (`_flush_messages_to_session_db`)
+4.  **Compression & Lineage**：`run_agent.py:7136` (`_compress_context`)
 5.  **Memory Management**：`agent/memory_manager.py` (Prefetch 与 Sync)
